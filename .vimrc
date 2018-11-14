@@ -1,3 +1,8 @@
+" ### GENERAL SETTINGS ###
+set nocompatible        " Remove compatibility with vi
+filetype indent plugin on       " Determine filetype based on its extension ad contents to enable indent and specific plugins
+syntax on               " Enable syntax highlighting
+
 " ### BINDINGS ###
 map <F2> :bprev<CR>
 map <F3> :bnext<CR>
