@@ -6,13 +6,15 @@
 [[ $- != *i* ]] && return
 
 ### ALIASES ###
-
+# Misc
 alias ls="ls --color=auto"
+alias cls="clear"
+alias uprc="source ~/.bashrc"
 
 # Pacman aliases
-alias update="sudo pacman -Syu"
-alias remove="sudo pacman -R"
-alias autoremove="sudo pacman -R $(pacman -Qdtq)"
+alias update="pacman -Syu"
+alias remove="pacman -R"
+alias autoremove="pacman -R $(pacman -Qdtq)"
 
 # Git aliases
 alias commit="git commit -S -a"
