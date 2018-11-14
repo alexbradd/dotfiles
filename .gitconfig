@@ -4,3 +4,5 @@
 	signingkey = F880DB5CE55EEBA2
 [core]
 	editor = code --wait
+[gpg]
+	program = gpg2
