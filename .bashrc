@@ -5,7 +5,18 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
+### ALIASES ###
+
+alias ls="ls --color=auto"
+
+# Pacman aliases
+alias update="sudo pacman -Syu"
+alias remove="sudo pacman -R"
+alias autoremove="sudo pacman -R $(pacman -Qdtq)"
+
+# Git aliases
+alias commit="git commit -S -a"
+alias push="git push"
 
 ### PROMPT PERSONALIZATION ###
 # Special characters
