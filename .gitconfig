@@ -1,7 +1,7 @@
 [user]
 	name = BreadyX
 	email = alex.bradatan85@yahoo.it
-	signingkey = F880DB5CE55EEBA2
+	signingkey = XXX
 [core]
 	editor = code --wait
 [gpg]
