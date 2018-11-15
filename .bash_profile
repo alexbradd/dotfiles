@@ -19,6 +19,3 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-
-# Make GPG work by setting GPG_TTY global variable
-export GPG_TTY=$(tty)
