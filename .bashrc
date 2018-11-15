@@ -64,3 +64,6 @@ PS1+="\[$ITALICS\]\[\$(git_prompt)\]\[$RESET\]"
 PS1+="\n\$ " 
 
 export PS1;
+
+# Make GPG work by setting GPG_TTY global variable
+export GPG_TTY=$(tty)
