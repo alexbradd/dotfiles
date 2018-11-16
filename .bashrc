@@ -16,6 +16,7 @@ alias uprc="source ~/.bashrc"
 alias editrc="vim ~/.bashrc"
 
 # Pacman aliases
+alias install="sudo pacman -S"
 alias update="sudo pacman -Syu"
 alias remove="sudo pacman -R"
 alias autoremove="sudo pacman -R $(pacman -Qdtq)"
