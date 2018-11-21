@@ -14,6 +14,7 @@ alias ls="ls --color=auto"
 alias cls="clear"
 alias uprc="source ~/.bashrc"
 alias editrc="vim ~/.bashrc"
+alias darkscrn="xset dpms force off"
 
 # Pacman aliases
 alias install="sudo pacman -S"
@@ -26,6 +27,7 @@ alias commit="git commit -S -a"
 alias push="git push"
 alias add="git add"
 alias add-all="git add ."
+alias status="git status"
 
 ### PROMPT PERSONALIZATION ###
 # Special characters
