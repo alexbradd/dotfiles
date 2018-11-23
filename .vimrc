@@ -11,5 +11,6 @@ nnoremap <silent> <C-l> :nohl<CR>       " <Ctrl-l> refreshes the screen and remo
 
 " ### AESTHETICZZ ###
 set nu                  " enable line numbers
+set rnu			" enable relative line numbers
 colorscheme slate       " change color scheme
 set hlsearch            " enable hilighting for search results
