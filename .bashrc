@@ -28,6 +28,8 @@ alias push="git push"
 alias add="git add"
 alias add-all="git add -A"
 alias status="git status"
+alias stash="git statsh"
+alias stashed="git stash list"
 
 ### PROMPT PERSONALIZATION ###
 # Special characters
