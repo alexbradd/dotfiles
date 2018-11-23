@@ -1,6 +1,6 @@
 #
 # ~/.bashrc
-#
+# Version: 23-11-18.0
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -26,7 +26,7 @@ alias autoremove="sudo pacman -R $(pacman -Qdtq)"
 alias commit="git commit -S -a"
 alias push="git push"
 alias add="git add"
-alias add-all="git add ."
+alias add-all="git add -A"
 alias status="git status"
 
 ### PROMPT PERSONALIZATION ###
@@ -56,9 +56,18 @@ function _git_commit_ahead {
         AHEAD=$(echo $COMMITS | cut -d " " -f2)
         echo "$AHEAD ahead, $BEHIND behind origin/$BRANCH"
 }
+function _git_untracked {
+	if [ -n "$(git status -u -s)" ]; then echo "*"; fi
+}
+function _git_unpushed {
+	if [ -n "$(git log origin/master..HEAD)" ]; then echo "+"; fi
+}
+function _git_stashed {
+	if [ -n "$(git stash list)" ]; then echo "$"; fi
+}
 function git_prompt {
         if [ -n "$(ls -a | grep -wo ".git")" ]; then
-                echo -e "\n${TAB}${ORANGE}GIT: $(_git_repo); $(_git_commit_ahead)"
+		echo -e "\n${TAB}${ORANGE}$(_git_repo); $(_git_commit_ahead) [$(_git_untracked)$(_git_unpushed)$(_git_stashed)]"
         fi
 }
 
