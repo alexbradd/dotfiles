@@ -1,8 +1,9 @@
+# Version 23-11-18.0
 [user]
 	name = BreadyX
 	email = alex.bradatan85@yahoo.it
-	signingkey = XXX
+	signingkey = 
 [core]
-	editor = code --wait
+	editor = vim
 [gpg]
 	program = gpg2
