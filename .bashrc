@@ -1,6 +1,6 @@
 #
 # ~/.bashrc
-# Version: 24-11-2018-1
+# Version: 24-11-2018-2
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -26,6 +26,7 @@ alias autoremove="sudo pacman -R $(pacman -Qdtq)"
 # Git aliases
 alias commit="git commit -S -a"
 alias push="git push"
+alias pull="git pull"
 alias add="git add"
 alias add-all="git add -A"
 alias status="git status"
