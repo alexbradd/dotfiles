@@ -14,7 +14,7 @@ Every file has a version formatted as such: *dd-mm-yy.X*. The version indicates 
 - bashrc:
 	- pretty and colorful
 	- git integration: if inside a git repo it displays useful info about the repository like:
-		- remote url (if remote is github.com only the repo name)
+		- remote url
 		- current branch
 		- uncommitted changes
 		- unpushed changes

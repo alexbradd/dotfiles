@@ -1,6 +1,6 @@
 #
 # ~/.bashrc
-# Version: 23-11-18.0
+# Version: 24-11-18.0
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -10,10 +10,11 @@ tabs 5
 
 ### ALIASES ###
 # Misc
-alias ls="ls --color=auto"
+alias ls="ls -a --color=auto"
 alias cls="clear"
 alias uprc="source ~/.bashrc"
 alias editrc="vim ~/.bashrc"
+alias edit-vimrc="vim ~/.vimrc"
 alias darkscrn="xset dpms force off"
 
 # Pacman aliases
@@ -40,37 +41,20 @@ alias stashed="git stash list"
 # \$ command separator
 
 # Functions
-function _git_repo {
+function _git_prompt {
+	REPO="$(git config --get remote.origin.url | cut -d "/" --fields="$(seq --separator=" " 3 100)")"
         BRANCH="$(git branch | grep \* | cut -d " " -f2)"
-        REMOTE="$(git config --get remote.origin.url)"
-        REPO=
-        if [ "$(echo $REMOTE | cut -d "/" -f3)" == "github.com" ]; then
-                REPO="$(echo $REMOTE | cut -d "/" -f5 | cut -d "." -f1)"
-        else
-                REPO="...$(echo $REMOTE | cut -d "/" --fields="$(seq --separator=" " 3 100)")"
-        fi
-        echo "$REPO; branch $BRANCH"
-}
-function _git_commit_ahead {
-        BRANCH=$(git branch | grep \* | cut -d ' ' -f2)
         COMMITS=$(git rev-list --left-right --count origin/$BRANCH...$BRANCH) # AHEAD   BEHIND to origin
-        BEHIND=$(echo $COMMITS | cut -d " " -f1)
-        AHEAD=$(echo $COMMITS | cut -d " " -f2)
-        echo "$AHEAD ahead, $BEHIND behind origin/$BRANCH"
-}
-function _git_untracked {
-	if [ -n "$(git status -u -s)" ]; then echo "*"; fi
-}
-function _git_unpushed {
-	if [ -n "$(git log origin/master..HEAD)" ]; then echo "+"; fi
-}
-function _git_stashed {
-	if [ -n "$(git stash list)" ]; then echo "$"; fi
-}
-function git_prompt {
+	AHEAD_BEHIND="$(echo $COMMITS | cut -d " " -f2) ahead, $(echo $COMMITS | cut -d " " -f1) behind origin/$BRANCH"
+	if [ -n "$(git stash list)" ]; then STASHED="$"; fi
+	if [ -n "$(git log origin/master..HEAD)" ]; then UNPUSHED="+"; fi
+	if [ -n "$(git status -u -s)" ]; then UNTRACKED="*"; fi
         if [ -n "$(ls -a | grep -wo ".git")" ]; then
-		echo -e "\n${TAB}${ORANGE}$(_git_repo); $(_git_commit_ahead) [$(_git_untracked)$(_git_unpushed)$(_git_stashed)]"
+		echo -e "\n\t${ORANGE}$REPO; $BRANCH; $AHEAD_BEHIND [$UNTRACKED$UNPUSHED$STASHED]"
         fi
+}
+function func {
+	echo "func"
 }
 
 # Colors and stuff
@@ -84,15 +68,13 @@ ITALICS=$(tput sitm)
 
 RESET=$(tput sgr0)
 
-TAB=$(echo -e "\t")
-
 PS1="\n\[$WHITE\](\A) - " # Current time
 PS1+="\[$RED\]\u " # User
 PS1+="\[$WHITE\]at "
 PS1+="\[$BLUE\]\[$ITALICS\]\h \[$RESET\]" # Host
 PS1+="\[$WHITE\]in "
 PS1+="\[$GREEN\]\[$ITALICS\]\w " # Working directory
-PS1+="\$(git_prompt)"
+PS1+="\$(_git_prompt)"
 PS1+="\[$RESET\]\n\$ " 
 
 export PS1;
