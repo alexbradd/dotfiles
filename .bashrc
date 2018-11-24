@@ -46,6 +46,7 @@ function _git_prompt {
         if [ -n "$(ls -a | grep -wo ".git")" ]; then
 		REPO="$(git config --get remote.origin.url | cut -d "/" --fields="$(seq --separator=" " 3 100)")"
 		BRANCH="$(git branch | grep \* | cut -d " " -f2)"
+		git fetch origin $BRANCH
 		COMMITS=$(git rev-list --left-right --count origin/$BRANCH...$BRANCH) # AHEAD   BEHIND to origin
 		AHEAD_BEHIND="$(echo $COMMITS | cut -d " " -f2) ahead, $(echo $COMMITS | cut -d " " -f1) behind origin/$BRANCH"
 		if [ -n "$(git stash list)" ]; then STASHED="$"; fi
@@ -63,7 +64,7 @@ function uprc {
 	read INPUT
 	if [ $INPUT == "Y" -o $INPUT == "y" ]; then
 		echo "Checking for updates..."
-		pushd /tmp > /dev/null; git clone $REPO > /dev/null; cd dotfiles
+		pushd /tmp > /dev/null; git clone $REPO &> /dev/null; cd dotfiles
 		NEW_VER=$(sed '3q;d' .bashrc | cut -d " " -f3 | sed 's/-//g')
 		if [ $NEW_VER -gt $CUR_VER ]; then echo "Found new version $NEW_VER (old version $CUR_VER)"; cp .bashrc ~; fi
 		popd > /dev/null ; rm -rf dotfiles
