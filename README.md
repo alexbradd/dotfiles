@@ -3,7 +3,7 @@
 This is a repo where I store all of my most configuration files (bashrc, vimrc etc...)
 This configuration files have been written slowly as I have been learning programming to suit my needs, so be carful if you want to eventually use them.
 ## Versioning
-Every file has a version formatted as such: *dd-mm-yy.X*. The version indicates the last time the file was updated. In this repo you will find all the latest versions.
+Every file has a version formatted as such: *dd-mm-yy-x*. The version indicates the last time the file was updated. In this repo you will find all the latest versions.
 ## Main requisites:
 - Arch Linux/pacman
 - vim

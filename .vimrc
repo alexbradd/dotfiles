@@ -1,4 +1,4 @@
-" Version: 23-11-18." Version: 23-11-18.0
+" Version: 23-11-18-0
 " ### GENERAL SETTINGS ###
 set nocompatible        " Remove compatibility with vi
 filetype indent plugin on       " Determine filetype based on its extension ad contents to enable indent and specific plugins

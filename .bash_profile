@@ -1,6 +1,6 @@
 #
 # ~/.bash_profile
-# Version: 23-11-18.0
+# Version: 23-11-18-0
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
