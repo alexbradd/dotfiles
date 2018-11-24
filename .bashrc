@@ -1,6 +1,6 @@
 #
 # ~/.bashrc
-# Version: 24-11-18.0
+# Version: 24-11-2018-1
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -12,8 +12,8 @@ tabs 5
 # Misc
 alias ls="ls -a --color=auto"
 alias cls="clear"
-alias uprc="source ~/.bashrc"
-alias editrc="vim ~/.bashrc"
+alias source-rc="source ~/.bashrc"
+alias edit-rc="vim ~/.bashrc"
 alias edit-vimrc="vim ~/.vimrc"
 alias darkscrn="xset dpms force off"
 
@@ -53,8 +53,20 @@ function _git_prompt {
 		echo -e "\n\t${ORANGE}$REPO; $BRANCH; $AHEAD_BEHIND [$UNTRACKED$UNPUSHED$STASHED]"
         fi
 }
-function func {
-	echo "func"
+function uprc {
+	REPO="https://github.com/BreadyX/dotfiles.git"
+	INPUT=""
+	CUR_VER=$(sed '3q;d' ~/.bashrc | cut -d " " -f3 | sed 's/-//g')
+	NEW_VER=
+	echo "Would you like to check if a new version of the .bashrc file is available in the git repo? [Y/N]"
+	read INPUT
+	if [ $INPUT == "Y" ]; then
+		cd /tmp; git clone $REPO; cd dotfiles
+		NEW_VER=$(sed '3q;d' .bashrc | cut -d " " -f3 | sed 's/-//g')
+		if [ $NEW_VER -gt $CUR_VER ]; then cp .bashrc ~; fi
+		cd .. ; rm -rf dotfiles
+	fi
+	source ~/.bashrc
 }
 
 # Colors and stuff
