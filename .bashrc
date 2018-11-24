@@ -61,7 +61,7 @@ function uprc {
 	NEW_VER=
 	echo "Would you like to check if a new version of the .bashrc file is available in the git repo? [Y/N]"
 	read INPUT
-	if [ $INPUT == "Y" ]; then
+	if [ $INPUT == "Y" -o $INPUT == "y" ]; then
 		pushd /tmp > /dev/null; git clone $REPO > /dev/null; cd dotfiles
 		NEW_VER=$(sed '3q;d' .bashrc | cut -d " " -f3 | sed 's/-//g')
 		if [ $NEW_VER -gt $CUR_VER ]; then cp .bashrc ~; fi
