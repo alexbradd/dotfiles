@@ -1,6 +1,6 @@
 #
 # ~/.bashrc
-# Version: 24-11-2018-2
+# Version: 24-11-2018-3
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -62,10 +62,10 @@ function uprc {
 	echo "Would you like to check if a new version of the .bashrc file is available in the git repo? [Y/N]"
 	read INPUT
 	if [ $INPUT == "Y" ]; then
-		cd /tmp; git clone $REPO; cd dotfiles
+		pushd /tmp > /dev/null; git clone $REPO > /dev/null; cd dotfiles
 		NEW_VER=$(sed '3q;d' .bashrc | cut -d " " -f3 | sed 's/-//g')
 		if [ $NEW_VER -gt $CUR_VER ]; then cp .bashrc ~; fi
-		cd .. ; rm -rf dotfiles
+		popd > /dev/null ; rm -rf dotfiles
 	fi
 	source ~/.bashrc
 }
