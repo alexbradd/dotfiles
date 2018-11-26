@@ -1,6 +1,6 @@
 #
 # ~/.bashrc
-# Version: 26-11-2018-1
+# Version: 26-11-2018-2
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -24,7 +24,7 @@ alias remove="sudo pacman -R"
 alias autoremove="sudo pacman -R $(pacman -Qdtq)"
 
 # Git aliases
-alias commit="git commit -S -a"
+alias commit="git commit -S"
 alias push="git push"
 alias pull="git pull"
 alias add="git add"
@@ -46,14 +46,13 @@ function _git_prompt {
         if [ -n "$(ls -a | grep -wo ".git")" ]; then
 		REPO="$(git config --get remote.origin.url | cut -d "/" --fields="$(seq --separator=" " 3 100)")"
 		BRANCH="$(git branch | grep \* | cut -d " " -f2)"
-		#git fetch origin $BRANCH
 		#COMMITS=$(git rev-list --left-right --count origin/$BRANCH...$BRANCH) # AHEAD   BEHIND to origin
 		#AHEAD_BEHIND="$(echo $COMMITS | cut -d " " -f2) ahead, $(echo $COMMITS | cut -d " " -f1) behind origin/$BRANCH"
 		if [ -n "$(git stash list)" ]; then STASHED="$"; fi
 		if [ -n "$(git log origin/master..HEAD)" ]; then UNPUSHED="+"; fi
 		if [ -n "$(git status -u -s)" ]; then UNTRACKED="*"; fi
 		echo -e "\n\t${ORANGE}$REPO; $BRANCH; [$UNTRACKED$UNPUSHED$STASHED]"
-        fi
+	fi
 }
 function uprc {
 	REPO="https://github.com/BreadyX/dotfiles.git"
