@@ -1,6 +1,6 @@
 #
 # ~/.bashrc
-# Version: 24-11-2018-3
+# Version: 26-11-2018-0
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -46,13 +46,13 @@ function _git_prompt {
         if [ -n "$(ls -a | grep -wo ".git")" ]; then
 		REPO="$(git config --get remote.origin.url | cut -d "/" --fields="$(seq --separator=" " 3 100)")"
 		BRANCH="$(git branch | grep \* | cut -d " " -f2)"
-		git fetch origin $BRANCH
-		COMMITS=$(git rev-list --left-right --count origin/$BRANCH...$BRANCH) # AHEAD   BEHIND to origin
-		AHEAD_BEHIND="$(echo $COMMITS | cut -d " " -f2) ahead, $(echo $COMMITS | cut -d " " -f1) behind origin/$BRANCH"
+		#git fetch origin $BRANCH
+		#COMMITS=$(git rev-list --left-right --count origin/$BRANCH...$BRANCH) # AHEAD   BEHIND to origin
+		#AHEAD_BEHIND="$(echo $COMMITS | cut -d " " -f2) ahead, $(echo $COMMITS | cut -d " " -f1) behind origin/$BRANCH"
 		if [ -n "$(git stash list)" ]; then STASHED="$"; fi
 		if [ -n "$(git log origin/master..HEAD)" ]; then UNPUSHED="+"; fi
 		if [ -n "$(git status -u -s)" ]; then UNTRACKED="*"; fi
-		echo -e "\n\t${ORANGE}$REPO; $BRANCH; $AHEAD_BEHIND [$UNTRACKED$UNPUSHED$STASHED]"
+		echo -e "\n\t${ORANGE}$REPO; $BRANCH; [$UNTRACKED$UNPUSHED$STASHED]"
         fi
 }
 function uprc {
