@@ -1,6 +1,6 @@
 #
 # ~/.bashrc
-# Version: 26-11-2018-1
+# Version: 28-11-2018-0
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -22,16 +22,6 @@ alias install="sudo pacman -S"
 alias update="sudo pacman -Syu"
 alias remove="sudo pacman -R"
 alias autoremove="sudo pacman -R $(pacman -Qdtq)"
-
-# Git aliases
-alias commit="git commit -S -a"
-alias push="git push"
-alias pull="git pull"
-alias add="git add"
-alias add-all="git add -A"
-alias status="git status"
-alias stash="git statsh"
-alias stashed="git stash list"
 
 ### PROMPT PERSONALIZATION ###
 # Special characters
