@@ -1,9 +1,24 @@
-# Version 23-11-18-0
+# Version: 28-11-18-0
 [user]
-	name = BreadyX
-	email = alex.bradatan85@yahoo.it
-	signingkey = 
+     name = BreadyX
+     email = alex.bradatan85@yahoo.it
+     signingkey = 
 [core]
-	editor = vim
+     editor = vim
 [gpg]
-	program = gpg2
+     program = gpg2
+[credential]
+     helper = cache
+[alias]
+     unstage = reset HEAD --
+     las = log -1 HEAD
+     add-all = add -A
+     glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+     prune = fetch --prune
+     stash-all = stash push --include-untracked
+[diff]
+     tool = kdiff3
+[status]
+     showUntrackedFiles = all
+     followTags = true
+
