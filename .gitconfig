@@ -1,24 +1,30 @@
-# Version: 28-11-18-0
+# Version: 28-11-18-1
 [user]
-     name = BreadyX
-     email = alex.bradatan85@yahoo.it
-     signingkey = 
-[core]
-     editor = vim
+	name = BreadyX
+	email = alex.bradatan85@yahoo.it
+	signingkey = F880DB5CE55EEBA2
 [gpg]
-     program = gpg2
-[credential]
-     helper = cache
-[alias]
-     unstage = reset HEAD --
-     las = log -1 HEAD
-     add-all = add -A
-     glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-     prune = fetch --prune
-     stash-all = stash push --include-untracked
-[diff]
-     tool = kdiff3
+	program = gpg2
+[core]
+	editor = vim
 [status]
-     showUntrackedFiles = all
-     followTags = true
-
+	showUntrackedFiles = all
+[credential]
+	helper = cache
+[alias]
+	unstage = reset HEAD --
+	las = log -1 HEAD
+	add-all = add -A
+	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	prune = fetch --prune
+	stash-all = stash push --include-untracked
+[diff]
+	tool = kdiff3
+	guitool = kdiff3
+[difftool "kdiff3"]
+	trustExitCode = false
+[merge]
+	tool = kdiff3
+[mergetool "kdiff3"]
+	trustExitCode = false
+	followTags = true
