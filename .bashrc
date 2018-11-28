@@ -56,7 +56,7 @@ function uprc {
 		pushd /tmp > /dev/null; git clone $REPO > /dev/null; cd dotfiles
 		NEW_VER=$(sed '3q;d' .bashrc | cut -d " " -f3 | sed 's/-//g')
 		if [ $NEW_VER -gt $CUR_VER ]; then echo "Found new version $NEW_VER (old version $CUR_VER)"; cp .bashrc ~; fi
-		popd > /dev/null ; rm -rf dotfiles
+		cd ..; rm -rf dotfiles; popd > /dev/null 
 	fi
 	echo "Updating..."
 	source ~/.bashrc
