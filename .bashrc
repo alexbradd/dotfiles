@@ -1,6 +1,6 @@
 #
 # ~/.bashrc
-# Version: 12.2018.0
+# Version: 12.2018.1
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -19,7 +19,7 @@ alias darkscrn="xset dpms force off"
 alias install="sudo pacman -S"
 alias update="sudo pacman -Syu"
 alias remove="sudo pacman -R"
-alias autoremove="sudo pacman -R $(pacman -Qdtq)"
+function autoremove { sudo pacman -R "$(pacman -Qdtq)"; }
 
 ### PROMPT PERSONALIZATION ###
 # Special characters
