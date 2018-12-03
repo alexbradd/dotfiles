@@ -1,6 +1,6 @@
 #
 # ~/.bashrc
-# Version: 12.2018.1
+# Version: 12.2018.2
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -53,8 +53,8 @@ function _uprc {
 		echo "Checking for updates..."
 		### Download the latest .bashrc from gitub
 		wget -V &> /dev/null || echo "wget is not installed. Cannot download latest version. Please install wget with 'sudo pacman -S wget' or 'install wget'"
-		pushd /tmp > /dev/null; wget -O .bashrc $REPO 1> /dev/null
-		NEW_VER=( $(sed '3q;d' rc | cut -d " " -f3 | sed 's/\./ /g') )
+		pushd /tmp > /dev/null; wget -O .bashrc $REPO &> /dev/null
+		NEW_VER=( $(sed '3q;d' .bashrc | cut -d " " -f3 | sed 's/\./ /g') )
 		### Check version
 		if [ ${NEW_VER[0]} -ge ${CUR_VER[0]} ] || [ ${NEW_VER[1]} -ge ${CUR_VER[1]} ] || [ ${NEW_VER[2]} -ge ${CUR_VER[2]} ]; then
 			echo "New version ${NEW_VER[0]}.${NEW_VER[1]}.${NEW_VER[2]} found. Updating..."; cp .bashrc ~
