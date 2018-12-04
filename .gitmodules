@@ -7,3 +7,6 @@
 [submodule ".vim/pack/functionality/start/vim-surround"]
 	path = .vim/pack/functionality/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule ".vim/pack/lint/start/ale"]
+	path = .vim/pack/lint/start/ale
+	url = https://github.com/w0rp/ale.git
