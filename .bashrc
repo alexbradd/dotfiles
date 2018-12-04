@@ -1,6 +1,6 @@
 #
 # ~/.bashrc
-# Version: 12.2018.2
+# Version: 12.2018.3
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -31,13 +31,13 @@ function autoremove { sudo pacman -R "$(pacman -Qdtq)"; }
 
 # Functions
 function _git_prompt {
-        if [ -n "$(ls -a | grep -wo ".git")" ]; then
+	if ! { find . -maxdepth 0 ".git" | grep -qv '^'; }; then
 		REPO="$(git config --get remote.origin.url | cut -d "/" --fields="$(seq --separator=" " 3 100)")"
-		BRANCH="$(git branch | grep \* | cut -d " " -f2)"
+		BRANCH="$(git branch | grep "\*" | cut -d " " -f2)"
 		#COMMITS=$(git rev-list --left-right --count origin/$BRANCH...$BRANCH) # AHEAD   BEHIND to origin
 		#AHEAD_BEHIND="$(echo $COMMITS | cut -d " " -f2) ahead, $(echo $COMMITS | cut -d " " -f1) behind origin/$BRANCH"
 		if [ -n "$(git stash list)" ]; then STASHED="$"; fi
-		if [ -n "$(git log origin/$BRANCH..HEAD)" ]; then UNPUSHED="+"; fi
+		if [ -n "$(git log origin/"$BRANCH"..HEAD)" ]; then UNPUSHED="+"; fi
 		if [ -n "$(git status -u -s)" ]; then UNTRACKED="*"; fi
 		echo -e "\n\t${ORANGE}$REPO; $BRANCH; [$UNTRACKED$UNPUSHED$STASHED]"
 	fi
@@ -45,22 +45,23 @@ function _git_prompt {
 function _uprc {
 	REPO="https://raw.githubusercontent.com/BreadyX/dotfiles/master/.bashrc"
 	INPUT=""
-	CUR_VER=( $(sed '3q;d' ~/.bashrc | cut -d " " -f3 | sed 's/\./ /g') )
+	read -ar CUR_VER < <(sed '3q;d' ~/.bashrc | cut -d " " -f3 | sed 's/\./ /g')
 	NEW_VER=
 	echo "Would you like to check if a new version of the .bashrc file is available in the git repo? [Y/N]"
-	read INPUT
-	if [ $INPUT == "Y" -o $INPUT == "y" ]; then
+	read -r INPUT
+	if [ "$INPUT" == "Y" ] || [ "$INPUT" == "y" ]; then
 		echo "Checking for updates..."
 		### Download the latest .bashrc from gitub
 		wget -V &> /dev/null || echo "wget is not installed. Cannot download latest version. Please install wget with 'sudo pacman -S wget' or 'install wget'"
-		pushd /tmp > /dev/null; wget -O .bashrc $REPO &> /dev/null
-		NEW_VER=( $(sed '3q;d' .bashrc | cut -d " " -f3 | sed 's/\./ /g') )
+		( cd /tmp || return 1
+	       	wget -O .bashrc $REPO &> /dev/null
+		read -ar NEW_VER < <(sed '3q;d' .bashrc | cut -d " " -f3 | sed 's/\./ /g')
 		### Check version
-		if [ ${NEW_VER[0]} -ge ${CUR_VER[0]} ] || [ ${NEW_VER[1]} -ge ${CUR_VER[1]} ] || [ ${NEW_VER[2]} -ge ${CUR_VER[2]} ]; then
+		if [ "${NEW_VER[0]}" -ge "${CUR_VER[0]}" ] || [ "${NEW_VER[1]}" -ge "${CUR_VER[1]}" ] || [ "${NEW_VER[2]}" -ge "${CUR_VER[2]}" ]; then
 			echo "New version ${NEW_VER[0]}.${NEW_VER[1]}.${NEW_VER[2]} found. Updating..."; cp .bashrc ~
 		fi
 		### Cleanup
-		rm .bashrc; popd > /dev/null 
+		rm .bashrc; )
 	fi
 	echo "Sourcing file..."
 	source ~/.bashrc
@@ -120,4 +121,4 @@ PS1+="\[$RESET\]\n\$ "
 export PS1;
 
 # Make GPG work by setting GPG_TTY global variable
-export GPG_TTY=$(tty)
+GPG_TTY=$(tty); export GPG_TTY
