@@ -1,6 +1,6 @@
 #
 # ~/.bashrc
-# Version: 12.2018.4
+# Version: 12.2018.5
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -31,7 +31,7 @@ function autoremove { sudo pacman -R "$(pacman -Qdtq)"; }
 
 # Functions
 function _git_prompt {
-	if ! { find . ".git" -maxdepth 0 | grep -qv '^'; }; then
+	if [ -d "./.git" ]; then
 		REPO="$(git config --get remote.origin.url | cut -d "/" --fields="$(seq --separator=" " 3 100)")"
 		BRANCH="$(git branch | grep "\*" | cut -d " " -f2)"
 		#COMMITS=$(git rev-list --left-right --count origin/$BRANCH...$BRANCH) # AHEAD   BEHIND to origin
