@@ -1,6 +1,6 @@
 #
 # ~/.bash_profile
-# Version: 23-11-18-0
+# Version: 12.2018.1
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -19,3 +19,5 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+export PATH
