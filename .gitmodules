@@ -13,3 +13,6 @@
 [submodule ".vim/pack/functionality/start/goyo.vim"]
 	path = .vim/pack/functionality/start/goyo.vim
 	url = https://github.com/junegunn/goyo.vim.git
+[submodule ".vim/pack/functionality/start/vim-latex-live-preview"]
+	path = .vim/pack/functionality/start/vim-latex-live-preview
+	url = https://github.com/xuhdev/vim-latex-live-preview.git
