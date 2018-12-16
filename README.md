@@ -8,10 +8,11 @@ Every file has a version formatted as such: *mm.yyyy.x*. The version indicates t
 - Arch Linux or pacman
 - vim with these plugins:
 	- lightline.vim
-	- goyo.vim 
+	- goyo.vim
 	- nerdtree
 	- vim-surround
 	- ale (requires vim 8 or newer)
+	- vim-latex-live-preview
 - git
 ## Features
 - .bashrc:
