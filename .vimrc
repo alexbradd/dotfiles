@@ -1,6 +1,6 @@
 "
 " .vimrc
-" Version: 12.2018.2
+" Version: 12.2018.3
 "
 
 " ### GENERAL SETTINGS ###
@@ -37,6 +37,7 @@ nnoremap <silent> <C-o> :LLPStartPreview<CR> 	" map latex live preview
 set nu rnu              " enable line numbers and relative numbers
 colorscheme elflord	" change color scheme
 set hlsearch incsearch  " enable hilighting for search results
+
 	" lightline
 set laststatus=2
 set noshowmode
@@ -50,11 +51,15 @@ let g:lightline = {
 	\		  [ 'readonly', 'filename', 'modified' ] ]
 	\ },
 	\ }
-	" nerdtree
-autocmd bufenter * if (winnr("$") == 0 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ### FUNCTIONALITY ###
 autocmd BufWritePre * %s/\s\+$//e 				" remove trailing whitespaces on filesave
+
+	" Nerdtree
+autocmd bufenter * if (winnr("$") == 0 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif	" close vim if only window open is nerdtree
+autocmd StdinReadPre * let s:std_in=1													" Automatically open nerdtree if a directory is open
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif	" Automatically open nerdtree if a directory is open
+
 	" Templates
 autocmd BufNewFile *.tex 0read ~/.vim/templates/latex 		" loads the latex template if a .tex file is created
 command LoadTemplateLatex 0read ~/.vim/templates/latex 		" command to load latex template
