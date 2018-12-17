@@ -1,6 +1,6 @@
 "
 " .vimrc
-" Version: 12.2018.4
+" Version: 12.2018.5
 "
 
 " ### GENERAL SETTINGS ###
@@ -54,18 +54,14 @@ let g:lightline = {
 
 	" Goyo
 let g:goyo_width = 120		" Goyo page dimenstions
-let g:goyo_height = 100		" Goyo page dimenstions
+let g:goyo_height = "85%"		" Goyo page dimenstions
 let g:goyo_linenr = 1		" Enbale linenr even in Goyo
 function! s:goyo_enter()	" custom routine for GoyoEnter event
-	silent !tmux set status off
-	silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
 	set showmode
 	set noshowcmd
 	set scrolloff=999
 endfunction
 function! s:goyo_leave()	" custom routine for GoyoLeave event
-	silent !tmux set status on
-	silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
 	set noshowmode
 	set showcmd
 	set scrolloff=5
