@@ -1,16 +1,16 @@
 "
 " .vimrc
-" Version: 12.2018.3
+" Version: 12.2018.4
 "
 
 " ### GENERAL SETTINGS ###
-set nocompatible        	" Remove compatibility with vi
-filetype indent plugin on       " Determine filetype based on its extension ad contents to enable indent and specific plugins
-syntax on               	" Enable syntax highlighting
+set nocompatible        			" Remove compatibility with vi
+filetype indent plugin on       		" Determine filetype based on its extension ad contents to enable indent and specific plugins
+syntax on               			" Enable syntax highlighting
 set encoding=utf-8 fileencodings=utf-8		" default file encoding
-set wildmode=longest,list,full	" vim command completion
-set splitbelow splitright	" change split spawining point
-set wrap linebreak nolist	" set good wrapping
+set wildmode=longest,list,full			" vim command completion
+set splitbelow splitright			" change split spawining point
+set wrap linebreak nolist			" set good wrapping
 
 " ### BINDINGS ###
 noremap <F2> gT				" move between tabs
@@ -31,14 +31,14 @@ noremap <silent> <F5> :source ~/.vimrc<CR>	" map resource .vimrc
 noremap <silent> <C-t> :NERDTreeToggle<CR>	" map open nerdtree
 " nnoremap <silent> <C-r> :nohl<CR>
 
-nnoremap <C-p> :Goyo<CR>			" map goyo enable
+nnoremap <silent> <C-p> :Goyo<CR>			" map goyo enable
 nnoremap <silent> <C-o> :LLPStartPreview<CR> 	" map latex live preview
 " ### AESTHETICZZ ###
 set nu rnu              " enable line numbers and relative numbers
 colorscheme elflord	" change color scheme
 set hlsearch incsearch  " enable hilighting for search results
 
-	" lightline
+	" Lightline
 set laststatus=2
 set noshowmode
 let g:lightline = {
@@ -52,6 +52,27 @@ let g:lightline = {
 	\ },
 	\ }
 
+	" Goyo
+let g:goyo_width = 120		" Goyo page dimenstions
+let g:goyo_height = 100		" Goyo page dimenstions
+let g:goyo_linenr = 1		" Enbale linenr even in Goyo
+function! s:goyo_enter()	" custom routine for GoyoEnter event
+	silent !tmux set status off
+	silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+	set showmode
+	set noshowcmd
+	set scrolloff=999
+endfunction
+function! s:goyo_leave()	" custom routine for GoyoLeave event
+	silent !tmux set status on
+	silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+	set noshowmode
+	set showcmd
+	set scrolloff=5
+endfunction
+autocmd! User GoyoEnter nested call <SID>goyo_enter()	" adding custom routine to event
+autocmd! User GoyoLeave nested call <SID>goyo_leave()	" adding custom routine to event
+
 " ### FUNCTIONALITY ###
 autocmd BufWritePre * %s/\s\+$//e 				" remove trailing whitespaces on filesave
 
@@ -62,4 +83,4 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 
 	" Templates
 autocmd BufNewFile *.tex 0read ~/.vim/templates/latex 		" loads the latex template if a .tex file is created
-command LoadTemplateLatex 0read ~/.vim/templates/latex 		" command to load latex template
+command! LoadTemplateLatex 0read ~/.vim/templates/latex 		" command to load latex template
