@@ -1,6 +1,6 @@
 "
 " .vimrc
-" Version: 12.2018.5
+" Version: 12.2018.6
 "
 
 " ### GENERAL SETTINGS ###
@@ -78,5 +78,10 @@ autocmd StdinReadPre * let s:std_in=1													" Automatically open nerdtree 
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif	" Automatically open nerdtree if a directory is open
 
 	" Templates
-autocmd BufNewFile *.tex 0read ~/.vim/templates/latex 		" loads the latex template if a .tex file is created
-command! LoadTemplateLatex 0read ~/.vim/templates/latex 		" command to load latex template
+autocmd BufNewFile *.tex 0read ~/.vim/templates/tex 		" loads the latex template if a .tex file is created
+command! LoadTemplateTex 0read ~/.vim/templates/tex 		" command to load latex template
+
+" ### SNIPPETS ###
+	" tex
+autocmd FileType tex inoremap \img \begin{figure}[h]<Enter>\centering<Enter>\includegraphics[width=\textwidth]{}<Enter>\caption{}<Enter>\label{}<Enter><Backspace>\end{figure}<Esc>o
+autocmd FileType tex inoremap \wrp-img \begin{wrapfigure}{r}{3cm}<Enter>\centering<Enter>\includegraphics[width=2cm]{}<Enter>\caption{}<Enter>\label{}<Enter><Backspace>\end{wrapfigure}<Esc>o
