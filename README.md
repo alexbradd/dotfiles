@@ -14,6 +14,8 @@ Every file has a version formatted as such: *mm.yyyy.x*. The version indicates t
 	- ale (requires vim 8 or newer)
 	- vim-latex-live-preview
 - git
+- KDE Plasma 5
+- Latte Dock
 ## Features
 - .bashrc:
 	- pretty and colorful
