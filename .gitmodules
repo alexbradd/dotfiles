@@ -19,3 +19,6 @@
 [submodule ".vim/pack/functionality/start/YouCompleteMe"]
 	path = .vim/pack/functionality/start/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule ".vim/pack/aestethics/start/vim-colorschemes"]
+	path = .vim/pack/aestethics/start/vim-colorschemes
+	url = https://github.com/flazz/vim-colorschemes.git

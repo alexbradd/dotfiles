@@ -21,6 +21,7 @@ It is advised that you do this procedure in a tty outside of your DE by simply l
 - vim with these plugins:
 	- lightline.vim
 	- goyo.vim
+	- vim-colorschemes
 	- nerdtree
 	- vim-surround
 	- ale (requires vim 8 or newer)
