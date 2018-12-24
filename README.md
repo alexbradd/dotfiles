@@ -11,7 +11,7 @@ To install, simply clone this repository in a separate folder and then copy its 
 cd ~
 git clone https://github.com/BreadyX/dotfiles.git
 cd dotfiles
-cp * ~
+cp -r * ~
 cd ~
 rm -rf dotfiles
 ```
