@@ -31,17 +31,6 @@ location=0
 plugin=org.kde.desktopcontainment
 wallpaperplugin=org.kde.potd
 
-[Containments][20][Applets][26]
-immutability=1
-plugin=org.kde.plasma.systemmonitor.diskusage
-
-[Containments][20][Applets][26][Configuration]
-PreloadWeight=0
-
-[Containments][20][Applets][26][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
-
 [Containments][20][Applets][26][Configuration][General]
 sources=partitions%2F%2Ffilllevel,partitions%2Fhome%2Ffilllevel
 
@@ -53,7 +42,6 @@ DialogWidth=720
 PreloadWeight=0
 
 [Containments][20][General]
-ItemsGeometries=Applet-26:1600,64,304,160,0;
 showToolbox=false
 
 [Containments][20][Wallpaper][org.kde.potd][General]
@@ -68,45 +56,12 @@ location=0
 plugin=org.kde.desktopcontainment
 wallpaperplugin=org.kde.image
 
-[Containments][28][Applets][29]
-immutability=1
-plugin=org.kde.plasma.systemmonitor.memory
-
-[Containments][28][Applets][29][Configuration]
-PreloadWeight=0
-
-[Containments][28][Applets][29][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
-
 [Containments][28][Applets][29][Configuration][General]
 updateInterval=1000
-
-[Containments][28][Applets][30]
-immutability=1
-plugin=org.kde.plasma.systemmonitor.cpu
-
-[Containments][28][Applets][30][Configuration]
-PreloadWeight=0
-
-[Containments][28][Applets][30][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
 
 [Containments][28][Applets][30][Configuration][General]
 sources=cpu%2Fcpu0%2FTotalLoad,cpu%2Fcpu1%2FTotalLoad,cpu%2Fcpu2%2FTotalLoad,cpu%2Fcpu3%2FTotalLoad,cpu%2Fcpu4%2FTotalLoad,cpu%2Fcpu5%2FTotalLoad,cpu%2Fcpu6%2FTotalLoad,cpu%2Fcpu7%2FTotalLoad,cpu%2Fcpu8%2FTotalLoad,cpu%2Fcpu9%2FTotalLoad,cpu%2Fcpu10%2FTotalLoad,cpu%2Fcpu11%2FTotalLoad
 updateInterval=1000
-
-[Containments][28][Applets][31]
-immutability=1
-plugin=org.kde.plasma.systemmonitor.diskusage
-
-[Containments][28][Applets][31][Configuration]
-PreloadWeight=0
-
-[Containments][28][Applets][31][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
 
 [Containments][28][Applets][31][Configuration][General]
 sources=partitions%2F%2Ffilllevel,partitions%2Fhome%2Ffilllevel
@@ -119,7 +74,6 @@ DialogWidth=720
 PreloadWeight=0
 
 [Containments][28][General]
-ItemsGeometries=Applet-29:1648,512,240,208,0;Applet-30:1648,80,240,416,0;Applet-31:1648,736,240,176,0;
 pressToMoveHelp=false
 showToolbox=false
 
