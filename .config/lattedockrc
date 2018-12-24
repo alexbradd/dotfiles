@@ -1,0 +1,21 @@
+[PlasmaRunnerManager]
+LaunchCounts=2 services_systemsettings.desktop,1 services_firefox.desktop
+pluginWhiteList=services,places,desktopsessions,PowerDevil,shell,bookmarks,recentdocuments,locations,baloosearch
+
+[ScreenConnectors]
+10=HDMI-0
+
+[UniversalSettings]
+canDisableBorders=false
+currentLayout=BreadyX
+downloadWindowSize=800,550
+lastNonAssignedLayout=BreadyX
+launchers=
+layoutsColumnWidths=86,76,63,0
+layoutsWindowSize=700,523
+memoryUsage=0
+mouseSensitivity=2
+screenTrackerInterval=2500
+showInfoWindow=true
+unifiedGlobalShortcuts=true
+version=2

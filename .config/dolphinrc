@@ -1,0 +1,40 @@
+[CompactMode]
+FontWeight=50
+
+[DetailsMode]
+FontWeight=50
+
+[General]
+UseTabForSwitchingSplitView=true
+Version=200
+ViewPropsTimestamp=2018,10,16,20,8,41
+
+[IconsMode]
+FontWeight=50
+
+[KPropertiesDialog]
+Height 1080=388
+Width 1920=376
+
+[MainWindow]
+Height 1080=1019
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAwAAAAAAAACjAAAD1fwCAAAAAvsAAAAWAGYAbwBsAGQAZQByAHMARABvAGMAawAAAAAA/////wAAAAoBAAAD+wAAABQAcABsAGEAYwBlAHMARABvAGMAawEAAAAmAAAD1QAAAFoBAAADAAAAAQAAAAAAAAAA/AIAAAAB+wAAABAAaQBuAGYAbwBEAG8AYwBrAAAAAAD/////AAAACgEAAAMAAAADAAAAAAAAAAD8AQAAAAH7AAAAGAB0AGUAcgBtAGkAbgBhAGwARABvAGMAawAAAAAA/////wAAAAoBAAADAAAG3AAAA9UAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
+ToolBarsMovable=Disabled
+Width 1920=960
+Window-Maximized 1080x1920=true
+
+[Open-with settings]
+CompletionMode=1
+History=ka,vlc,vim
+
+[PreviewSettings]
+Plugins=appimagethumbnail,audiothumbnail,comicbookthumbnail,djvuthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,opendocumentthumbnail,svgthumbnail
+
+[SettingsDialog]
+Height 1080=448
+Width 1920=545
+
+[ViewPropertiesDialog]
+Height 1080=454
+Width 1920=367
