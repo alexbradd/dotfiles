@@ -25,7 +25,7 @@ It is advised that you do this procedure in a tty outside of your DE by simply l
 	- vim-surround
 	- ale (requires vim 8 or newer)
 	- vim-latex-live-preview
-	- YouCompleteMe
+	- YouCompleteMe: this plugin requires some work to get it working so only a bare submodule will be included; to get info about installing refer to the orginal creator's github page
 - git
 - KDE Plasma 5
 - Latte Dock
