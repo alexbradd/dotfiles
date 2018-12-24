@@ -25,6 +25,7 @@ It is advised that you do this procedure in a tty outside of your DE by simply l
 	- vim-surround
 	- ale (requires vim 8 or newer)
 	- vim-latex-live-preview
+	- YouCompleteMe
 - git
 - KDE Plasma 5
 - Latte Dock

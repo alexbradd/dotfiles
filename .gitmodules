@@ -16,3 +16,6 @@
 [submodule ".vim/pack/functionality/start/vim-latex-live-preview"]
 	path = .vim/pack/functionality/start/vim-latex-live-preview
 	url = https://github.com/xuhdev/vim-latex-live-preview.git
+[submodule ".vim/pack/functionality/start/YouCompleteMe"]
+	path = .vim/pack/functionality/start/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
