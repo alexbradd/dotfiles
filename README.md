@@ -6,7 +6,7 @@ These configuration files have been written slowly as I have been learning progr
 The most important files (such as bashrc ecc...) have a version formatted as such: *mm.yyyy.x*. The version indicates the last time the file was updated. In this repo you will find all the latest versions.
 ## Installation
 Firstly: **BE CAREFUL WHEN INSTALLING** because you can have a much different setup than mine and have conflicts everywhere.
-To install, simply clone this repository in a separate folder and the copy its contents into you home directory:
+To install, simply clone this repository in a separate folder and then copy its contents into you home directory:
 ```sh
 cd ~
 git clone https://github.com/BreadyX/dotfiles.git
