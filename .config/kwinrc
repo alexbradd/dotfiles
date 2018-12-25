@@ -182,3 +182,6 @@ ButtonsOnLeft=XIA
 ButtonsOnRight=SHM
 CloseOnDoubleClickOnMenu=false
 library=org.kde.breeze
+
+[ModifierOnlyShortcuts]
+Meta=org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu
