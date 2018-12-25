@@ -18,7 +18,7 @@ Number=2
 Rows=1
 
 [Effect-Blur]
-BlurStrength=12
+BlurStrength=15
 NoiseStrength=7
 
 [Effect-CoverSwitch]
@@ -29,9 +29,13 @@ TabBoxAlternative=false
 BorderActivate=9
 BorderActivateCylinder=9
 BorderActivateSphere=9
+TouchBorderActivate=9
+TouchBorderActivateCylinder=9
+TouchBorderActivateSphere=9
 
 [Effect-DesktopGrid]
 BorderActivate=1
+TouchBorderActivate=9
 
 [Effect-FlipSwitch]
 TabBox=false
@@ -42,9 +46,17 @@ BorderActivate=0
 BorderActivateAll=9
 BorderActivateClass=9
 LayoutMode=1
+TouchBorderActivate=7
+TouchBorderActivateAll=9
+TouchBorderActivateClass=9
 
 [Effect-Slide]
 SlideBackground=false
+
+[Effect-Wobbly]
+Drag=85
+Stiffness=10
+WobblynessLevel=1
 
 [ElectricBorders]
 Bottom=None
@@ -76,11 +88,16 @@ CommandWindowWheel=Scroll
 
 [Plugins]
 blurEnabled=true
+contrastEnabled=true
 desktopchangeosdEnabled=false
 diminactiveEnabled=true
+dimscreenEnabled=true
 glideEnabled=true
 highlightwindowEnabled=true
+kwin4_effect_eyeonscreenEnabled=true
 kwin4_effect_fadeEnabled=false
+kwin4_effect_translucencyEnabled=false
+kwin4_effect_windowapertureEnabled=false
 resizeEnabled=true
 windowgeometryEnabled=false
 zoomEnabled=false
@@ -104,6 +121,8 @@ MultiScreenMode=0
 ShowDesktopMode=0
 ShowTabBox=true
 SwitchingMode=0
+TouchBorderActivate=9
+TouchBorderAlternativeActivate=9
 
 [TabBoxAlternative]
 ActivitiesMode=1
@@ -116,6 +135,12 @@ MultiScreenMode=0
 ShowDesktopMode=0
 ShowTabBox=true
 SwitchingMode=0
+
+[TouchEdges]
+Bottom=None
+Left=None
+Right=None
+Top=None
 
 [Windows]
 ActiveMouseScreen=true
