@@ -17,7 +17,13 @@ rm -rf dotfiles
 ```
 It is advised that you do this procedure in a tty outside of your DE by simply logging out (not locking *logging out*) and pressing `CTRL+ALT+F2` in your DM (the login screen). After the installation, go back to you graphical environment by pressing `CTRL+ALT+F1` (in some cases `CTRL+ALT+F7`) and log into your account.
 ### Main requisites:
-- Arch Linux or pacman
+- Arch Linux with pacman
+- KDE Plasma 5 with konsole and dolphin
+	- Fonts DejaVu Sans and Inconsolata are required, installable on Arch linux with:
+		```
+		# pacman -S ttf-dejavu ttf-inconsolata
+		```
+- Latte Dock
 - vim with these plugins:
 	- lightline.vim
 	- goyo.vim
@@ -28,13 +34,16 @@ It is advised that you do this procedure in a tty outside of your DE by simply l
 	- vim-latex-live-preview
 	- YouCompleteMe: this plugin requires some work to get it working so only a bare submodule will be included; to get info about installing refer to the orginal creator's github page
 - git
-- KDE Plasma 5
-	- Fonts DejaVu Sans and Inconsolata are required, installable on Arch linux with:
-		```
-		# pacman -S ttf-dejavu ttf-inconsolata
-		```
-- Latte Dock
 ## Features
+- Plasma 5 and Latte Dock:
+	- Clean look with a minimal theme:
+		- Blur, traslucency and more eye candy is enabled to make everyithing look even better
+	- 2 activities: *Normal usage* and *Coding*
+	- *Windows-esque* global shortucts for navigating between desktops, windows ecc...
+	- 3 main panels with all the necessary info:
+		- TOP: *gnome-styled* panel with dynamic background, global menus and other widgets such as: clock, systemload, system tray and log out button
+		- LEFT: ubuntu/unity styled dock that autohides
+		- BOTTOM: panel that contains an activity/vitual desktop switcher
 - bash:
 	- pretty and colorful
 	- git integration: if inside a git repo it displays useful info about the repository like:
@@ -50,12 +59,3 @@ It is advised that you do this procedure in a tty outside of your DE by simply l
 	- created some templates for common filetypes (tex ecc...)
 	- created some snippets for some langauges
 	- simple vimrc with the most used options enabled and some useful bindings
-- Plasma 5 and Latte Dock:
-	- Clean look with a minimal theme:
-		- Blur, traslucency and more eye candy is enabled to make everyithing look even better
-	- 2 activities: *Normal usage* and *Coding*
-	- *Windows-esque* global shortucts for navigating between desktops, windows ecc...
-	- 3 main panels with all the necessary info:
-		- TOP: *gnome-styled* panel with dynamic background, global menus and other widgets such as: clock, systemload, system tray and log out button
-		- LEFT: ubuntu/unity styled dock that autohides
-		- BOTTOM: panel that contains an activity/vitual desktop switcher
