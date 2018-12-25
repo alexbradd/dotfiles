@@ -1,6 +1,6 @@
 "
 " .vimrc
-" Version: 12.2018.6
+" Version: 12.2018.7
 "
 
 " ### GENERAL SETTINGS ###
@@ -35,14 +35,15 @@ nnoremap <silent> <C-p> :Goyo<CR>			" map goyo enable
 nnoremap <silent> <C-o> :LLPStartPreview<CR> 	" map latex live preview
 " ### AESTHETICZZ ###
 set nu rnu              " enable line numbers and relative numbers
-colorscheme elflord	" change color scheme
+colorscheme dracula	" change color scheme
+" hi Normal guibg=NONE ctermbg=NONE 	" get rid of the background
 set hlsearch incsearch  " enable hilighting for search results
 
 	" Lightline
 set laststatus=2
 set noshowmode
 let g:lightline = {
-	\ 'colorscheme': 'jellybeans',
+	\ 'colorscheme': 'darcula',
 	\ 'active': {
 	\	'right': [ [ 'lineinfo' ],
 	\		   [ 'percent' ],
@@ -78,10 +79,18 @@ autocmd StdinReadPre * let s:std_in=1													" Automatically open nerdtree 
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif	" Automatically open nerdtree if a directory is open
 
 	" Templates
-autocmd BufNewFile *.tex 0read ~/.vim/templates/tex 		" loads the latex template if a .tex file is created
-command! LoadTemplateTex 0read ~/.vim/templates/tex 		" command to load latex template
+autocmd BufNewFile *.tex 0read ~/.vim/templates/tex | set filetype=tex 		" loads the latex template if a .tex file is created
+command! LoadTemplateTex 0read ~/.vim/templates/tex | set filetype=tex 		" command to load latex template
 
 " ### SNIPPETS ###
 	" tex
+autocmd FileType tex inoremap \i \emph{}
+autocmd FileType tex inoremap \b \textbf{}
+autocmd FileType tex inoremap \u \underline{}
 autocmd FileType tex inoremap \img \begin{figure}[h]<Enter>\centering<Enter>\includegraphics[width=\textwidth]{}<Enter>\caption{}<Enter>\label{}<Enter><Backspace>\end{figure}<Esc>o
 autocmd FileType tex inoremap \wrp-img \begin{wrapfigure}{r}{3cm}<Enter>\centering<Enter>\includegraphics[width=2cm]{}<Enter>\caption{}<Enter>\label{}<Enter><Backspace>\end{wrapfigure}<Esc>o
+autocmd FileType tex inoremap \item \begin{itemize}<Enter>\item item<Enter>\end{itemize}
+autocmd FileType tex inoremap \enum \begin{enumerate}[1.]<Enter>\item item<Enter>\end{enumerate}
+autocmd FileType tex inoremap \desc \begin{description}<Enter>\item[IteamName] ItemDescription<Enter>\end{description}
+	" bash
+autocmd FileType sh inoremap \if if [   ]; then<Enter>#do stuff<Enter><Backspace>fi<Esc>kkwlli
