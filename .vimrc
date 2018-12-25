@@ -1,6 +1,6 @@
 "
 " .vimrc
-" Version: 12.2018.7
+" Version: 12.2018.8
 "
 
 " ### GENERAL SETTINGS ###
@@ -14,7 +14,7 @@ set wrap linebreak nolist			" set good wrapping
 
 " ### BINDINGS ###
 noremap <F2> gT				" move between tabs
-noremap <F3> gt				" move between tabe
+noremap <F3> gt				" move between tabs
 
 nnoremap j gj				" easier movement through wrapped lines
 nnoremap k gk				" easier movement through wrapped lines
@@ -27,9 +27,23 @@ noremap <C-k> <C-w>k			" easier movement between splits
 noremap <C-h> <C-w>h			" easier movement between splits
 noremap <C-l> <C-w>l			" easier movement between splits
 
+	" Disable arrowkey movement to force me to use hjkl
+nnoremap <Left> :echo "No left for you!"<CR>
+vnoremap <Left> :<C-u>echo "No left for you!"<CR>
+inoremap <Left> <C-o>:echo "No left for you!"<CR>
+nnoremap <Right> :echo "No right for you!"<CR>
+vnoremap <Right> :<C-u>echo "No right for you!"<CR>
+inoremap <Right> <C-o>:echo "No right for you!"<CR>
+nnoremap <Up> :echo "No Up for you!"<CR>
+vnoremap <Up> :<C-u>echo "No Up for you!"<CR>
+inoremap <Up> <C-o>:echo "No Up for you!"<CR>
+nnoremap <Down> :echo "No Down for you!"<CR>
+vnoremap <Down> :<C-u>echo "No Down for you!"<CR>
+inoremap <Down> <C-o>:echo "No Down for you!"<CR>
+
 noremap <silent> <F5> :source ~/.vimrc<CR>	" map resource .vimrc
 noremap <silent> <C-t> :NERDTreeToggle<CR>	" map open nerdtree
-" nnoremap <silent> <C-r> :nohl<CR>
+nnoremap <silent> <C-r> :nohl<CR>
 
 nnoremap <silent> <C-p> :Goyo<CR>			" map goyo enable
 nnoremap <silent> <C-o> :LLPStartPreview<CR> 	" map latex live preview
@@ -93,4 +107,10 @@ autocmd FileType tex inoremap \item \begin{itemize}<Enter>\item item<Enter>\end{
 autocmd FileType tex inoremap \enum \begin{enumerate}[1.]<Enter>\item item<Enter>\end{enumerate}
 autocmd FileType tex inoremap \desc \begin{description}<Enter>\item[IteamName] ItemDescription<Enter>\end{description}
 	" bash
+autocmd FileType sh inoremap \shb <Esc>ggi#! /bin/bash<Enter>
 autocmd FileType sh inoremap \if if [   ]; then<Enter>#do stuff<Enter><Backspace>fi<Esc>kkwlli
+autocmd FileType sh inoremap \case case var in<Enter>"case")<Enter>#do stuff<Enter>;;<Enter>*)<Enter>#default<Enter>;;<Enter>esac<Esc>7kwi
+autocmd FileType sh inoremap \for for var in var; do<Enter>#do stuff<Enter>done<Esc>2kli
+autocmd FileType sh inoremap \cfor for (( i=0; i<var; i++ )); do<Enter>#do stuff<Enter>done<Esc>2k3li
+autocmd FileType sh inoremap \while while true; do<Enter>#do stuff<Enter>done<Esc>2kwi
+autocmd FileType sh inoremap \func function func {<Enter>#do stuff<Enter>}<Esc>2kwi
