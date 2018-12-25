@@ -2,7 +2,7 @@
 DefaultProfile=Default (Trasparent).profile
 
 [Favorite Profiles]
-Favorites=Deafult.profile,Default (Trasparent).profile,Black.profile
+Favorites=Black.profile,Default (Trasparent).profile,Deafult.profile
 
 [KonsoleWindow]
 ShowAppNameOnTitleBar=false
@@ -14,6 +14,7 @@ MenuBar=Disabled
 State=AAAA/wAAAAD9AAAAAAAAA8AAAAP7AAAABAAAAAQAAAAIAAAACPwAAAAA
 ToolBarsMovable=Disabled
 Width 1920=960
+Window-Maximized 1080x1920=true
 
 [Profile Shortcuts]
 Ctrl+Shift+D=Default (Trasparent).profile

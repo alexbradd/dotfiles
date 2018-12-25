@@ -108,11 +108,15 @@ ForegroundVisited=127,140,141
 [General]
 ColorScheme=Breeze Dark
 Name=Breeze Dark
-XftAntialias=true
-XftHintStyle=
-XftSubPixel=none
+XftHintStyle=hintnone
+XftSubPixel=
 dbfile=/home/breadyx/.mozilla/firefox/exfx1bmo.default/places.sqlite
+fixed=Inconsolata,10,-1,5,50,0,0,0,0,0,Regular
+font=DejaVu Sans,10,-1,5,50,0,0,0,0,0,Book
+menuFont=DejaVu Sans,10,-1,5,50,0,0,0,0,0,Book
 shadeSortColumn=true
+smallestReadableFont=DejaVu Sans,9,-1,5,50,0,0,0,0,0,Book
+toolBarFont=DejaVu Sans,10,-1,5,50,0,0,0,0,0,Book
 widgetStyle=Breeze
 
 [Icons]
@@ -159,6 +163,7 @@ ToolButtonStyleOtherToolbars=TextBesideIcon
 [WM]
 activeBackground=49,54,59
 activeBlend=255,255,255
+activeFont=DejaVu Sans,10,-1,5,50,0,0,0,0,0,Book
 activeForeground=239,240,241
 inactiveBackground=49,54,59
 inactiveBlend=75,71,67

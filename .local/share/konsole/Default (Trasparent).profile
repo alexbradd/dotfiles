@@ -1,7 +1,8 @@
 [Appearance]
 AntiAliasFonts=true
+BoldIntense=true
 ColorScheme=Breeze
-Font=Hack,11,-1,0,50,0,0,0,0,0,Regular
+Font=Inconsolata,12,-1,0,50,0,0,0,0,0,Regular
 UseFontLineChararacters=true
 
 [General]

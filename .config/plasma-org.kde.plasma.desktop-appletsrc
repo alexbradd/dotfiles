@@ -29,7 +29,7 @@ immutability=1
 lastScreen=0
 location=0
 plugin=org.kde.desktopcontainment
-wallpaperplugin=org.kde.potd
+wallpaperplugin=org.kde.image
 
 [Containments][20][Applets][26][Configuration][General]
 sources=partitions%2F%2Ffilllevel,partitions%2Fhome%2Ffilllevel
@@ -43,6 +43,9 @@ PreloadWeight=0
 
 [Containments][20][General]
 showToolbox=false
+
+[Containments][20][Wallpaper][org.kde.image][General]
+Image=file:///home/breadyx/Pictures/Wallpaper/arch-linux-hd.png
 
 [Containments][20][Wallpaper][org.kde.potd][General]
 Provider=bing
@@ -78,7 +81,7 @@ pressToMoveHelp=false
 showToolbox=false
 
 [Containments][28][Wallpaper][org.kde.image][General]
-Image=file:///home/breadyx/Pictures/Wallpaper/code-bg.jpg
+Image=file:///home/breadyx/Pictures/Wallpaper/arch-linux-hd-ascii.png
 
 [General]
 immutability=1
