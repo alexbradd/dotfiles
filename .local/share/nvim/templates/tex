@@ -1,0 +1,22 @@
+\documentclass[a4paper,12pt,oneside]{article}
+\usepackage[a4paper,margin=1.5cm]{geometry}
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+
+% Uncomment based on usage
+%\usepackage{enumerate}
+%\usepackage{graphicx}
+%\usepackage{wrapfig}
+%\usepackage{xcolor}
+
+\title{Title}
+\author{Alexandru Bradatan}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+Text here
+
+\end{document}
