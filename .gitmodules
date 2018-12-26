@@ -1,24 +1,3 @@
-[submodule ".vim/pack/aestethics/start/lightline.vim"]
-	path = .vim/pack/aestethics/start/lightline.vim
-	url = https://github.com/itchyny/lightline.vim
-[submodule ".vim/pack/functionality/start/nerdtree"]
-	path = .vim/pack/functionality/start/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule ".vim/pack/functionality/start/vim-surround"]
-	path = .vim/pack/functionality/start/vim-surround
-	url = https://github.com/tpope/vim-surround.git
-[submodule ".vim/pack/lint/start/ale"]
-	path = .vim/pack/lint/start/ale
-	url = https://github.com/w0rp/ale.git
-[submodule ".vim/pack/functionality/start/goyo.vim"]
-	path = .vim/pack/functionality/start/goyo.vim
-	url = https://github.com/junegunn/goyo.vim.git
-[submodule ".vim/pack/functionality/start/vim-latex-live-preview"]
-	path = .vim/pack/functionality/start/vim-latex-live-preview
-	url = https://github.com/xuhdev/vim-latex-live-preview.git
-[submodule ".vim/pack/functionality/start/YouCompleteMe"]
-	path = .vim/pack/functionality/start/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
-[submodule ".vim/pack/aestethics/start/vim-colorschemes"]
-	path = .vim/pack/aestethics/start/vim-colorschemes
-	url = https://github.com/flazz/vim-colorschemes.git
+[submodule ".local/share/nvim/site/pack/lint-completion/start/ale"]
+	path = .local/share/nvim/site/pack/lint-completion/start/ale
+	url = https://github.com/w0rp/ale
