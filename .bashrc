@@ -1,17 +1,14 @@
 #
-# File: ~/.bashrc
-# Version: 12.2018.5
-# Author: BreadyX
-#
-# Script sourced by the shell at each prompt redraw. Handles the majority of the
-# shell configuration
-#
+# ~/.bashrc
+# Version: 12.2018.6
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 ### SETTINGS ###
 tabs 5
+export EDITOR="nvim"
+GPG_TTY=$(tty); export GPG_TTY
 
 ### ALIASES ###
 # Misc
@@ -24,7 +21,7 @@ alias darkscrn="xset dpms force off"
 alias install="sudo pacman -S"
 alias update="sudo pacman -Syu"
 alias remove="sudo pacman -R"
-function autoremove { sudo pacman -R "$(pacman -Qdtq)"; }
+function autoremove { sudo pacman -Rns $(pacman -Qdtq); }
 
 ### PROMPT PERSONALIZATION ###
 # Special characters
@@ -121,9 +118,6 @@ PS1+="\[$BLUE\]\[$ITALICS\]\h \[$RESET\]" # Host
 PS1+="\[$WHITE\]in "
 PS1+="\[$GREEN\]\[$ITALICS\]\w " # Working directory
 PS1+="\$(_git_prompt)"
-PS1+="\[$RESET\]\n\$ " 
+PS1+="\[$RESET\]\n\$ "
 
 export PS1;
-
-# Make GPG work by setting GPG_TTY global variable
-GPG_TTY=$(tty); export GPG_TTY
