@@ -3,8 +3,19 @@
 This is a repo where I store all of my most important configuration files (`.bashrc`, `.vimrc` etc...)
 These configuration files have been written slowly as I have been learning programming to suit my needs, so be carful if you want to eventually use them as they can sometimes be buggy.
 ## Versioning
-The most important files (such as bashrc ecc...) have a version formatted as such: *mm.yyyy.x*. The version indicates the last time the file was updated. In this repo you will find all the latest versions.
-## Installation
+All the files that are written by me (bash config and neovim config) have the following header:
+```
+#
+# File: file
+# Version: mm.yyyy.x
+# Author: BreadyX
+#
+# description
+#
+```
+where `#` is the comment simbol in the language that the file is written in.
+Eache file has a version formatted, as written previously, as mm.yyyy.x. In this repo you will find all the latest and greatest config files and their most recent versions. Some of the files have an *updater* that can be called that automates the process of fecthing the latest version from this repo and applying it.
+# Installation
 Firstly: **BE CAREFUL WHEN INSTALLING** because you can have a much different setup than mine and have conflicts everywhere.
 To install, simply clone this repository in a separate folder and then copy its contents into you home directory:
 ```sh
@@ -24,15 +35,15 @@ It is advised that you do this procedure in a tty outside of your DE by simply l
 		# pacman -S ttf-dejavu ttf-inconsolata
 		```
 - Latte Dock
-- vim with these plugins:
-	- lightline.vim
-	- goyo.vim
-	- vim-colorschemes
-	- nerdtree
+- NeoVim with these plugins:
+	- Vim-plug
+	- goyo
+	- Limelight
+	- Darcula coloscheme
 	- vim-surround
-	- ale (requires vim 8 or newer)
 	- vim-latex-live-preview
-	- YouCompleteMe: this plugin requires some work to get it working so only a bare submodule will be included; to get info about installing refer to the orginal creator's github page
+	- Neomake
+	- Deoplete
 - git
 ## Features
 - Plasma 5 and Latte Dock:

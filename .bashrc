@@ -1,6 +1,10 @@
 #
-# ~/.bashrc
+# File: ~/.bashrc
 # Version: 12.2018.5
+# Author: BreadyX
+#
+# Script sourced by the shell at each prompt redraw. Handles the majority of the
+# shell configuration
 #
 
 # If not running interactively, don't do anything

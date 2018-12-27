@@ -1,4 +1,11 @@
+#
+# File: .gitconfig
 # Version: 28-11-18-1
+# Author: BreadyX
+#
+# My main git configuration file
+#
+
 [user]
 	name = BreadyX
 	email = alex.bradatan85@yahoo.it

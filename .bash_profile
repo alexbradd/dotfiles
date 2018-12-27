@@ -1,6 +1,11 @@
 #
-# ~/.bash_profile
+# File: ~/.bash_profile
 # Version: 12.2018.1
+# Author: BreadyX
+#
+# Script sourced by bash at each login. Sources the bashrc if exists and adds user's
+# private bin folders
+#
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then

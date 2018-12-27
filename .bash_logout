@@ -1,3 +1,4 @@
 #
-# ~/.bash_logout
-# Version 23-11-18-0
+# File: ~/.bash_logout
+# Version: 12.2018.0
+# Author: BreadyX
