@@ -1,0 +1,168 @@
+#! /bin/bash
+#
+# File: confh
+# Version: 12.2018.0
+# Author: BreadyX
+#
+# A simple utility to manage the mos important config files
+
+CUR_VER="12.2018.0"
+
+function _check_ver {
+	if [ "$1" -gt "$4" ] || [ "$2" -gt "$5" ] || [ "$3" -gt "$6" ]; then
+		echo "New version $1.$2.$3 found online ( Old: $4.$5.$6 )."
+		return 0
+	else
+		echo "Already up to date."
+		return 1
+	fi
+}
+
+function _bashrc {
+	case $1 in
+		"-e"|"--edit")
+			echo "Opening ~/.bashrc in $EDITOR"
+			$EDITOR ~/.bashrc || { echo "Variable EDITOR is not set, using nano"; nano ~/.bashrc; }
+			return 0
+			;;
+		"-s"|"--resource")
+			echo "Resourcing ~/.bashrc"
+			source ~/.bashrc
+			return $?
+			;;
+		"-u"|"--update")
+			local REPO="https://raw.githubusercontent.com/BreadyX/dotfiles/master/.bashrc"
+			LOCAL_VERSION=( $(sed '3q;d' ~/.bashrc | cut -d ' ' -f3 | sed 's/\./ /g') )
+			( cd /tmp || { echo "/tmp is not available, please fix" > /dev/stderr ; return 1; }
+			echo "Checking for updates..."
+			wget -V &> /dev/null || { echo "wget is not installed. Please install wget and then continue" > /dev/stderr ; }
+			wget -O .bashrc $REPO &> /dev/null
+			REMOTE_VERSION=( $(sed '3q;d' ./.bashrc | cut -d ' ' -f3 | sed 's/\./ /g') )
+			if _check_ver "${REMOTE_VERSION[@]}" "${LOCAL_VERSION[@]}"; then
+				if [ "$2" == "--dry-run" ] || [ "$3" == "--dry-run" ]; then rm ./.bashrc; exit 0; fi
+				echo "Installing..."
+				cp ./.bashrc ~
+			fi
+			echo "Cleaning up..."
+			rm ./.bashrc; )
+			source ~/.bashrc
+			exit $?
+			;;
+		"*")
+			echo "Unknown option $1, please see confh --help for info about usage"
+			return 1
+			;;
+	esac
+}
+
+function _bash_profile {
+	case $1 in
+		"-e"|"--edit")
+			echo "Opening ~/.bash_profile in $EDITOR"
+			$EDITOR ~/.bash_profile || { echo "Variable EDITOR is not set, using nano"; nano ~/.bash_profile; }
+			return 0
+			;;
+		"-s"|"--resource")
+			echo "Resourcing ~/.bash_profile"
+			source ~/.bash_profile
+			return $?
+			;;
+		"-u"|"--update")
+			local REPO="https://raw.githubusercontent.com/BreadyX/dotfiles/master/.bash_profile"
+			LOCAL_VERSION=( $(sed '3q;d' ~/.bash_profile | cut -d ' ' -f3 | sed 's/\./ /g') )
+			( cd /tmp || { echo "/tmp is not available, please fix" > /dev/stderr ; return 1; }
+			echo "Checking for updates..."
+			wget -V &> /dev/null || { echo "wget is not installed. Please install wget and then continue" > /dev/stderr ; }
+			wget -O .bash_profile $REPO &> /dev/null
+			REMOTE_VERSION=( $(sed '3q;d' ./.bash_profile | cut -d ' ' -f3 | sed 's/\./ /g') )
+			if _check_ver "${REMOTE_VERSION[@]}" "${LOCAL_VERSION[@]}"; then
+				if [ "$2" == "--dry-run" ] || [ "$3" == "--dry-run" ]; then rm ./.bash_profile; exit 0; fi
+				echo "Installing..."
+				cp ./.bash_profile ~
+			fi
+			echo "Cleaning up..."
+			rm ./.bash_profile; )
+			source ~/.bash_profile
+			exit $?
+			;;
+		"*")
+			echo "Unknown option $1, please see confh --help for info about usage"
+			return 1
+			;;
+	esac
+}
+
+function _init_vim {
+    echo "$(tput setaf 196)NOT YET FULLY IMPLEMENTED, DON'T EXPECT CORRECT BEHAVIOUR$(tput sgr0)"
+	case $1 in
+		"-e"|"--edit")
+			echo "Opening init.vim in $EDITOR"
+			$EDITOR ~/.config/nvim/init.vim || { echo "Variable EDITOR is not set, using nano"; nano ~/.config/nvim/init.vim; }
+			return 0
+			;;
+		"-u"|"--upgrade")
+			CONFIRM=0
+			if [ "$2" == "--all" ] || [ "$3" == "--all" ]; then CONFIRM=1; fi
+			;;
+		*)
+			echo "Unknown option $1, please see conf --help for info about usage"
+			return 1
+			;;
+		esac
+}
+
+### SCRIPTINGS
+case $1 in
+	"--help"|"-h")
+		cat << EOF
+confh [CONF] [OPTION]
+Info commands:
+	confh --help|-h
+	confh --version|-v
+
+A helper for editing/sourcing/updating config files. This script handles :
+	- .bashrc
+	- .bash_profile
+	- init.vim
+Only this small set of scripts is handled because they are the most useful of the bunch.
+
+INFO:
+	confh --help 	displays this message
+	confh --version displays information about the version installed
+
+CONF:
+	-b --bashrc		operate one the .bashrc file
+	-B --bash_profile	operate on the .bash_profile
+	-V --initvim		operate on the init.vim file
+OPTIONS:
+	-e  --edit		edit the file
+	-u  --update		update the file to the latest version avialable from the github repo
+	-s  --resource		(ONLY FOR .bashrc AND .bash_profile) resource the file
+	    --dry-run		only checks for updates but doesn't apply anything
+	    --all		(ONLY FOR init.vim) update all the modules without asking
+EOF
+		exit 0
+		;;
+	"--version"|"-v")
+		cat << EOF
+confh - Part of BreadyX's utils (BXU)
+Current version: $CUR_VER
+EOF
+		;;
+	"--bashrc"|"-b")
+		_bashrc "$2" "$3"
+		exit $?
+		;;
+	"--bash_profile"|"-B")
+		_bash_profile "$2"
+		exit $?
+		;;
+	"--initvim"|"-V")
+		_init_vim "$2"
+		exit $?
+		;;
+	*)
+		echo "Invalid usage, please see 'rc --help' or 'rc -h' for informations" > /dev/stderr
+		exit 1
+		;;
+esac

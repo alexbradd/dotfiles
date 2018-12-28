@@ -1,26 +1,18 @@
 #
 # File: ~/.bash_profile
-# Version: 12.2018.1
+# Version: 12.2018.2
 # Author: BreadyX
 #
-# Script sourced by bash at each login. Sources the bashrc if exists and adds user's
-# private bin folders
+# Script sourced by bash at each login. Sets env variables, adds user's private bin 
+# folders and sources the bashrc if exists
 #
 
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
+### EXPORTS ###
+export EDITOR="nvim"
+export GPG_TTY=$(tty)s
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
+### INCLUDE USER BIN ###
+if [ -d "$HOME/.local/bin" ] ; then PATH="$HOME/.local/bin:$PATH"; export PATH; fi
 
-export PATH
+### SOURCE BASHRC ###
+[ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"

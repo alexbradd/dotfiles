@@ -1,7 +1,6 @@
 # BreadyX's dotfiles
 ## Descritpion
-This is a repo where I store all of my most important configuration files (`.bashrc`, `.vimrc` etc...)
-These configuration files have been written slowly as I have been learning programming to suit my needs, so be carful if you want to eventually use them as they can sometimes be buggy.
+This is a repo where I store all of my most important configuration files (`.bashrc`, `.vimrc` etc...) plus some scripts that I wrote. These files have been written to suit *my* needs and to work in *my* setup, so be carful if you want to eventually use them as they maybe won't play nice with yours.
 ## Versioning
 All the files that are written by me (bash config and neovim config) have the following header:
 ```
@@ -46,6 +45,7 @@ It is advised that you do this procedure in a tty outside of your DE by simply l
 	- Deoplete
 - git
 ## Features
+- *BreadyX's utils* (BXU): BXU is a small set of scripts that automate some functionality, maybe updating the configuration or providing information for the prompt. They can be found inside the `.local/bin` folder.
 - Plasma 5 and Latte Dock:
 	- Clean look with a minimal theme:
 		- Blur, traslucency and more eye candy is enabled to make everyithing look even better
@@ -65,7 +65,7 @@ It is advised that you do this procedure in a tty outside of your DE by simply l
 		- stash changes
 	- handy aliases for pacman and other stuff
 	- add to path the user private bin folder (~/bin and ~/.local/bin)
-- vim:
+- NeoVim:
 	- included some plugins that make life easier
 	- created some templates for common filetypes (tex ecc...)
 	- created some snippets for some langauges
