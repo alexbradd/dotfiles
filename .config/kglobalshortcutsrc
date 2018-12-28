@@ -4,6 +4,7 @@ switch-to-activity-0e87c719-3c6e-4862-80a7-816b13105c62=none,none,Switch to acti
 switch-to-activity-22b33cf5-6de8-47b7-b7fd-015498d7d23f=none,none,Switch to activity "Coding"
 
 [KDE Keyboard Layout Switcher]
+Switch keyboard layout to English (US)=none,none,Switch keyboard layout to English (US)
 Switch keyboard layout to Italian=none,none,Switch keyboard layout to Italian
 Switch to Next Keyboard Layout=none,none,Switch to Next Keyboard Layout
 _k_friendly_name=KDE Daemon
@@ -235,7 +236,7 @@ activate entry 6=,Meta+6,Activate Entry 6
 activate entry 7=,Meta+7,Activate Entry 7
 activate entry 8=,Meta+8,Activate Entry 8
 activate entry 9=,Meta+9,Activate Entry 9
-activate widget 28=Alt+F1,none,Activate Application Launcher Widget
+activate widget 53=none,none,Activate Digital Clock Widget
 clear-history=none,none,Clear Clipboard History
 clipboard_action=,Ctrl+Alt+X,Enable Clipboard Actions
 cycleNextAction=none,none,Next History Item

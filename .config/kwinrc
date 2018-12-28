@@ -42,7 +42,7 @@ TabBox=false
 TabBoxAlternative=false
 
 [Effect-PresentWindows]
-BorderActivate=0
+BorderActivate=2
 BorderActivateAll=9
 BorderActivateClass=9
 LayoutMode=1
@@ -61,12 +61,15 @@ WobblynessLevel=1
 [ElectricBorders]
 Bottom=None
 BottomLeft=None
-BottomRight=None
+BottomRight=ActivityManager
 Left=None
 Right=None
 Top=None
-TopLeft=ActivityManager
+TopLeft=None
 TopRight=None
+
+[ModifierOnlyShortcuts]
+Meta=org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu
 
 [MouseBindings]
 CommandActiveTitlebar1=Raise
@@ -154,7 +157,7 @@ ClickRaise=true
 DelayFocusInterval=200
 ElectricBorderCooldown=350
 ElectricBorderCornerRatio=0.25
-ElectricBorderDelay=150
+ElectricBorderDelay=75
 ElectricBorderMaximize=true
 ElectricBorderTiling=true
 ElectricBorders=0
@@ -182,6 +185,3 @@ ButtonsOnLeft=XIA
 ButtonsOnRight=SHM
 CloseOnDoubleClickOnMenu=false
 library=org.kde.breeze
-
-[ModifierOnlyShortcuts]
-Meta=org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu

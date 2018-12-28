@@ -10,6 +10,10 @@ FontWeight=50
 [Favorite Profiles]
 Favorites=
 
+[FileDialogSize]
+Height 1080=479
+Width 1920=641
+
 [General]
 UseTabForSwitchingSplitView=true
 Version=200
@@ -19,20 +23,20 @@ ViewPropsTimestamp=2018,10,16,20,8,41
 FontWeight=50
 
 [KPropertiesDialog]
-Height 1080=526
-Width 1920=446
+Height 1080=437
+Width 1920=400
 
 [MainWindow]
-Height 1080=1019
+Height 1080=663
 MenuBar=Disabled
-State=AAAA/wAAAAD9AAAAAwAAAAAAAACjAAAD1fwCAAAAAvsAAAAWAGYAbwBsAGQAZQByAHMARABvAGMAawAAAAAA/////wAAAAoBAAAD+wAAABQAcABsAGEAYwBlAHMARABvAGMAawEAAAAmAAAD1QAAAFoBAAADAAAAAQAAAAAAAAAA/AIAAAAB+wAAABAAaQBuAGYAbwBEAG8AYwBrAAAAAAD/////AAAACgEAAAMAAAADAAADwAAAAL78AQAAAAH7AAAAGAB0AGUAcgBtAGkAbgBhAGwARABvAGMAawAAAAAAAAADwAAAAAoBAAADAAAG3AAAA9UAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
+State=AAAA/wAAAAD9AAAAAwAAAAAAAACjAAAD9fwCAAAAAvsAAAAWAGYAbwBsAGQAZQByAHMARABvAGMAawAAAAAA/////wAAAAoBAAAD+wAAABQAcABsAGEAYwBlAHMARABvAGMAawEAAAAmAAAD9QAAAFoBAAADAAAAAQAAAAAAAAAA/AIAAAAB+wAAABAAaQBuAGYAbwBEAG8AYwBrAAAAAAD/////AAAACgEAAAMAAAADAAAHgAAAAa38AQAAAAH7AAAAGAB0AGUAcgBtAGkAbgBhAGwARABvAGMAawAAAAAAAAAHgAAAAAoBAAADAAAG3AAAA/UAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
 ToolBarsMovable=Disabled
 Width 1920=960
 Window-Maximized 1080x1920=true
 
 [Open-with settings]
 CompletionMode=1
-History=ka,vlc,vim
+History=kate,ka,vlc,vim
 
 [PreviewSettings]
 Plugins=appimagethumbnail,audiothumbnail,comicbookthumbnail,djvuthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,opendocumentthumbnail,svgthumbnail

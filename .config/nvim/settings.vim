@@ -1,6 +1,6 @@
 "
 " File: settings.vim
-" Version: 12.2018.0
+" Version: 12.2018.1
 " Author: BreadyX
 "
 " Module for the init.vim that contains some general settings as well some
@@ -8,14 +8,17 @@
 "
 
 " ## GENERAL SETTINGS ## "
-	set nu rnu 			" Enable line numbers and relative line numbers
 	set nocompatible		" Remove compatibility with VI
+	set nu rnu 			" Enable line numbers and relative line numbers
 	filetype on			" Determine filetype based on stuff
 	syntax on			" Enable syntax highlighting
 	set encoding=utf-8		" Set NeoVim's encoding for opening files
 	set fileencoding=utf-8		" Set NeoVim's encoding for creating new files
+	set wildmode=longest,list,full	" Sets up NeoVim's autocompletion (borrowed from Vim8)
 	set splitbelow splitright	" Change split spawining points
-	set wrap linebreak nolist	" Set good looking line wrapping
+	set wrap linebreak nolist	" Enable good looking line wrapping
+	set incsearch			" Enables incremental search
+	set hlsearch			" Enables search result highlighting
 
 " ## AESTHETIC AND CUSTOMIZATION ## "
 	colorscheme darcula
@@ -27,6 +30,10 @@
 		" Enable linenr even in Goyo
 	let g:goyo_linenr = 1
 
+		" limelight
+		" Fix for unsupported colorscheme
+	let g:limelight_conceal_ctermfg = 'gray'
+	let g:limelight_conceal_guifg = 'DarkGray'
 		" deoplete
 	let g:deoplete#enable_at_startup = 1	" enable deoplete autocompletion
 
@@ -44,5 +51,5 @@
 	if MyOnBattery() " simple conditional to configure neomake
 		call neomake#configure#automake('w')
 	else
-		call neomake#configure#automake('nrwi', 500)
+		call neomake#configure#automake('nrw', 1000)
 	endif

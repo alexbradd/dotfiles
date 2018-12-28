@@ -1,6 +1,6 @@
 "
 " File: bindings.vim
-" Version: 12.2018.0
+" Version: 12.2018.1
 " Author: BreadyX
 "
 " Module for the init.vim that contains only various key bindings
