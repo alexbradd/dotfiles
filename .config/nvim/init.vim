@@ -11,8 +11,12 @@
 " ### Plugins (installed with vim-plug) ### "
 	call plug#begin('~/.local/share/nvim/plugged')
 		" LINT-COMPLETE "
-	Plug 'https://github.com/neomake/neomake.git'
+	Plug 'autozimu/LanguageClient-neovim', {
+		\ 'branch': 'next',
+		\ 'do': 'bash install.sh',
+		\ }
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'https://github.com/neomake/neomake.git'
 		" FUNCTIONALITY"
 	Plug 'https://github.com/tpope/vim-surround.git'
 	Plug 'https://github.com/xuhdev/vim-latex-live-preview.git'

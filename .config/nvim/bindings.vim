@@ -42,3 +42,5 @@
 	nnoremap <silent> <C-p> :Goyo<CR>
 		" Enable latex preview
 	nnoremap <silent> <C-o> :LLPStartPreview<Cr>
+		" Map LanguageClient dialog
+	nnoremap <C-m> :call LanguageClient_contextMenu()<CR>

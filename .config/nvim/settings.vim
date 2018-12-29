@@ -19,6 +19,7 @@
 	set wrap linebreak nolist	" Enable good looking line wrapping
 	set incsearch			" Enables incremental search
 	set hlsearch			" Enables search result highlighting
+	set hidden			" Required for LanguageClient
 
 " ## AESTHETIC AND CUSTOMIZATION ## "
 	colorscheme darcula
@@ -37,6 +38,11 @@
 		" deoplete
 	let g:deoplete#enable_at_startup = 1	" enable deoplete autocompletion
 
+		" LanguageClient
+	let g:LanguageClient_serverCommands = {
+		\ 'c': [ '/usr/bin/clangd' ],
+		\ }
+
 		" neomake
 		" Checks if computer is on battery, if not goes full out on
 		" linting
@@ -51,5 +57,5 @@
 	if MyOnBattery() " simple conditional to configure neomake
 		call neomake#configure#automake('w')
 	else
-		call neomake#configure#automake('nrw', 1000)
+		call neomake#configure#automake('nw', 500)
 	endif
