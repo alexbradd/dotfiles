@@ -6,6 +6,9 @@
 #
 # Small script that prints formatted information about the git repository opened
 #
+
+CUR_VER=$( sed '4q;d' ~/.local/bin/confh | cut -d ' ' -f3)
+
 if [ -z "$1" ]; then
 	if [ -d "./.git" ]; then
 		REPO="$(git config --get remote.origin.url | cut -d "/" --fields="$(seq --separator=" " 3 100)")"

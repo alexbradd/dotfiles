@@ -8,7 +8,7 @@
 # some functionality that can be integrated in prompt (autorm -c)
 #
 
-CUR_VER="12.2018.0"
+CUR_VER=$( sed '4q;d' ~/.local/bin/confh | cut -d ' ' -f3)
 
 STEP=600
 PACN=0

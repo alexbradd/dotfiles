@@ -1,12 +1,12 @@
 #! /bin/bash
 #
 # File: confh
-# Version: 12.2018.0
+# Version: 12.2018.1
 # Author: BreadyX
 #
 # A simple utility to manage the mos important config files
 
-CUR_VER="12.2018.0"
+CUR_VER=$( sed '4q;d' ~/.local/bin/confh | cut -d ' ' -f3)
 
 function _check_ver {
 	if [ "$1" -gt "$4" ] || [ "$2" -gt "$5" ] || [ "$3" -gt "$6" ]; then
