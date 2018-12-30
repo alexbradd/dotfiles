@@ -1,6 +1,6 @@
 #
 # File: ~/.bashrc
-# Version: 12.2018.7
+# Version: 12.2018.8
 # Author: BreadyX
 #
 # Scripts sourced by bash at each prompt redraw. It contains all the prompt customization and
@@ -10,6 +10,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+shopt -s autocd
+shopt -s histappend
+shopt -s checkwinsize
 tabs 5
 
 ### ALIASES ###
