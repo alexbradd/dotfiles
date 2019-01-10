@@ -152,6 +152,7 @@ AutoRaiseInterval=250
 AutogroupInForeground=true
 AutogroupSimilarWindows=false
 BorderSnapZone=10
+BorderlessMaximizedWindows=false
 CenterSnapZone=0
 ClickRaise=true
 DelayFocusInterval=200

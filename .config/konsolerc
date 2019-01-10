@@ -2,7 +2,7 @@
 DefaultProfile=Default (Trasparent).profile
 
 [Favorite Profiles]
-Favorites=Default (Trasparent).profile,Black.profile,Deafult.profile
+Favorites=Black.profile,Default (Trasparent).profile,Deafult.profile
 
 [KonsoleWindow]
 ShowAppNameOnTitleBar=false
@@ -10,7 +10,8 @@ ShowWindowTitleOnTitleBar=true
 
 [MainWindow]
 Height 1080=1051
-State=AAAA/wAAAAD9AAAAAAAAB4AAAAP+AAAABAAAAAQAAAAIAAAACPwAAAAA
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAAA8AAAAQbAAAABAAAAAQAAAAIAAAACPwAAAAA
 ToolBarsMovable=Disabled
 Width 1920=960
 

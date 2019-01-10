@@ -29,7 +29,7 @@ immutability=1
 lastScreen=0
 location=0
 plugin=org.kde.desktopcontainment
-wallpaperplugin=org.kde.image
+wallpaperplugin=org.kde.slideshow
 
 [Containments][20][Applets][26][Configuration][General]
 sources=partitions%2F%2Ffilllevel,partitions%2Fhome%2Ffilllevel
@@ -49,6 +49,10 @@ Image=file:///home/breadyx/Pictures/Wallpaper/arch-linux-hd.png
 
 [Containments][20][Wallpaper][org.kde.potd][General]
 Provider=bing
+
+[Containments][20][Wallpaper][org.kde.slideshow][General]
+SlideInterval=30
+SlidePaths=/home/breadyx/Pictures/Wallpaper/phra
 
 [Containments][28]
 activityId=22b33cf5-6de8-47b7-b7fd-015498d7d23f
@@ -81,7 +85,19 @@ pressToMoveHelp=false
 showToolbox=false
 
 [Containments][28][Wallpaper][org.kde.image][General]
-Image=file:///home/breadyx/Pictures/Wallpaper/arch-linux-hd-ascii.png
+Image=file:///home/breadyx/Pictures/Wallpaper/arch-linux-hd.png
+
+[Containments][29]
+activityId=ee01a75a-e67c-43af-a913-0528668df8a7
+formfactor=0
+immutability=1
+lastScreen=0
+location=0
+plugin=org.kde.plasma.folder
+wallpaperplugin=org.kde.image
+
+[Containments][29][Configuration]
+PreloadWeight=34
 
 [General]
 immutability=1
