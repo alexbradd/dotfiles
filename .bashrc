@@ -19,7 +19,6 @@ tabs 5
 # Misc
 alias ls="ls -a --color=auto"
 alias cls="clear"
-alias vimrc="nvim ~/.config/nvim/init.vim"
 alias darkscrn="xset dpms force off"
 
 # Pacman aliases
@@ -36,25 +35,30 @@ alias remove="sudo pacman -R"
 # \$ command separator
 
 # Colors and stuff
-RED=$(tput setaf 196)
-ORANGE=$(tput setaf 166)
-BLUE=$(tput setaf 33)
-GREEN=$(tput setaf 34)
-WHITE=$(tput setaf 255)
+RED=$(tput setaf 1)
+BLUE=$(tput setaf 12)
+GREEN=$(tput setaf 2)
 
+BOLD=$(tput bold)
 ITALICS=$(tput sitm)
-TAB=$(echo -e "\t")
 
 RESET=$(tput sgr0)
 
-PS1="\n\[$WHITE\](\A) - " # Current time
-PS1+="\[$RED\]\u " # User
-PS1+="\[$WHITE\]at "
-PS1+="\[$BLUE\]\[$ITALICS\]\h " # Host
-PS1+="\[$WHITE\]in "
-PS1+="\[$GREEN\]\[$ITALICS\]\w " # Working directory
-PS1+="\[$RESET\]| \$(autorm -c)"
-PS1+="\n${TAB}\[$ORANGE\]\$(gitsum)"
-PS1+="\[$RESET\]\n\$ "
+# PS1="\n\[$WHITE\](\A) - " # Current time
+# PS1+="\[$RED\]\u " # User
+# PS1+="\[$WHITE\]at "
+# PS1+="\[$BLUE\]\[$ITALICS\]\h " # Host
+# PS1+="\[$WHITE\]in "
+# PS1+="\[$GREEN\]\[$ITALICS\]\w " # Working directory
+# PS1+="\[$RESET\]" #| \$(autorm -c)"
+# PS1+="| \[$ORANGE\]\$(gitsum 4)"
+# PS1+="\[$RESET\]\n\$ "
+
+PS1="[\[$BLUE\]\[$BOLD\] \w \[$RESET\]] " # Current directory
+PS1+="\[$GREEN\]\$(gitsum 4) "
+PS1+="\[$RED\]➜ \[$RESET\]"
 
 export PS1;
+
+### AUTORUN ###
+echo -e "Hi Alex, it is $(date +%H:%M) $(date +%d/%m/%Y).\nHave a great terminal session!" | cowsay # Greet me at every login

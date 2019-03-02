@@ -7,61 +7,62 @@
 # Small script that prints formatted information about the git repository opened
 #
 
-CUR_VER=$( sed '4q;d' ~/.local/bin/confh | cut -d ' ' -f3)
+CUR_VER=$( sed '4q;d' ~/.local/bin/gitsum | cut -d ' ' -f3)
 
 function makeprompt {
-	REPO="$(git config --get remote.origin.url | cut -d "/" --fields="$(seq --separator=" " 3 100)")"
-	BRANCH="$(git branch | grep "\*" | cut -d " " -f2)"
-	if [ -n "$(git stash list)" ]; then STASHED="$"; fi
-	if [ -n "$(git log origin/"$BRANCH"..HEAD)" ]; then UNPUSHED="+"; fi
-	if [ -n "$(git status -u -s)" ]; then UNTRACKED="*"; fi
-	echo -e "$REPO; $BRANCH; [$UNTRACKED$UNPUSHED$STASHED]"
+	#REPO="$(git config --get remote.origin.url | cut -d "/" --fields="$(seq --separator=" " 3 100)")"
+	if [ $(git branch | wc -l) -ge 1 ]; then
+		BRANCH="$(git branch | grep "\*" | cut -d " " -f2)"
+	else
+		BRANCH="NA"
+	fi
+	[ -n "$(git stash list)" ] && STASHED="$"
+	[ "$(git remote | wc -l)" -ge 1 ] && [ -n "$(git log origin/"$BRANCH"..HEAD)" ] && UNPUSHED="+"
+	[ -n "$(git status -u -s)" ] && UNTRACKED="*"
+	echo -e " $BRANCH; [$UNTRACKED$UNPUSHED$STASHED]"
 }
 
-if [ -z "$1" ]; then
-	if [ -d "./.git" ]; then makeprompt; else echo "Not a git repository"; fi
-else
-	case $1 in
-		"-h"|"--help")
-			cat << EOF
+case $1 in
+	"-h"|"--help")
+		cat << EOF
 gitsum [NUMBER] [OPTIONS]
 
 Simple script that formats quick summary about the repository in the currento working directory. It can be used inside the prompt to add git integration.
 The script will analize recursively going back NUMBER dirctories
 
 OPTIONS:
-	-h --help       Display this message
-	-v --version    Display version info
+-h --help       Display this message
+-v --version    Display version info
 EOF
-			;;
-		"-v"|"--version")
-			cat << EOF
+		;;
+	"-v"|"--version")
+		cat << EOF
 gitsum - part of BreadyX's utils (BXU)
 Current Version: $CUR_VER
 EOF
+	;;
+	[0-9])
+		RECURSE="$1"
+		if [ -d "./.git" ]; then
+			makeprompt
+		else
+			TOCHECK=""
+			for (( i=0; i<$RECURSE; i++ )); do
+				TOCHECK+="../"
+				if [ -d "$TOCHECK/.git" ]; then
+					makeprompt
+					break
+				fi
+			done
+		fi
+		exit 0
 		;;
-		[0-9])
-			RECURSE="$1"
-			if [ -d "./.git" ]; then
-				makeprompt
-			else
-				TOCHECK=""
-				FOUND=0
-				for (( i=0; i<$RECURSE; i++ )); do
-					TOCHECK+="../"
-					if [ -d "$TOCHECK/.git" ]; then
-						FOUND=1
-						makeprompt
-						break
-					fi
-				done
-				[ "$FOUND" -eq 0 ] && echo "Not a git repository"
-			fi
-			exit 0
-			;;
-		*)
-			echo "Invalid option, for help use git_hud --help" > /dev/stderr
-			exit 1
-			;;
-	esac
-fi
+	"")
+		if [ -d "./.git" ]; then makeprompt; else echo ""; fi
+		exit 0
+		;;
+	*)
+		echo "Invalid option, for help use git_hud --help" > /dev/stderr
+		exit 1
+		;;
+esac
