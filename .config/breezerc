@@ -2,4 +2,8 @@
 ShadowSize=ShadowSmall
 
 [Style]
-MenuOpacity=51
+MenuOpacity=70
+
+[Windeco]
+DrawBackgroundGradient=false
+TitleAlignment=AlignRight

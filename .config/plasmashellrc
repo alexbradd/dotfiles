@@ -1,32 +1,38 @@
-[Containments][2][General]
-AppletOrder=3;13;22;6;8;14
-
-[Containments][7][General]
-extraItems=org.kde.plasma.mediacontroller,org.kde.plasma.devicenotifier,org.kde.plasma.notifications,org.kde.plasma.clipboard,org.kde.plasma.networkmanagement,org.kde.plasma.volume,org.kde.plasma.keyboardindicator,org.kde.kdeconnect,org.kde.plasma.printmanager,org.kde.discovernotifier
-knownItems=org.kde.plasma.mediacontroller,org.kde.plasma.battery,org.kde.plasma.devicenotifier,org.kde.plasma.notifications,org.kde.plasma.clipboard,org.kde.plasma.networkmanagement,org.kde.plasma.volume,org.kde.plasma.vault,org.kde.plasma.keyboardindicator,org.kde.kdeconnect,org.kde.plasma.printmanager,org.kde.discovernotifier
-
-[DownloadDialog Settings]
-Height 1080=510
-Width 1920=700
+[Containments][26][General]
+AppletOrder=27
 
 [KFileDialog Settings]
-Recent Files[$e]=code-bg.jpg,file:$HOME/Pictures/Wallpaper/arch-linux-hd-ascii.png,file:$HOME/Pictures/Wallpaper/arch-linux-hd.png,file:$HOME/Pictures/Wallpaper/code-bg.jpg
+Recent Files[$e]=arch-linux-hd.png,file:$HOME/Pictures/Wallpaper/arch-linux-hd.png
 Recent URLs[$e]=file:$HOME/Pictures/Wallpaper/
 
 [KPropertiesDialog]
-Height 1080=449
-Width 1920=425
+Height 768=456
+Width 1366=418
 
 [PlasmaRunnerManager]
-LaunchCounts=2 services_org.kde.ktorrent.desktop,5 services_chromium.desktop,4 services_org.kde.ksysguard.desktop,8 services_org.kde.discover.desktop,1 services_code-oss.desktop,2 services_spotify.desktop,9 services_org.kde.dolphin.desktop,1 services_gimp.desktop,1 services_cups.desktop,1 services_org.kde.spectacle.desktop,13 services_com.spotify.Client.desktop,1 services_kcm_kaccounts.desktop,1 services_org.kde.konsole.desktop,23 services_google-chrome.desktop,7 services_kcm_kdeconnect.desktop,4 services_com.discordapp.Discord.desktop,2 services_firefox.desktop,1 services_org.kde.latte-dock.desktop,1 bookmarks_https://sms.chocolate.systems/my_programme/2/3dcb6c77-ba12-4b44-9253-77f4dd9416e2,1 services_cache.desktop,43 services_systemsettings.desktop,1 services_org.kde.kleopatra.desktop,1 services_kcm_touchpad.desktop,2 services_kwalletconfig5.desktop,7 services_speedcrunch.desktop,2 services_gparted.desktop,1 services_bleachbit.desktop,4 services_com.valvesoftware.Steam.desktop,1 services_blender.desktop,1 services_hplip.desktop,3 services_org.kde.kinfocenter.desktop
-pluginWhiteList=services,places,desktopsessions,PowerDevil,shell,bookmarks,recentdocuments,locations,baloosearch
+LaunchCounts=1 services_kwalletconfig5.desktop,1 services_google-chrome.desktop,1 services_cantata.desktop,8 services_org.kde.konsole.desktop,40 services_systemsettings.desktop,1 services_kvantummanager.desktop,2 services_xfce4-terminal-settings.desktop,1 services_org.kde.latte-dock.desktop,4 services_firefox.desktop,1 services_clementine.desktop,1 services_vlc.desktop,6 services_xfce4-terminal.desktop,1 services_com.valvesoftware.Steam.desktop,1 services_speedcrunch.desktop,2 services_org.kde.discover.desktop,1 services_org.kde.kwalletmanager5.desktop,3 services_com.discordapp.Discord.desktop,1 services_chrome-gbchcmhmhahfdphkhkmpfmihenigjmpp-Default.desktop,2 services_com.spotify.Client.desktop,3 services_org.kde.dolphin.desktop,1 services_pcmanfm.desktop,3 services_gparted.desktop
+pluginWhiteList=services,desktopsessions,PowerDevil
 
-[PlasmaViews][Panel 2][Horizontal1920]
-thickness=36
+[PlasmaTransientsConfig]
+PreloadWeight=34
+
+[PlasmaViews][Panel 2][Horizontal1366]
+thickness=30
+
+[PlasmaViews][Panel 2][Vertical768]
+thickness=30
+
+[PlasmaViews][Panel 26]
+alignment=132
+panelVisibility=1
+
+[PlasmaViews][Panel 26][Horizontal1366]
+maxLength=1342
+minLength=76
+thickness=42
 
 [ScreenConnectors]
-0=HDMI-0
-1=:0.0
+0=eDP
 
 [Updates]
 performed=/usr/share/plasma/shells/org.kde.plasma.desktop/contents/updates/obsolete_kickoffrc.js

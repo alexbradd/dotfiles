@@ -1,41 +1,14 @@
-[Favorites-org.kde.plasma.kicker.favorites.instance-4-0e87c719-3c6e-4862-80a7-816b13105c62]
+[Favorites-org.kde.plasma.kicker.favorites.instance-29-944b2aa4-cb00-4fb4-9c7e-cf7b025e5883]
 ordering=preferred://browser,kontact.desktop,systemsettings.desktop,org.kde.dolphin.desktop,ktp-contactlist.desktop,org.kde.kate.desktop,org.kde.discover
 
-[Favorites-org.kde.plasma.kicker.favorites.instance-4-global]
-ordering=preferred://browser,kontact.desktop,systemsettings.desktop,org.kde.dolphin.desktop,ktp-contactlist.desktop,org.kde.kate.desktop,org.kde.discover
+[Favorites-org.kde.plasma.kicker.favorites.instance-29-d542897f-f432-44cf-9b76-4788507c317b]
+ordering=preferred://browser,applications:systemsettings.desktop,applications:org.kde.dolphin.desktop,applications:org.kde.kate.desktop,applications:nvim.desktop,applications:firefox.desktop,applications:com.spotify.Client.desktop
 
-[Favorites-org.kde.plasma.kicker.favorites.instance-41-0e87c719-3c6e-4862-80a7-816b13105c62]
-ordering=preferred://browser,kontact.desktop,systemsettings.desktop,org.kde.dolphin.desktop,ktp-contactlist.desktop,org.kde.kate.desktop,org.kde.discover
+[Favorites-org.kde.plasma.kicker.favorites.instance-29-global]
+ordering=preferred://browser,applications:systemsettings.desktop,applications:org.kde.dolphin.desktop,applications:org.kde.kate.desktop,applications:nvim.desktop,applications:firefox.desktop,applications:com.spotify.Client.desktop
 
-[Favorites-org.kde.plasma.kicker.favorites.instance-41-global]
-ordering=preferred://browser,kontact.desktop,systemsettings.desktop,org.kde.dolphin.desktop,ktp-contactlist.desktop,org.kde.kate.desktop,org.kde.discover
-
-[Favorites-org.kde.plasma.kickoff.favorites.instance-23-0e87c719-3c6e-4862-80a7-816b13105c62]
-ordering=preferred://browser,kontact.desktop,systemsettings.desktop,org.kde.dolphin.desktop,ktp-contactlist.desktop,org.kde.kate.desktop,org.kde.discover.desktop
-
-[Favorites-org.kde.plasma.kickoff.favorites.instance-23-global]
-ordering=preferred://browser,kontact.desktop,systemsettings.desktop,org.kde.dolphin.desktop,ktp-contactlist.desktop,org.kde.kate.desktop,org.kde.discover.desktop
-
-[Favorites-org.kde.plasma.kickoff.favorites.instance-28-0e87c719-3c6e-4862-80a7-816b13105c62]
-ordering=preferred://browser,kontact.desktop,systemsettings.desktop,org.kde.dolphin.desktop,ktp-contactlist.desktop,org.kde.kate.desktop,org.kde.discover.desktop
-
-[Favorites-org.kde.plasma.kickoff.favorites.instance-28-global]
-ordering=preferred://browser,kontact.desktop,systemsettings.desktop,org.kde.dolphin.desktop,ktp-contactlist.desktop,org.kde.kate.desktop,org.kde.discover.desktop
-
-[Favorites-org.kde.plasma.kickoff.favorites.instance-3-0e87c719-3c6e-4862-80a7-816b13105c62]
+[Favorites-org.kde.plasma.kickoff.favorites.instance-3-944b2aa4-cb00-4fb4-9c7e-cf7b025e5883]
 ordering=preferred://browser,kontact.desktop,systemsettings.desktop,org.kde.dolphin.desktop,ktp-contactlist.desktop,org.kde.kate.desktop,org.kde.discover.desktop
 
 [Favorites-org.kde.plasma.kickoff.favorites.instance-3-global]
-ordering=preferred://browser,kontact.desktop,systemsettings.desktop,org.kde.dolphin.desktop,ktp-contactlist.desktop,org.kde.kate.desktop,org.kde.discover.desktop
-
-[Favorites-org.kde.plasma.kickoff.favorites.instance-41-0e87c719-3c6e-4862-80a7-816b13105c62]
-ordering=preferred://browser,kontact.desktop,systemsettings.desktop,org.kde.dolphin.desktop,ktp-contactlist.desktop,org.kde.kate.desktop,org.kde.discover.desktop
-
-[Favorites-org.kde.plasma.kickoff.favorites.instance-41-global]
-ordering=preferred://browser,kontact.desktop,systemsettings.desktop,org.kde.dolphin.desktop,ktp-contactlist.desktop,org.kde.kate.desktop,org.kde.discover.desktop
-
-[Favorites-org.kde.plasma.kickoff.favorites.instance-68-0e87c719-3c6e-4862-80a7-816b13105c62]
-ordering=preferred://browser,kontact.desktop,systemsettings.desktop,org.kde.dolphin.desktop,ktp-contactlist.desktop,org.kde.kate.desktop,org.kde.discover.desktop
-
-[Favorites-org.kde.plasma.kickoff.favorites.instance-68-global]
 ordering=preferred://browser,kontact.desktop,systemsettings.desktop,org.kde.dolphin.desktop,ktp-contactlist.desktop,org.kde.kate.desktop,org.kde.discover.desktop

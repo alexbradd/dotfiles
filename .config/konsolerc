@@ -1,23 +1,18 @@
 [Desktop Entry]
-DefaultProfile=Default (Trasparent).profile
+DefaultProfile=Breeze Blurred.profile
 
 [Favorite Profiles]
-Favorites=Black.profile,Default (Trasparent).profile,Deafult.profile
-
-[KonsoleWindow]
-ShowAppNameOnTitleBar=false
-ShowWindowTitleOnTitleBar=true
+Favorites=Breeze.profile,Breeze Blurred.profile
 
 [MainWindow]
-Height 1080=1051
-MenuBar=Disabled
-State=AAAA/wAAAAD9AAAAAAAAA8AAAAQbAAAABAAAAAQAAAAIAAAACPwAAAAA
+Height 768=709
+State=AAAA/wAAAAD9AAAAAAAABVYAAAKZAAAABAAAAAQAAAAIAAAACPwAAAAA
 ToolBarsMovable=Disabled
-Width 1920=960
+Width 1366=683
 
 [Profile Shortcuts]
-Ctrl+Shift+D=Default (Trasparent).profile
+Ctrl+Alt+B=Breeze Blurred.profile
+Ctrl+B=Breeze.profile
 
 [TabBar]
-ShowQuickButtons=true
 TabBarPosition=Top

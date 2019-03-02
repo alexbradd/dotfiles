@@ -1,25 +1,26 @@
 [$Version]
-update_info=kwin.upd:replace-scalein-with-scale
+update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-effect-to-js,kwin.upd:port-scale-effect-to-js,kwin.upd:port-dimscreen-effect-to-js
 
 [Compositing]
-AnimationSpeed=3
+AnimationSpeed=2
 Backend=OpenGL
 Enabled=true
 GLCore=true
 GLPreferBufferSwap=a
-GLTextureFilter=2
+GLTextureFilter=0
 HiddenPreviews=5
 OpenGLIsUnsafe=false
 WindowsBlockCompositing=true
 XRenderSmoothScale=false
 
 [Desktops]
+Id_1=9125e501-5715-44f3-8533-e46d4130e409
+Id_2=2c444f8f-83a9-4cf2-b354-8d29a75ca862
 Number=2
 Rows=1
 
 [Effect-Blur]
-BlurStrength=15
-NoiseStrength=7
+BlurStrength=12
 
 [Effect-CoverSwitch]
 TabBox=false
@@ -42,34 +43,22 @@ TabBox=false
 TabBoxAlternative=false
 
 [Effect-PresentWindows]
-BorderActivate=2
+BorderActivate=9
 BorderActivateAll=9
 BorderActivateClass=9
-LayoutMode=1
 TouchBorderActivate=7
 TouchBorderActivateAll=9
 TouchBorderActivateClass=9
 
-[Effect-Slide]
-SlideBackground=false
-
-[Effect-Wobbly]
-Drag=85
-Stiffness=10
-WobblynessLevel=1
-
 [ElectricBorders]
 Bottom=None
 BottomLeft=None
-BottomRight=ActivityManager
+BottomRight=None
 Left=None
 Right=None
 Top=None
 TopLeft=None
 TopRight=None
-
-[ModifierOnlyShortcuts]
-Meta=org.kde.lattedock,/Latte,org.kde.LatteDock,activateLauncherMenu
 
 [MouseBindings]
 CommandActiveTitlebar1=Raise
@@ -92,18 +81,11 @@ CommandWindowWheel=Scroll
 [Plugins]
 blurEnabled=true
 contrastEnabled=true
+coverswitchEnabled=true
 desktopchangeosdEnabled=false
-diminactiveEnabled=true
-dimscreenEnabled=true
-glideEnabled=true
+flipswitchEnabled=true
 highlightwindowEnabled=true
-kwin4_effect_eyeonscreenEnabled=true
-kwin4_effect_fadeEnabled=false
-kwin4_effect_translucencyEnabled=false
-kwin4_effect_windowapertureEnabled=false
-resizeEnabled=true
 windowgeometryEnabled=false
-zoomEnabled=false
 
 [Script-desktopchangeosd]
 PopupHideDelay=1000
@@ -118,7 +100,7 @@ DesktopLayout=org.kde.breeze.desktop
 DesktopListLayout=org.kde.breeze.desktop
 DesktopMode=1
 HighlightWindows=true
-LayoutName=big_icons
+LayoutName=informative
 MinimizedMode=0
 MultiScreenMode=0
 ShowDesktopMode=0
@@ -132,7 +114,7 @@ ActivitiesMode=1
 ApplicationsMode=0
 DesktopMode=1
 HighlightWindows=true
-LayoutName=org.kde.breeze.desktop
+LayoutName=compact
 MinimizedMode=0
 MultiScreenMode=0
 ShowDesktopMode=0
@@ -146,24 +128,23 @@ Right=None
 Top=None
 
 [Windows]
-ActiveMouseScreen=true
-AutoRaise=true
-AutoRaiseInterval=250
+ActiveMouseScreen=false
+AutoRaise=false
+AutoRaiseInterval=750
 AutogroupInForeground=true
 AutogroupSimilarWindows=false
 BorderSnapZone=10
-BorderlessMaximizedWindows=false
 CenterSnapZone=0
 ClickRaise=true
-DelayFocusInterval=200
+DelayFocusInterval=300
 ElectricBorderCooldown=350
 ElectricBorderCornerRatio=0.25
-ElectricBorderDelay=75
+ElectricBorderDelay=150
 ElectricBorderMaximize=true
 ElectricBorderTiling=true
 ElectricBorders=0
 FocusPolicy=ClickToFocus
-FocusStealingPreventionLevel=0
+FocusStealingPreventionLevel=1
 GeometryTip=false
 HideUtilityWindowsForInactive=true
 InactiveTabsSkipTaskbar=false
@@ -172,7 +153,7 @@ MaximizeButtonMiddleClickCommand=Maximize (vertical only)
 MaximizeButtonRightClickCommand=Maximize (horizontal only)
 NextFocusPrefersMouse=false
 Placement=Centered
-RollOverDesktops=false
+RollOverDesktops=true
 SeparateScreenFocus=false
 ShadeHover=false
 ShadeHoverInterval=250
@@ -182,7 +163,8 @@ WindowSnapZone=10
 
 [org.kde.kdecoration2]
 BorderSize=None
-ButtonsOnLeft=XIA
-ButtonsOnRight=SHM
+ButtonsOnLeft=XIS
+ButtonsOnRight=HM
 CloseOnDoubleClickOnMenu=false
 library=org.kde.breeze
+theme=

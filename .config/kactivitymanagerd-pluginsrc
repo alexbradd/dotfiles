@@ -1,7 +1,2 @@
 [Plugin-org.kde.ActivityManager.Resources.Scoring]
-allowed-applications=org.kde.ark,org.kde.dolphin,org.kde.kate,org.kde.kdialog,org.kde.krunner,org.kde.libtaskmanager,org.kde.plasma.kicker,org.kde.systemsettings,vlc
-blocked-applications=
-blocked-by-default=false
-keep-history-for=0
 off-the-record-activities=
-what-to-remember=0
