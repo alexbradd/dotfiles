@@ -1,6 +1,6 @@
 #
 # File: ~/.bashrc
-# Version: 12.2018.8
+# Version: 4.2019.0
 # Author: BreadyX
 #
 # Scripts sourced by bash at each prompt redraw. It contains all the prompt customization and
@@ -10,10 +10,15 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Source basic bash config
+[[ -f /etc/bashrc ]] && source /etc/bashrc
+
 shopt -s autocd
 shopt -s histappend
 shopt -s checkwinsize
-tabs 5
+
+### INCLUDE USER BIN ###
+if [ -d "$HOME/.local/bin" ] ; then PATH="$HOME/.local/bin:$PATH"; export PATH; fi
 
 ### ALIASES ###
 # Misc
@@ -21,10 +26,23 @@ alias ls="ls -a --color=auto"
 alias cls="clear"
 alias darkscrn="xset dpms force off"
 
-# Pacman aliases
-alias install="sudo pacman -S"
-alias update="sudo pacman -Syu"
-alias remove="sudo pacman -R"
+# Editors
+alias visu="sudo vim"
+alias nv="nvim"
+alias v="vim"
+
+# Random
+alias noice='echo "*click* $(tput sitm)noice$(tput sgr0)"'
+
+# Directories
+alias cd-s='cd ~/Documents/School/'
+alias cd-c='cd ~/Code/'
+
+# dnf aliases
+alias install="sudo dnf install"
+alias update="sudo dnf upgrade"
+alias remove="sudo dnf remove"
+alias autoremove="sudo dnf autoremove"
 
 ### PROMPT PERSONALIZATION ###
 # Special characters
@@ -55,7 +73,7 @@ RESET=$(tput sgr0)
 # PS1+="\[$RESET\]\n\$ "
 
 PS1="[\[$BLUE\]\[$BOLD\] \w \[$RESET\]] " # Current directory
-PS1+="\[$GREEN\]\$(gitsum 4) "
+PS1+="\[$GREEN\]\$(gitsum 4)"
 PS1+="\[$RED\]➜ \[$RESET\]"
 
 export PS1;

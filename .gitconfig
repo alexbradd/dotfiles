@@ -1,6 +1,6 @@
 #
 # File: .gitconfig
-# Version: 28-11-18-1
+# Version: 04.2019.0
 # Author: BreadyX
 #
 # My main git configuration file
@@ -25,13 +25,3 @@
 	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 	prune = fetch --prune
 	stash-all = stash push --include-untracked
-[diff]
-	tool = kdiff3
-	guitool = kdiff3
-[difftool "kdiff3"]
-	trustExitCode = false
-[merge]
-	tool = kdiff3
-[mergetool "kdiff3"]
-	trustExitCode = false
-	followTags = true

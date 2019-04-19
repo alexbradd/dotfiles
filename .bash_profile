@@ -1,6 +1,6 @@
 #
 # File: ~/.bash_profile
-# Version: 12.2018.2
+# Version: 4.2019.0
 # Author: BreadyX
 #
 # Script sourced by bash at each login. Sets env variables, adds user's private bin
@@ -9,6 +9,8 @@
 
 ### EXPORTS ###
 export EDITOR="nvim"			# Set deafult editor
+export BROWSER="firefox"			# Set default browser
+export READER="evince"			# Set default reader (pdf and such)
 export GPG_TTY=$(tty)			# Set GPG_TTY to so that gpg doesn't freak out
 # Locale variables
 export LANG=en_US.UTF-8
@@ -26,9 +28,5 @@ export LC_MEASUREMENT="it_IT.UTF-8"
 export LC_IDENTIFICATION="en_US.UTF-8"
 export LC_ALL=
 
-### INCLUDE USER BIN ###
-if [ -d "$HOME/.local/bin" ] ; then PATH="$HOME/.local/bin:$PATH"; export PATH; fi
-
 ### SOURCE BASHRC ###
 [ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"
-
