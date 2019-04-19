@@ -1,0 +1,13 @@
+!!! FONTS !!!
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+!!! XTERM !!!
+!XTerm.vt100.locale: true 		! Enable utf8 support
+XTerm.vt100.metaSendsEscape: true 	! Make ALT normal
+XTerm.vt100.scrollBar: true		! Enable Scrollbar
+XTerm.vt100.scrollbar.width: 8		! Set scrollbar width
