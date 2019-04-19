@@ -1,9 +1,0 @@
-[Common]
-ShadowSize=ShadowSmall
-
-[Style]
-MenuOpacity=70
-
-[Windeco]
-DrawBackgroundGradient=false
-TitleAlignment=AlignRight
