@@ -26,11 +26,11 @@ in our configurations, there could be problems such as missing packages.
 To install, simply clone this repository in a separate folder and then copy its 
 contents into you home directory:
 ```sh
-cd ~
+cd
 git clone https://github.com/BreadyX/dotfiles.git
 cd dotfiles
 cp -r * ~
-cd ~
+cd
 rm -rf dotfiles
 ```
 
