@@ -9,7 +9,7 @@
 
 " ## TEMPLATE LOGIC ## "
 	" Define global directory where templates are stored
-	let g:template_dir = '/home/breadyx/.config/nvim/templates'
+	let g:template_dir = $HOME . '/.config/nvim/templates'
 
 	" Function that handles the loading of passed templates
 	function! Load_Template(template)

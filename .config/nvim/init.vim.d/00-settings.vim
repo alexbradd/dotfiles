@@ -71,3 +71,14 @@ let g:LanguageClient_serverCommands = {
 
 " neomake
 call neomake#configure#automake('nw', 500) 
+
+" ultisnips
+" Snippets directory
+let g:UltiSnipsSnippetDirectories=[ g:config_dir . '/snippets' ]
+
+" Trigger configuration
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" let g:UltiSnipsEditSplit="vertical"

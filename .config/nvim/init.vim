@@ -13,7 +13,7 @@
 "
 
 " PLUGINS (vim-plug) "
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin($HOME . '/.local/share/nvim/plugged')
 
 " LINT-COMPLETE "
 " Linting with LSP
@@ -21,7 +21,10 @@ Plug 'autozimu/LanguageClient-neovim', {
 	\ 'branch': 'next',
 	\ 'do': 'bash install.sh',
 	\ }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }   " Completion
+" Completion
+Plug 'Shougo/deoplete.nvim', { 
+	\ 'do': ':UpdateRemotePlugins',
+	\ }
 Plug 'neomake/neomake'			            " Automake
 Plug 'plasticboy/vim-markdown'			    " Markdown support
 
@@ -34,6 +37,7 @@ Plug 'lervag/vimtex'                        " Latex support
 Plug 'tpope/vim-surround'		            " Surround functionality
 Plug 'godlygeek/tabular'					" Table layout
 Plug 'tpope/vim-repeat'                     " Make command maps work with .
+Plug 'SirVer/ultisnips'						" Snippet engine
 
 " AESTHETIC "
 Plug 'junegunn/goyo.vim'			        " More convenient window for prose
@@ -44,8 +48,10 @@ call plug#end()
 " MODULE LOADING "
 
 " declares path to folder containing all of the modules
-let g:config_dir = '/home/breadyx/.config/nvim/init.vim.d'
-let s:file_list = split(globpath(g:config_dir, '*'))
+let g:config_dir = $HOME . '/.config/nvim'
+
+let g:module_dir = g:config_dir . '/init.vim.d'
+let s:file_list = split(globpath(g:module_dir, '*'))
 
 " removes all autocommands on resourcing
 autocmd!

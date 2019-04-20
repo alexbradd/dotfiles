@@ -20,10 +20,10 @@ nnoremap gl <C-w>l
 
 " Easier movement through wrapped lines
 nnoremap j gj
-nnoremap <C-j> j
+" nnoremap <C-j> j
 
 nnoremap k gk
-nnoremap <C-k> k
+" nnoremap <C-k> k
 
 nnoremap 0 g0
 nnoremap <C-0> 0
