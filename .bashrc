@@ -11,8 +11,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# export GPG_TTY="$(tty)"
-
 # Source basic bash config
 [[ -f /etc/bashrc ]] && source /etc/bashrc
 
@@ -34,7 +32,6 @@ fi
 
 ### ALIASES ###
 # Misc
-# alias ls="ls -a --color=auto"
 alias la="ls -a --color=auto"
 alias ll="ls -la --color=auto"
 alias cls="clear"
