@@ -1,5 +1,4 @@
 # BreadyX's dotfiles
-## This repository is severly out of date. When I'll feel like it I will update it
 ## Descritpion
 This is where I store most of my configuration files. These files have been written
 to suit *my* needs and to work in *my* setup, so be careful if you want to eventually 
