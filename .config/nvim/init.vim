@@ -3,7 +3,7 @@
 " Version: 12.2018.0
 " Author: BreadyX
 "
-" Main config file for Neovim. It declares plugins and then delegates the various 
+" Main config file for Neovim. It declares plugins and then delegates the various
 " declarations/functionality to other modules located inside of g:config_dir
 " (by default ~/.config/nvim/init.vim.d).
 " Every module inside g:config_dir has a name made up of two parts: a priority
@@ -16,32 +16,35 @@
 call plug#begin($HOME . '/.local/share/nvim/plugged')
 
 " LINT-COMPLETE "
-" Linting with LSP
-Plug 'autozimu/LanguageClient-neovim', { 
+Plug 'autozimu/languageclient-neovim', {
 	\ 'branch': 'next',
 	\ 'do': 'bash install.sh',
-	\ }
-" Completion
-Plug 'Shougo/deoplete.nvim', { 
+	\ }					            " Linting
+Plug 'Shougo/deoplete.nvim', {
 	\ 'do': ':UpdateRemotePlugins',
-	\ }
-Plug 'neomake/neomake'			            " Automake
-Plug 'plasticboy/vim-markdown'			    " Markdown support
+	\ }					            " Completion
+Plug 'neomake/neomake'				" Automake
 
-" LANGUAGE SUPPORT "
-Plug 'elzr/vim-json'						" Json support
-Plug 'cespare/vim-toml'                     " TOML support
-Plug 'lervag/vimtex'                        " Latex support
+" markdown "
+Plug 'plasticboy/vim-markdown'
+
+" Syntax highlighting "
+Plug 'sheerun/vim-polyglot'			" Multiple language syntax hl
 
 " FUNCTIONALITY"
-Plug 'tpope/vim-surround'		            " Surround functionality
-Plug 'godlygeek/tabular'					" Table layout
-Plug 'tpope/vim-repeat'                     " Make command maps work with .
-Plug 'SirVer/ultisnips'						" Snippet engine
+Plug 'tpope/vim-surround'		    " Surround functionality
+Plug 'tpope/vim-commentary'			" Commenting
+Plug 'godlygeek/tabular'			" Table layout
+Plug 'tpope/vim-repeat'             " Make command maps work with .
+Plug 'SirVer/ultisnips'				" Snippet engine
 
 " AESTHETIC "
-Plug 'junegunn/goyo.vim'			        " More convenient window for prose
-Plug 'junegunn/limelight.vim'	            " Pretty coloring
+Plug 'itchyny/lightline.vim'        " Pretty status line
+
+" THEMES "
+Plug 'rakr/vim-one'
+Plug 'fneu/breezy'
+Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
@@ -49,7 +52,6 @@ call plug#end()
 
 " declares path to folder containing all of the modules
 let g:config_dir = $HOME . '/.config/nvim'
-
 let g:module_dir = g:config_dir . '/init.vim.d'
 let s:file_list = split(globpath(g:module_dir, '*'))
 
@@ -58,5 +60,5 @@ autocmd!
 
 "Load all modules inside of init.vim.d
 for p in s:file_list
-	execute 'so ' . p
+	execute 'source ' . fnameescape(p)
 endfor

@@ -9,11 +9,11 @@
 
 ### EXPORTS ###
 export EDITOR="nvim"			# Set deafult editor
-export BROWSER="firefox"			# Set default browser
-export READER="evince"			# Set default reader (pdf and such)
+export BROWSER="firefox"		# Set default browser
+export READER="okular"			# Set default reader (pdf and such)
 export GPG_TTY=$(tty)			# Set GPG_TTY to so that gpg doesn't freak out
 # Locale variables
-export LANG=en_US.UTF-8
+export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LC_NUMERIC="it_IT.UTF-8"
 export LC_TIME="it_IT.UTF-8"
@@ -27,6 +27,8 @@ export LC_TELEPHONE="it_IT.UTF-8"
 export LC_MEASUREMENT="it_IT.UTF-8"
 export LC_IDENTIFICATION="en_US.UTF-8"
 export LC_ALL=
+# User variables
+export GIT_HUD_GLYPH="Y"
 
 ### SOURCE BASHRC ###
 [ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"

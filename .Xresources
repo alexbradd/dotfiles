@@ -7,7 +7,7 @@ Xft.antialias: 1
 Xft.rgba: rgb
 
 !!! XTERM !!!
-!XTerm.vt100.locale: true 		! Enable utf8 support
+!XTerm.vt100.locale: true 			! Enable utf8 support
 XTerm.vt100.metaSendsEscape: true 	! Make ALT normal
-XTerm.vt100.scrollBar: true		! Enable Scrollbar
+XTerm.vt100.scrollBar: true			! Enable Scrollbar
 XTerm.vt100.scrollbar.width: 8		! Set scrollbar width

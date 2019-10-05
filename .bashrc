@@ -1,48 +1,59 @@
 #
 # File: ~/.bashrc
-# Version: 4.2019.0
+# Version: 1.0
 # Author: BreadyX
 #
-# Scripts sourced by bash at each prompt redraw. It contains all the prompt customization and
-# it integrates all the other utilities to give all the useful info at a glance
+# Scripts sourced by bash at each prompt redraw. It contains all the prompt
+# customization and it integrates all the other utilities to give all the useful
+# info at a glance
 #
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# export GPG_TTY="$(tty)"
+
 # Source basic bash config
 [[ -f /etc/bashrc ]] && source /etc/bashrc
+
+# Disable ^S / ^Q
+stty -ixon
+
+# Move HISTFILE
+export HISTFILE=~/.cache/bash_history
 
 shopt -s autocd
 shopt -s histappend
 shopt -s checkwinsize
 
 ### INCLUDE USER BIN ###
-if [ -d "$HOME/.local/bin" ] ; then PATH="$HOME/.local/bin:$PATH"; export PATH; fi
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$HOME/.local/bin:$PATH"
+    export PATH
+fi
 
 ### ALIASES ###
 # Misc
-alias ls="ls -a --color=auto"
+# alias ls="ls -a --color=auto"
+alias la="ls -a --color=auto"
+alias ll="ls -la --color=auto"
 alias cls="clear"
 alias darkscrn="xset dpms force off"
+[ -e "/usr/bin/trash" ] && alias safe-rm="trash"
 
 # Editors
 alias visu="sudo vim"
 alias nv="nvim"
 alias v="vim"
 
-# Random
-alias noice='echo "*click* $(tput sitm)noice$(tput sgr0)"'
-
 # Directories
-alias cd-s='cd ~/Documents/School/'
-alias cd-c='cd ~/Code/'
+alias cds='cd ~/Documents/School/'
+alias cdc='cd ~/Code/'
 
 # dnf aliases
-alias install="sudo dnf install"
-alias update="sudo dnf upgrade"
-alias remove="sudo dnf remove"
-alias autoremove="sudo dnf autoremove"
+alias install="sudo pacman -S"
+alias update="sudo pacman -Syu"
+alias remove="sudo pacman -Rns"
 
 ### PROMPT PERSONALIZATION ###
 # Special characters
@@ -62,21 +73,16 @@ ITALICS=$(tput sitm)
 
 RESET=$(tput sgr0)
 
-# PS1="\n\[$WHITE\](\A) - " # Current time
-# PS1+="\[$RED\]\u " # User
-# PS1+="\[$WHITE\]at "
-# PS1+="\[$BLUE\]\[$ITALICS\]\h " # Host
-# PS1+="\[$WHITE\]in "
-# PS1+="\[$GREEN\]\[$ITALICS\]\w " # Working directory
-# PS1+="\[$RESET\]" #| \$(autorm -c)"
-# PS1+="| \[$ORANGE\]\$(gitsum 4)"
-# PS1+="\[$RESET\]\n\$ "
+# Current directory
+PS1="\[$RESET\]\u\[$BLUE\]\[$BOLD\] \W \[$RESET\]"
 
-PS1="[\[$BLUE\]\[$BOLD\] \w \[$RESET\]] " # Current directory
-PS1+="\[$GREEN\]\$(gitsum 4)"
-PS1+="\[$RED\]➜ \[$RESET\]"
+# Git hud
+PS1+="\[$GREEN\]\$(git-hud)\[$RESET\]\n"
+
+# Arrow
+PS1+=" \[$RED\]➜\[$RESET\] "
 
 export PS1;
 
 ### AUTORUN ###
-echo -e "Hi Alex, it is $(date +%H:%M) $(date +%d/%m/%Y).\nHave a great terminal session!" | cowsay # Greet me at every login
+cowsay "Hi, it's $(date '+%H:%M %d/%m/%Y'). Have a great terminal session!"

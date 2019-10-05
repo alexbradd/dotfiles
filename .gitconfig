@@ -1,6 +1,6 @@
 #
 # File: .gitconfig
-# Version: 04.2019.0
+# Version: 0.1
 # Author: BreadyX
 #
 # My main git configuration file
@@ -9,7 +9,7 @@
 [user]
 	name = BreadyX
 	email = alex.bradatan85@yahoo.it
-	signingkey = F880DB5CE55EEBA2
+	signingkey = # TO BE FILLED
 [gpg]
 	program = gpg2
 [core]
@@ -19,9 +19,6 @@
 [credential]
 	helper = cache
 [alias]
+    stat = status
 	unstage = reset HEAD --
 	last = log -1 HEAD
-	add-all = add -A
-	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-	prune = fetch --prune
-	stash-all = stash push --include-untracked
