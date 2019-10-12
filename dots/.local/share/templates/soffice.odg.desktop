@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=LibreOffice Draw document
+Comment=Enter LibreOffice Draw filename:
+Type=Link
+URL=.source/soffice.odg
+Icon=libreoffice-oasis-drawing
+
