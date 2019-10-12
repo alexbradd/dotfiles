@@ -1,0 +1,18 @@
+{
+    "coc.source.ultisnips.enable": true,
+    "coc.source.ultisnips.shortcut": "[S]",
+    "diagnostic.messageTarget": "echo",
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextprefix": ">>",
+    "python.jediEnabled": true,
+    "python.linting.lintOnSave": true,
+    "python.terminal.activateEnvironment": false,
+    "languageserver": {
+        "clangd": {
+          "command": "clangd",
+          "args": ["--background-index"],
+          "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+          "filetypes": ["c", "cpp", "objc", "objcpp"]
+        }
+    }
+}

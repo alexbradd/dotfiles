@@ -1,6 +1,6 @@
 "
 " File: functionality.vim
-" Version: 12.2018.0
+" Version: 0.1
 " Author: BreadyX
 "
 " Module for the init.vim that contains user defined functionality that modify
@@ -26,17 +26,20 @@ function! g:Toggle_CC()
     endif
 endfunction
 
+function! g:Show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
+endfunction
+
+function! g:Install_Coc_Ext()
+    execute 'CocInstall coc-python coc-ultisnips coc-vimtex'
+endfunction
+
 " AUTOCMDS  "
 " Remove trailing whitespaces on write
 let no_remove_trailing = ['markdown', 'latex']
 autocmd BufWritePre * if index(no_remove_trailing, &ft) < 0 | %s/\s\+$//e
 
-" Surround characters
-autocmd FileType markdown,octopress let b:surround_{char2nr('i')} = "*\r*"
-autocmd FileType markdown,octopress let b:surround_{char2nr('b')} = "**\r**"
-
-autocmd FileType tex,latex let b:surround_{char2nr('i')} = "\\textit{\r}"
-autocmd FileType tex,latex let b:surround_{char2nr('b')} = "\\textbf{\r}"
-autocmd FileType tex,latex let b:surround_{char2nr('h')} = "\\hl{\r}"
-autocmd FileType tex,latex let b:surround_{char2nr('m')} = "\$\r\$"
-autocmd FileType tex,latex let b:surround_{char2nr('d')} = "\\[\r\\]"

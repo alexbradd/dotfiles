@@ -1,6 +1,6 @@
 "
 " File: settings.vim
-" Version: 12.2018.1
+" Version: 0.1
 " Author: BreadyX
 "
 " Module for the init.vim that contains some general settings as well some
@@ -39,20 +39,20 @@ set hidden		            " Required for LanguageClient
 " Theme
 set termguicolors
 set background=light
-let g:PaperColor_Theme_Options = {
-    \   'theme': {
-    \       'default': {
-    \           'allow_bold': 1,
-    \           'allow_italic': 1,
-    \       }
-    \   }
-    \ }
-colorscheme PaperColor
+" let g:PaperColor_Theme_Options = {
+"     \   'theme': {
+"     \       'default': {
+"     \           'allow_bold': 1,
+"     \           'allow_italic': 1,
+"     \       }
+"     \   }
+"     \ }
+colorscheme breezy
 
 " lightline
 set noshowmode
 let g:lightline = {
-    \ 'colorscheme' : 'PaperColor',
+    \ 'colorscheme' : 'breezy',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'readonly', 'filename', 'modified', 'git-hud' ] ],
@@ -67,17 +67,23 @@ let g:lightline = {
 let g:deoplete#enable_at_startup = 1
 
 " LanguageClient
-let g:LanguageClient_serverCommands = {
-    	\ 'c': [ '/usr/bin/clangd' ],
-    	\ 'python' : [ '/usr/bin/pyls' ],
-    	\ }
+" let g:LanguageClient_serverCommands = {
+"     	\ 'c': [ '/usr/bin/clangd' ],
+"     	\ 'python' : [ '/usr/bin/pyls' ],
+"     	\ }
+
+" coc.vim
+set nobackup
+set nowritebackup
+set updatetime=300
+set shortmess+=c
 
 " neomake
-call neomake#configure#automake('w')
-let g:neomake_sh_enabled_makers = ['shellcheck']
-let g:neomake_tex_enabled_makers = ['chktex']
-let g:neomake_c_enabled_makers = []             " Disable because it has LSP
-let g:neomake_python_enabled_makers = []        " Disable because it has LSP
+" call neomake#configure#automake('w')
+" let g:neomake_sh_enabled_makers = ['shellcheck']
+" let g:neomake_tex_enabled_makers = ['chktex']
+" let g:neomake_c_enabled_makers = []             " Disable because it has LSP
+" let g:neomake_python_enabled_makers = []        " Disable because it has LSP
 
 " vim-markdown
 let g:vim_markdown_toc_autofit = 1

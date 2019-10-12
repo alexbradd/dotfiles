@@ -1,6 +1,6 @@
 "
 " File: templates.vim
-" Version: 12.2018.0
+" Version: 0.1
 " Author: BreadyX
 "
 " Module for init.vim that declares some templates loaded on file creation and

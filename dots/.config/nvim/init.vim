@@ -1,6 +1,6 @@
 "
 " File: init.vim
-" Version: 12.2018.0
+" Version: 0.1
 " Author: BreadyX
 "
 " Main config file for Neovim. It declares plugins and then delegates the various
@@ -16,17 +16,19 @@
 call plug#begin($HOME . '/.local/share/nvim/plugged')
 
 " LINT-COMPLETE "
-Plug 'autozimu/languageclient-neovim', {
-	\ 'branch': 'next',
-	\ 'do': 'bash install.sh',
-	\ }					            " Linting
-Plug 'Shougo/deoplete.nvim', {
-	\ 'do': ':UpdateRemotePlugins',
-	\ }					            " Completion
-Plug 'neomake/neomake'				" Automake
+" Plug 'autozimu/languageclient-neovim', {
+" 	\ 'branch': 'next',
+" 	\ 'do': 'bash install.sh',
+" 	\ }					            " Linting
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'Shougo/deoplete.nvim', {
+" 	\ 'do': ':UpdateRemotePlugins',
+" 	\ }					            " Completion
+" Plug 'neomake/neomake'				" Automake
 
-" markdown "
+" Language support "
 Plug 'plasticboy/vim-markdown'
+Plug 'lervag/vimtex'
 
 " Syntax highlighting "
 Plug 'sheerun/vim-polyglot'			" Multiple language syntax hl
@@ -44,7 +46,7 @@ Plug 'itchyny/lightline.vim'        " Pretty status line
 " THEMES "
 Plug 'rakr/vim-one'
 Plug 'fneu/breezy'
-Plug 'NLKNguyen/papercolor-theme'
+" Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
