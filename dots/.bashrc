@@ -1,6 +1,6 @@
 #
 # File: ~/.bashrc
-# Version: 1.0
+# Version: 1.1
 # Author: BreadyX
 #
 # Scripts sourced by bash at each prompt redraw. It contains all the prompt
@@ -32,6 +32,7 @@ fi
 
 ### ALIASES ###
 # Misc
+# alias ls="ls -a --color=auto"
 alias la="ls -a --color=auto"
 alias ll="ls -la --color=auto"
 alias cls="clear"
@@ -66,18 +67,18 @@ BLUE=$(tput setaf 12)
 GREEN=$(tput setaf 2)
 
 BOLD=$(tput bold)
-ITALICS=$(tput sitm)
+# ITALICS=$(tput sitm)
 
 RESET=$(tput sgr0)
 
 # Current directory
-PS1="\[$RESET\]\u\[$BLUE\]\[$BOLD\] \W \[$RESET\]"
+PS1="\[$RESET\]\u \[$BLUE\]\[$BOLD\]\W\[$RESET\] "
 
 # Git hud
-PS1+="\[$GREEN\]\$(git-hud)\[$RESET\]\n"
+PS1+="\[$GREEN\]\$(git-hud)\n"
 
 # Arrow
-PS1+=" \[$RED\]➜\[$RESET\] "
+PS1+="\[$RED\]→ \[$RESET\] "
 
 export PS1;
 
