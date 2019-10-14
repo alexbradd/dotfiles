@@ -1,1 +1,12 @@
 --style=k/r
+--indent-switches
+--indent-cases
+
+--pad-oper
+--pad-comma
+--pad-header
+
+--align-pointer=type
+--align-reference=name
+
+--lineend=linux
