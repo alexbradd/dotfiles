@@ -1,6 +1,6 @@
 #
 # File:    .bashrc
-# Version: 20.02.0
+# Version: 20.02.1
 # Author:  BreadyX
 #
 
@@ -20,20 +20,7 @@ if [ -d "$HOME/.local/bin" ]; then
     export PATH
 fi
 
-### ALIASES ###
-# Misc
-alias la="ls -a --color=auto"
-alias ll="ls -la --color=auto"
-alias cls="clear"
-
-# Editors
-alias visu="sudo vim"
-alias nv="nvim"
-alias v="vim"
-
-# Directories
-alias cds='cd ~/Documents/School/'
-alias cdc='cd ~/Code/'
+[[ -r "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases"
 
 ### PROMPT PERSONALIZATION ###
 # Special characters
