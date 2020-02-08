@@ -1,26 +1,20 @@
 #
 # File:    .bashrc
-# Version: 20.01.0
+# Version: 20.02.0
 # Author:  BreadyX
 #
 
 # If not running interactively, don't do anything
+[[ -r /etc/bashrc ]] && source /etc/bashrc
 [[ $- != *i* ]] && return
 
-# Source basic bash config
-[[ -f /etc/bashrc ]] && source /etc/bashrc
-
-# Disable ^S / ^Q
+export HISTFILE="$HOME/.cache/bash_history"
 stty -ixon
-
-# Move HISTFILE
-export HISTFILE=~/.cache/bash_history
-
 shopt -s autocd
 shopt -s histappend
 shopt -s checkwinsize
 
-### INCLUDE USER BIN ###
+export GPG_TTY="$(tty)"
 if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
     export PATH

@@ -1,13 +1,12 @@
 #
 # File:    .bash_profile
-# Version: 20.01.0
+# Version: 20.02.0
 # Author:  BreadyX
 #
 
 export EDITOR="nvim"			# Set deafult editor
 export BROWSER="firefox"		# Set default browser
 export READER="evince"			# Set default reader (pdf and such)
-export GPG_TTY=$(tty)			# Set GPG_TTY to so that gpg doesn't freak out
 
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
@@ -26,4 +25,4 @@ export LC_ALL=
 
 export GIT_HUD_GLYPH="Y"
 
-[ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"
+[ -r "$HOME/.bashrc" ] && source "$HOME/.bashrc"
