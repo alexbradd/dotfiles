@@ -1,6 +1,6 @@
 #
 # File:    .bashrc
-# Version: 20.02.1
+# Version: 20.03.0
 # Author:  BreadyX
 #
 
@@ -31,16 +31,16 @@ fi
 # \$ command separator
 
 RED=$(tput setaf 1)
-BLUE=$(tput setaf 12)
 GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+BLUE=$(tput setaf 4)
 BOLD=$(tput bold)
 RESET=$(tput sgr0)
 
-# Current directory
-PS1="\[$RESET\]\u \[$BLUE\]\[$BOLD\]\W\[$RESET\] "
-PS1+="\[$GREEN\]\$(git-hud)\n"
-PS1+="\[$RED\]→ \[$RESET\] "
+PS1="\[$RESET\]\$(date '+%H:%M') \[$BOLD\]\[$YELLOW\]\u@\h \[$BLUE\]\W\[$RESET\] "
+PS1+="\[$GREEN\]| \$(git-hud) | \$(bat-hud)\n"
+PS1+="\[$RESET\]> "
 export PS1;
 
 ### AUTORUN ###
-cowsay "Hi, it's $(date '+%H:%M %d/%m/%Y')"
+# cowsay "Hi, it's $(date '+%H:%M %d/%m/%Y')"

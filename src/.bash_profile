@@ -1,6 +1,6 @@
 #
 # File:    .bash_profile
-# Version: 20.02.0
+# Version: 20.03.0
 # Author:  BreadyX
 #
 
@@ -24,5 +24,6 @@ export LC_IDENTIFICATION="en_US.UTF-8"
 export LC_ALL=
 
 export GIT_HUD_GLYPH="Y"
+export BAT_HUD_GLYPH="Y"
 
 [ -r "$HOME/.bashrc" ] && source "$HOME/.bashrc"
