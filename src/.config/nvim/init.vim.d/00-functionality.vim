@@ -35,7 +35,7 @@ endfunction
 
 " Install needed coc extensions "
 function! g:Install_Coc_Ext()
-    execute 'CocInstall coc-python coc-ultisnips coc-vimtex'
+    execute 'CocInstall coc-python coc-ultisnips coc-vimtex coc-clangd'
 endfunction
 
 " Remove trailing whitespaces on write
