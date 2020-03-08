@@ -23,13 +23,13 @@ let g:plugin_dir = $HOME . '/.local/share/nvim/plugged'
 call plug#begin(g:plugin_dir)
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'lervag/vimtex'
 Plug 'sheerun/vim-polyglot'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'godlygeek/tabular'
 Plug 'tpope/vim-repeat'
 Plug 'SirVer/ultisnips'
 
