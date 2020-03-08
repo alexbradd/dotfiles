@@ -1,5 +1,7 @@
 --style=k/r
 
+--indent=tab
+
 --indent-switches
 --indent-cases
 --indent-preproc-block

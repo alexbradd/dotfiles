@@ -1,6 +1,6 @@
 #
 # File:    .bash_aliases
-# Version: 20.02.0
+# Version: 20.03.0
 # Author:  BreadyX
 #
 
@@ -15,5 +15,5 @@ alias nv="nvim"
 alias v="vim"
 
 # Directories
-alias cds='cd ~/Documents/School/'
+alias cds='cd ~/Documents/school/uni-notes'
 alias cdc='cd ~/Code/'
