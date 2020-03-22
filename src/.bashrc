@@ -38,7 +38,7 @@ BOLD=$(tput bold)
 RESET=$(tput sgr0)
 
 PS1="\[$RESET\]\$(date '+%H:%M') \[$BOLD\]\[$YELLOW\]\u@\h \[$BLUE\]\W\[$RESET\] "
-PS1+="\[$GREEN\]| \$(git-hud) | \$(bat-hud)\n"
+PS1+="\[$GREEN\]| \$(git-hud) | \$(bat-hud) | \$(corona)\n"
 PS1+="\[$RESET\]> "
 export PS1;
 
