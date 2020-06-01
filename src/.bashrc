@@ -1,6 +1,6 @@
 #
 # File:    .bashrc
-# Version: 20.06.0
+# Version: 20.06.1
 # Author:  BreadyX
 #
 
@@ -22,9 +22,14 @@ fi
 ### PROMPT PERSONALIZATION ###
 GREEN=$(tput setaf 2)
 CYAN=$(tput setaf 6)
-BLUE=$(tput setaf 12)
 BOLD=$(tput bold)
 RESET=$(tput sgr0)
+
+if [ "$TERM" = "linux" ]; then
+	BLUE=$(tput setaf 4)
+else
+	BLUE=$(tput setaf 12)
+fi
 
 PS1="\[$RESET\][\[$BLUE\]\u@\h:\W\[$RESET\]]"
 which bat-hud 1>/dev/null 2>&1 && PS1+=" \[$CYAN\]\$(bat-hud)"
