@@ -1,6 +1,6 @@
 #
 # File:    .bash_profile
-# Version: 20.03.0
+# Version: 20.06.0
 # Author:  BreadyX
 #
 
@@ -22,6 +22,9 @@ export LC_TELEPHONE="it_IT.UTF-8"
 export LC_MEASUREMENT="it_IT.UTF-8"
 export LC_IDENTIFICATION="en_US.UTF-8"
 export LC_ALL=
+
+export HISTFILE="$HOME/.cache/bash_history"
+export LESSHISTFILE="/dev/null"
 
 export GIT_HUD_GLYPH="Y"
 export BAT_HUD_GLYPH="Y"

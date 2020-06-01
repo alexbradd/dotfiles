@@ -1,6 +1,6 @@
 "
 " File:    init.vim.d/00-functionality.vim
-" Version: 20.01.0
+" Version: 20.06.0
 " Author:  BreadyX
 "
 " Module for init.vim that contains user defined functions
@@ -41,4 +41,7 @@ endfunction
 " Remove trailing whitespaces on write
 let no_remove_trailing = ['markdown', 'latex']
 autocmd BufWritePre * if index(no_remove_trailing, &ft) < 0 | %s/\s\+$//e
+
+" Force lightline update when coc updates
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 

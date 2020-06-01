@@ -1,6 +1,6 @@
 "
 " File:    init.vim.d/00-settings.vim
-" Version: 20.01.0
+" Version: 20.06.0
 " Author:  BreadyX
 "
 " Module for init.vim that contains settings.
@@ -27,7 +27,7 @@ set cc=80					  " Create 80 columns border
 set encoding=utf-8			" Set NeoVim's encoding for opening files
 set fileencoding=utf-8		" Set NeoVim's encoding for creating new files
 
-set spell					" Enable spell check
+"set spell					" Enable spell check
 set spelllang=en			" Set spell checking language to en
 
 set splitbelow splitright	" Change split spawning points
@@ -40,19 +40,28 @@ set hidden					" Required for LanguageClient
 
 " --- theme
 set termguicolors
-set background=light
-colorscheme breezy
+
+let g:jellybeans_overrides = {
+\    'background': { 'guibg': 'none', 'ctermbg': 'none', '256ctermbg': 'none' },
+\}
+let g:jellybeans_use_term_italics = 1
+
+colorscheme jellybeans
 
 " --- lightline
 set noshowmode
 let g:lightline = {
-	\ 'colorscheme' : 'breezy',
+	\ 'colorscheme' : 'jellybeans',
 	\ 'active': {
 	\	'left': [ [ 'mode', 'paste' ],
 	\			  [ 'readonly', 'filename', 'modified', 'git-hud' ] ],
 	\	'right': [ [ 'lineinfo' ],
 	\			   [ 'percent' ],
-	\			   [ 'fileformat', 'fileencoding', 'filetype'] ],
+	\			   [ 'fileformat', 'fileencoding', 'filetype'],
+	\			   [ 'coc-status' ] ]
+	\ },
+	\ 'component_function': {
+	\	'coc-status': 'coc#status'
 	\ },
 	\ }
 
@@ -61,11 +70,16 @@ set nobackup
 set nowritebackup
 set updatetime=300
 set shortmess+=c
+set signcolumn=yes
 
 " --- vim-markdown
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_math = 1
 let g:vim_markdown_folding_level = 4
+let g:vim_markdown_fenced_languages = [
+	\ 'c++=cpp',
+	\ 'viml=vim',
+	\ 'bash=sh']
 
 " --- ultisnips
 let g:UltiSnipsSnippetDirectories=[ g:config_dir . '/ultisnips' ]

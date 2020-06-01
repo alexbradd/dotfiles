@@ -1,13 +1,13 @@
 #
 # File: .gitconfig
-# Version: 20.01.0
+# Version: 20.06.0
 # Author: BreadyX
 #
 
 [user]
 	name = BreadyX
 	email = alex.bradatan85@yahoo.it
-	signingkey =
+	signingkey = 
 [gpg]
 	program = gpg
 [core]

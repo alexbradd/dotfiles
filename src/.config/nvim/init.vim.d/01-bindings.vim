@@ -1,6 +1,6 @@
 "
 " File:    init.vim.d/01-bindings.vim
-" Version: 0.1
+" Version: 20.06.0
 " Author:  BreadyX
 "
 " Module for init.vim that defines custom key bindings.
@@ -10,16 +10,15 @@
 " Better movement within tabs
 noremap <F2> gT
 noremap <F3> gt
+"
+" Toggle list
+nnoremap <F4> :set list!<CR>
 
 " Easier split resize
 nnoremap <leader>< :vertical res -5<CR>
 nnoremap <leader>> :vertical res +5<CR>
 nnoremap <leader>- :res -5<CR>
 nnoremap <leader>+ :res +5<CR>
-
-" Save file
-nnoremap <silent> <C-s> :w<CR>
-nnoremap <silent> <C-S> :wa<CR>
 
 " Remove highlight
 noremap <silent> <leader>r :nohl<CR>
@@ -32,31 +31,32 @@ nnoremap <leader>len :call Set_Spell('en')<CR>
 " Toggle CC
 nnoremap <silent> <leader>c :call Toggle_CC()<CR>
 
-" Toggle list
-nnoremap <F4> :set list!<CR>
+" Enter terminal (requires neovim or Vim 8.2)
+nnoremap <silent> <leader>t :terminal<CR>
+nnoremap <silent> <leader>vt :vsplit term://bash<CR>
+nnoremap <silent> <leader>ht :split term://bash<CR>
 
 " --- coc
-" Auto complete on control-space
+" Auto complete
 inoremap <silent><expr> <C-space> coc#refresh()
 
-" Use `[g` and `]g` to navigate diagnostics
+" Navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-" Remap keys for gotos
+" Gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" show documentation
+" Show documentation
 nnoremap <silent> K :call Show_documentation()<CR>
 
-" Show all diagnostics
+" Rename symbol
+nnoremap <silent> rn <Plug>(coc-rename)
+
+" Show stuff with coc's fuzzy search
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-
-" Manage extensions
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-
-" Show commands
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>

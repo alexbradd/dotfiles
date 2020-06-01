@@ -1,6 +1,6 @@
 "
 " File:    init.vim
-" Version: 20.01.1
+" Version: 20.06.0
 " Author:  BreadyX
 "
 " Main configuration file for Neovim. Uses vim-plug to setup various plug-ins and
@@ -25,7 +25,6 @@ call plug#begin(g:plugin_dir)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'lervag/vimtex'
 Plug 'sheerun/vim-polyglot'
 
 Plug 'tpope/vim-surround'
@@ -34,7 +33,7 @@ Plug 'tpope/vim-repeat'
 Plug 'SirVer/ultisnips'
 
 Plug 'itchyny/lightline.vim'
-Plug 'fneu/breezy'
+Plug 'nanotech/jellybeans.vim'
 
 call plug#end()
 
