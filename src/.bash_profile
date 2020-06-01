@@ -1,12 +1,14 @@
 #
 # File:    .bash_profile
-# Version: 20.06.0
+# Version: 20.06.1
 # Author:  BreadyX
 #
 
 export EDITOR="nvim"			# Set deafult editor
 export BROWSER="firefox"		# Set default browser
 export READER="evince"			# Set default reader (pdf and such)
+
+export GPG_TTY=$(tty)			# Make gpg behave
 
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
