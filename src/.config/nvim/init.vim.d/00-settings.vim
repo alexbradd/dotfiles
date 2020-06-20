@@ -52,6 +52,7 @@ if $TERM !=# 'linux'
 	let g:jellybeans_overrides['background']['guibg'] = 'none'
 	let g:jellybeans_use_term_italics = 1
 else
+	set guicursor=a:ver100
 	let g:jellybeans_use_lowcolor_black = 1
 endif
 colorscheme jellybeans
