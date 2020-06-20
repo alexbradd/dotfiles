@@ -6,64 +6,76 @@
 " Module for init.vim that contains settings.
 "
 
-" --- vim
-set nocompatible			" Remove compatibility with VI
-set nu rnu					" Enable line numbers and relative line numbers
+" --- neovim
+set nocompatible
+set nu rnu
 
 set wildmenu
 set wildmode=longest:full,full
 
-filetype plugin on			" Determine filetype based on stuff
-syntax on					" Enable syntax highlighting
-set showmatch				" Highlight matching parenthesis
+filetype plugin on
+syntax on
+set showmatch
 
-set tabstop=4				  " Set tabs to be 4 spaces wide
-set softtabstop=0			  " Set tabs to be 4 spaces wide
-set shiftwidth=4			  " Set indent to be 4 spaces wide (1 tab)
-set noexpandtab				  " Don't Expand tabs
-set listchars=tab:<.>,space:• " Placeholders for invisible characters
-set cc=80					  " Create 80 columns border
+set tabstop=8
+set softtabstop=0
+set shiftwidth=8
+set noexpandtab
+set listchars=tab:<.>,space:•
+set cc=80
 
-set encoding=utf-8			" Set NeoVim's encoding for opening files
-set fileencoding=utf-8		" Set NeoVim's encoding for creating new files
+set encoding=utf-8
+set fileencoding=utf-8
 
-"set spell					" Enable spell check
-set spelllang=en			" Set spell checking language to en
+set spelllang=en
 
-set splitbelow splitright	" Change split spawning points
-set wrap linebreak nolist	" Enable good looking line wrapping
+set splitbelow splitright
+set wrap linebreak nolist
 
-set incsearch				" Enables incremental search
-set hlsearch				" Enables search result highlighting
+set incsearch
+set hlsearch
 
-set hidden					" Required for LanguageClient
+set hidden
 
 " --- theme
-set termguicolors
-
 let g:jellybeans_overrides = {
-\    'background': { 'guibg': 'none', 'ctermbg': 'none', '256ctermbg': 'none' },
-\}
-let g:jellybeans_use_term_italics = 1
+	\	'background': {
+	\		'ctermbg': 'none',
+	\		'256ctermbg': 'none'
+	\	},
+	\}
 
+if $TERM !=# 'linux'
+	if has('termguicolors')
+		set termguicolors
+	endif
+	let g:jellybeans_overrides['background']['guibg'] = 'none'
+	let g:jellybeans_use_term_italics = 1
+else
+	let g:jellybeans_use_lowcolor_black = 1
+endif
 colorscheme jellybeans
 
 " --- lightline
 set noshowmode
 let g:lightline = {
-	\ 'colorscheme' : 'jellybeans',
-	\ 'active': {
-	\	'left': [ [ 'mode', 'paste' ],
-	\			  [ 'readonly', 'filename', 'modified', 'git-hud' ] ],
-	\	'right': [ [ 'lineinfo' ],
-	\			   [ 'percent' ],
-	\			   [ 'fileformat', 'fileencoding', 'filetype'],
-	\			   [ 'coc-status' ] ]
-	\ },
-	\ 'component_function': {
-	\	'coc-status': 'coc#status'
-	\ },
-	\ }
+	\	'colorscheme' : 'jellybeans',
+	\	'active': {
+	\		'left': [
+	\			[ 'mode', 'paste' ],
+	\			[ 'readonly', 'filename', 'modified', 'git-hud' ]
+	\		],
+	\		'right': [
+	\			[ 'lineinfo' ],
+	\			[ 'percent' ],
+	\			[ 'fileformat', 'fileencoding', 'filetype'],
+	\			[ 'coc-status' ]
+	\		]
+	\	},
+	\	'component_function': {
+	\		'coc-status': 'coc#status'
+	\	},
+	\}
 
 " --- coc.vim
 set nobackup
@@ -83,7 +95,6 @@ let g:vim_markdown_fenced_languages = [
 
 " --- ultisnips
 let g:UltiSnipsSnippetDirectories=[ g:config_dir . '/ultisnips' ]
-" Trigger configuration
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-h>"
