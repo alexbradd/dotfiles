@@ -1,6 +1,6 @@
 #
 # File:    .bash_aliases
-# Version: 20.06.0
+# Version: 20.08.0
 # Author:  BreadyX
 #
 
@@ -32,3 +32,5 @@ alias cdd='cd ~/Documents'
 alias cds='cd ~/Documents/school/'
 alias cddw='cd ~/Downloads'
 
+# Misc
+alias dl-song='youtube-dl -x --audio-quality 256k --default-search ytsearch -o "~/Music/%(title)s.%(ext)s"'
