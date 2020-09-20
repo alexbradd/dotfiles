@@ -1,6 +1,6 @@
 "
 " File:    init.vim.d/00-settings.vim
-" Version: 20.09.0
+" Version: 20.09.1
 " Author:  BreadyX
 "
 " Module for init.vim that contains settings.
@@ -93,7 +93,6 @@ set signcolumn=yes
 " --- vim-markdown
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_math = 1
-let g:vim_markdown_folding_level = 4
 let g:vim_markdown_fenced_languages = [
 	\ 'c++=cpp',
 	\ 'viml=vim',
