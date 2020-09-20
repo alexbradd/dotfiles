@@ -1,6 +1,6 @@
 "
 " File:    init.vim.d/00-settings.vim
-" Version: 20.06.0
+" Version: 20.09.0
 " Author:  BreadyX
 "
 " Module for init.vim that contains settings.
@@ -56,6 +56,11 @@ else
 	let g:jellybeans_use_lowcolor_black = 1
 endif
 colorscheme jellybeans
+
+" --- goyo.vim
+let g:goyo_width = 82
+let g:goyo_height = 90
+let g:goyo_linenr = 1
 
 " --- lightline
 set noshowmode

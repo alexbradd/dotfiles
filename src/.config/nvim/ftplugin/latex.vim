@@ -1,5 +1,5 @@
 "
-" File:    ftplugin/tex.tim
+" File:    ftplugin/tex.vim
 " Version: 20.06.0
 " Author:  BreadyX
 "

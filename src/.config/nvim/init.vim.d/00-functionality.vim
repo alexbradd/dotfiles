@@ -1,6 +1,6 @@
 "
 " File:    init.vim.d/00-functionality.vim
-" Version: 20.06.0
+" Version: 20.09.0
 " Author:  BreadyX
 "
 " Module for init.vim that contains user defined functions
@@ -35,7 +35,7 @@ endfunction
 
 " Install needed coc extensions "
 function! g:Install_Coc_Ext()
-    execute 'CocInstall coc-python coc-ultisnips coc-vimtex coc-clangd'
+    execute 'CocInstall coc-python coc-ultisnips coc-vimtex coc-clangd coc-markdownlint'
 endfunction
 
 " Remove trailing whitespaces on write

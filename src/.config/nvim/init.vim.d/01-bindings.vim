@@ -1,6 +1,6 @@
 "
 " File:    init.vim.d/01-bindings.vim
-" Version: 20.06.0
+" Version: 20.09.0
 " Author:  BreadyX
 "
 " Module for init.vim that defines custom key bindings.
@@ -35,6 +35,9 @@ nnoremap <silent> <leader>c :call Toggle_CC()<CR>
 nnoremap <silent> <leader>t :terminal<CR>
 nnoremap <silent> <leader>vt :vsplit term://bash<CR>
 nnoremap <silent> <leader>ht :split term://bash<CR>
+
+" --- goyo.vim
+nnoremap <silent> <leader>g :Goyo<CR>
 
 " --- coc
 " Auto complete
