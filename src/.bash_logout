@@ -1,12 +1,8 @@
 #
 # File:    .bash_logout
-# Version: 20.02.0
+# Version: 20.11.0
 # Author:  BreadyX
 #
 
-if [ "$SHLVL" = 1 ]; then # Clear screen at logout for increased security
-    [ -x /usr/bin/clear ] && /usr/bin/clear
-fi
-
-cowsay "Good bye!"
+which cowsay 1>/dev/null 2>&1 && cowsay "Goodbye!"
 sleep '0.5'
