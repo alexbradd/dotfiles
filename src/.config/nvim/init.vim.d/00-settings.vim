@@ -1,6 +1,6 @@
 "
 " File:    init.vim.d/00-settings.vim
-" Version: 20.09.1
+" Version: 20.11.0
 " Author:  BreadyX
 "
 " Module for init.vim that contains settings.
@@ -91,6 +91,8 @@ set shortmess+=c
 set signcolumn=yes
 
 " --- vim-markdown
+" let g:vim_markdown_folding_level = 6
+let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_math = 1
 let g:vim_markdown_fenced_languages = [

@@ -1,6 +1,6 @@
 "
 " File:    init.vim.d/01-bindings.vim
-" Version: 20.09.0
+" Version: 20.06.0
 " Author:  BreadyX
 "
 " Module for init.vim that defines custom key bindings.
@@ -12,19 +12,19 @@ noremap <F2> gT
 noremap <F3> gt
 "
 " Toggle list
-nnoremap <F4> :set list!<CR>
+nnoremap <silent> <F4> :set list!<CR>
 
 " Easier split resize
-nnoremap <leader>< :vertical res -5<CR>
-nnoremap <leader>> :vertical res +5<CR>
-nnoremap <leader>- :res -5<CR>
-nnoremap <leader>+ :res +5<CR>
+nnoremap <silent> <leader>< :vertical res -5<CR>
+nnoremap <silent> <leader>> :vertical res +5<CR>
+nnoremap <silent> <leader>- :res -5<CR>
+nnoremap <silent> <leader>+ :res +5<CR>
 
 " Remove highlight
 noremap <silent> <leader>r :nohl<CR>
 
-" Control spell check
-nnoremap <silent> <leader>lx :set spell!<CR>
+" Control buffer-wide spell check
+nnoremap <silent> <leader>lx :setlocal spell!<CR>
 nnoremap <leader>lit :call Set_Spell('it')<CR>
 nnoremap <leader>len :call Set_Spell('en')<CR>
 
@@ -37,7 +37,7 @@ nnoremap <silent> <leader>vt :vsplit term://bash<CR>
 nnoremap <silent> <leader>ht :split term://bash<CR>
 
 " --- goyo.vim
-nnoremap <silent> <leader>g :Goyo<CR>
+nnoremap <silent> <leader>d :Goyo<CR>
 
 " --- coc
 " Auto complete

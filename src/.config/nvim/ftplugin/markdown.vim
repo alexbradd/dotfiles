@@ -1,19 +1,19 @@
 "
 " File:    ftplugin/markdown.vim
-" Version: 20.09.0
+" Version: 20.11.0
 " Author:  BreadyX
 "
 " ftplugin for markdown files. Requires the installation of vim-markdown and
 " vim-surround.
 "
 
-set formatoptions+=t
-set textwidth=80
+setlocal expandtab tabstop=2 shiftwidth=2 scrolloff=12
+setlocal formatoptions+=t
+setlocal textwidth=80
+setlocal spell
 
-if exists(':Toc') && exists(':Toct')
-    nnoremap <silent> <leader>mt :Toc<CR>
-    nnoremap <silent> <leader>mT :Toct<CR>
-endif
+nnoremap <buffer> <silent> <leader>mt :Toc<CR>
+nnoremap <buffer> <silent> <leader>mT :Toct<CR>
+nnoremap <buffer> <silent> <leader>hi V:HeaderIncrease<CR>
+nnoremap <buffer> <silent> <leader>hd V:HeaderDecrease<CR>
 
-autocmd FileType markdown,octopress let b:surround_{char2nr('i')} = "*\r*"
-autocmd FileType markdown,octopress let b:surround_{char2nr('b')} = "**\r**"
