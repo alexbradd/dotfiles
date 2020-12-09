@@ -1,47 +1,77 @@
 #
 # File:    .bashrc
-# Version: 20.11.0
+# Version: 20.12.0
 # Author:  BreadyX
 #
 
-export EDITOR="nvim"      # Set deafult editor
-export BROWSER="firefox"  # Set default browser
-export READER="evince"    # Set default reader (pdf and such)
-
-# export LANG="en_US.UTF-8"
-# export LC_CTYPE="en_US.UTF-8"
-# export LC_NUMERIC="it_IT.UTF-8"
-# export LC_TIME="it_IT.UTF-8"
-# export LC_COLLATE="it_IT.UTF-8"
-# export LC_MONETARY="it_IT.UTF-8"
-# export LC_MESSAGES="en_US.UTF-8"
-# export LC_PAPER="en_US.UTF-8"
-# export LC_NAME="it_IT.UTF-8"
-# export LC_ADDRESS="it_IT.UTF-8"
-# export LC_TELEPHONE="it_IT.UTF-8"
-# export LC_MEASUREMENT="it_IT.UTF-8"
-# export LC_IDENTIFICATION="en_US.UTF-8"
-# export LC_ALL=
-
+### GLOBAL VARIABLES ###
+export EDITOR="nvim"
+export HDD_MOUNT="/media/hdd"
 export HISTFILE="$HOME/.cache/bash_history"
 export LESSHISTFILE="/dev/null"
-
 export GIT_HUD_GLYPH="Y"
 export BAT_HUD_GLYPH="Y"
 
 [[ $- != *i* ]] && return
 
+### SHELL OPTIONS ###
 stty -ixon
 shopt -s autocd
 shopt -s histappend
 shopt -s checkwinsize
 
+### PATH ###
 if [ -d "$HOME/.local/bin" ]; then
   PATH="$HOME/.local/bin:$PATH"
   export PATH
 fi
 
+### ALIASES ###
 [[ -r "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases"
+
+### FUNCTION DEFINITIONS ###
+function notes() {
+  local h="$HDD_MOUNT/documents/uni/uni-notes/"
+
+  case "$1" in
+    -d)
+      local p="$h/$2"
+      if [ -n "$2" ] && [ "${2:0:1}" != '.' ] && [ "${2:0:1}" != '/' ] && \
+          [ -d "$p" ]; then
+        cd "$p"
+      else
+        echo "Invalid directory name '$2'"
+      fi ;;
+    -l)
+      ls $h/* --width=1 --color=never --directory | xargs basename -a ;;
+    -h)
+      echo "Usage: notes [-d dir|-l|-h]" ;;
+    *)
+      if [ -n "$1" ]; then
+        echo "Invalid argument '$1'"
+      else
+        cd "$h"
+      fi ;;
+  esac
+}
+
+function passwords() {
+  local home_f="$HOME/Documents/password.gpg"
+  local hdd_f="$HDD_MOUNT/codes/password.gpg"
+
+  echo "--> Trying '$home_f'..."
+  gpg --decrypt "$home_f" \
+    && return \
+    || echo "--> '$home_f' not found"
+
+  echo ""
+  echo "--> Trying '$hdd_f'..."
+  gpg --decrypt "$hdd_f" \
+    && return \
+    || echo "--> '$hdd_f' not found"
+
+  echo "--> 'password.gpg' not found in known locations..."
+}
 
 ### PROMPT PERSONALIZATION ###
 GREEN=$(tput setaf 2)

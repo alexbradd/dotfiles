@@ -1,36 +1,44 @@
 #
 # File:    .bash_aliases
-# Version: 20.08.0
+# Version: 20.12.0
 # Author:  BreadyX
 #
 
 # Programs
-alias la="ls -a --color=auto"
-alias ll="ls -la --color=auto"
+alias ls="ls --color=auto"
+alias la="ls -a"
+alias ll="ls -la"
+
 alias cls="clear"
+
 alias nv="nvim"
 alias v="vim"
 alias sv="sudo vim"
-alias g="git"
 
-# Package manager
+# Package managers:
 alias S='sudo dnf install'
 alias Sy='sudo dnf check-update'
 alias Syu='sudo dnf upgrade'
 alias Ss='dnf search'
 alias Qi='dnf info'
 alias R='sudo dnf remove'
+
 alias fS='flatpak install'
 alias fSs='flatpak search'
 alias fSyu='flatpak update'
 alias fR='flatpak remove'
 alias fRr='flatpak run'
 
+alias nvSyu='nv +PlugUpdate +PlugUpgrade +qa'
+
 # Directories
-alias cdc='cd ~/Code/'
-alias cdd='cd ~/Documents'
-alias cds='cd ~/Documents/school/'
-alias cddw='cd ~/Downloads'
+alias cdc='cd $HOME/src/'
+alias cdd='cd $HOME/Documents'
+alias cddw='cd $HOME/Downloads'
+
+alias cd_hdd='cd $HDD_MOUNT'
+alias cds_hdd='cd $HDD_MOUNT/documents/uni'
 
 # Misc
-alias dl-song='youtube-dl -x --audio-quality 256k --default-search ytsearch -o "~/Music/%(title)s.%(ext)s"'
+alias gen-key='gpg --armor --gen-random 1 10'
+alias decrypt='gpg --decrypt'

@@ -1,4 +1,10 @@
 {
     "coc.source.ultisnips.enable": true,
-    "coc.source.ultisnips.shortcut": "[S]"
+    "coc.source.ultisnips.shortcut": "[S]",
+    "clangd.arguments": [
+        "--clang-tidy",
+        "--cross-file-rename",
+        "--suggest-missing-includes"
+    ],
+    "clangd.semanticHighlighting": true
 }

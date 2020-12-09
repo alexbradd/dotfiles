@@ -1,6 +1,6 @@
 "
 " File:    ftplugin/markdown.vim
-" Version: 20.11.0
+" Version: 20.12.0
 " Author:  BreadyX
 "
 " ftplugin for markdown files. Requires the installation of vim-markdown and
@@ -12,8 +12,8 @@ setlocal formatoptions+=t
 setlocal textwidth=80
 setlocal spell
 
-nnoremap <buffer> <silent> <leader>mt :Toc<CR>
-nnoremap <buffer> <silent> <leader>mT :Toct<CR>
+nnoremap <buffer> <silent> <leader>mt :Toch<CR>
+nnoremap <buffer> <silent> <leader>mT :Tocv<CR>
 nnoremap <buffer> <silent> <leader>hi V:HeaderIncrease<CR>
 nnoremap <buffer> <silent> <leader>hd V:HeaderDecrease<CR>
 

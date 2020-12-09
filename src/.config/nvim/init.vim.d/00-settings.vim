@@ -1,6 +1,6 @@
 "
 " File:    init.vim.d/00-settings.vim
-" Version: 20.11.0
+" Version: 20.12.0
 " Author:  BreadyX
 "
 " Module for init.vim that contains settings.
@@ -8,34 +8,34 @@
 
 " --- neovim
 set nocompatible
-set nu rnu
-
-set wildmenu
-set wildmode=longest:full,full
+set nu
 
 filetype plugin on
 syntax on
-set showmatch
+
+set encoding=utf-8
+set fileencoding=utf-8
+
+set splitbelow splitright
 
 set tabstop=8
 set softtabstop=0
 set shiftwidth=8
 set noexpandtab
-set listchars=tab:<.>,space:•
+set smartindent
 set cc=80
 
-set encoding=utf-8
-set fileencoding=utf-8
+set nowrap
+set showmatch
+set listchars=tab:<.>,space:•
 
 set spelllang=en
 
-set splitbelow splitright
-set wrap linebreak nolist
-
 set incsearch
-set hlsearch
-
+set nohlsearch
 set hidden
+
+set cmdheight=2
 
 " --- theme
 let g:jellybeans_overrides = {
@@ -84,21 +84,27 @@ let g:lightline = {
 	\}
 
 " --- coc.vim
-set nobackup
-set nowritebackup
-set updatetime=300
+set updatetime=50
 set shortmess+=c
 set signcolumn=yes
 
+let g:coc_global_extensions = [
+	\ 'coc-clangd',
+	\ 'coc-python',
+	\ 'coc-markdownlint',
+	\ 'coc-ultisnips',
+	\ ]
+
 " --- vim-markdown
-" let g:vim_markdown_folding_level = 6
-let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_folding_level = 1
+let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_math = 1
-let g:vim_markdown_fenced_languages = [
-	\ 'c++=cpp',
-	\ 'viml=vim',
-	\ 'bash=sh']
+let g:vim_markdown_new_list_item_indent = 2
+" let g:vim_markdown_fenced_languages = [
+" 	\ 'c++=cpp',
+" 	\ 'viml=vim',
+" 	\ 'bash=sh']
 
 " --- ultisnips
 let g:UltiSnipsSnippetDirectories=[ g:config_dir . '/ultisnips' ]

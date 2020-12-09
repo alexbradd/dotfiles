@@ -1,6 +1,6 @@
 "
 " File:    init.vim
-" Version: 20.09.0
+" Version: 20.12.0
 " Author:  BreadyX
 "
 " Main configuration file for Neovim. Uses vim-plug to setup various plug-ins and
@@ -22,7 +22,8 @@ let g:plugin_dir = $HOME . '/.local/share/nvim/plugged'
 
 call plug#begin(g:plugin_dir)
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'sheerun/vim-polyglot'
 
 Plug 'plasticboy/vim-markdown'

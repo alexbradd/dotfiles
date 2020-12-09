@@ -1,6 +1,6 @@
 "
 " File:    init.vim.d/01-bindings.vim
-" Version: 20.06.0
+" Version: 20.12.0
 " Author:  BreadyX
 "
 " Module for init.vim that defines custom key bindings.
@@ -10,7 +10,10 @@
 " Better movement within tabs
 noremap <F2> gT
 noremap <F3> gt
-"
+
+nnoremap <silent> <leader>n :bn<CR>
+nnoremap <silent> <leader>p :bp<CR>
+
 " Toggle list
 nnoremap <silent> <F4> :set list!<CR>
 
@@ -20,16 +23,11 @@ nnoremap <silent> <leader>> :vertical res +5<CR>
 nnoremap <silent> <leader>- :res -5<CR>
 nnoremap <silent> <leader>+ :res +5<CR>
 
-" Remove highlight
-noremap <silent> <leader>r :nohl<CR>
-
 " Control buffer-wide spell check
 nnoremap <silent> <leader>lx :setlocal spell!<CR>
-nnoremap <leader>lit :call Set_Spell('it')<CR>
-nnoremap <leader>len :call Set_Spell('en')<CR>
-
-" Toggle CC
-nnoremap <silent> <leader>c :call Toggle_CC()<CR>
+nnoremap <silent> <leader>lit :setlocal spelllang=it<CR>
+nnoremap <silent> <leader>len :setlocal spelllang=en<CR>
+nnoremap <silent> <leader>lde :setlocal spelllang=de<CR>
 
 " Enter terminal (requires neovim or Vim 8.2)
 nnoremap <silent> <leader>t :terminal<CR>
@@ -44,22 +42,24 @@ nnoremap <silent> <leader>d :Goyo<CR>
 inoremap <silent><expr> <C-space> coc#refresh()
 
 " Navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap [g <Plug>(coc-diagnostic-prev)
+nmap ]g <Plug>(coc-diagnostic-next)
 
 " Gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap gd <Plug>(coc-definition)
+nmap gy <Plug>(coc-type-definition)
+nmap gi <Plug>(coc-implementation)
+nmap gr <Plug>(coc-references)
 
-" Show documentation
-nnoremap <silent> K :call Show_documentation()<CR>
+nnoremap <silent> <leader>lK :call Show_documentation<CR>
+
+nmap <leader>ca <Plug>(coc-codeaction)
+nmap <leader>qf <Plug>(coc-fix-current)
 
 " Rename symbol
-nnoremap <silent> rn <Plug>(coc-rename)
+nmap <silent> <leader>r <Plug>(coc-rename)
 
 " Show stuff with coc's fuzzy search
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent> <leader>lsd  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <leader>lse  :<C-u>CocList extensions<cr>
+nnoremap <silent> <leader>lsc  :<C-u>CocList commands<cr>

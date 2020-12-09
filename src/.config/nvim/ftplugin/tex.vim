@@ -1,12 +1,12 @@
 "
 " File:    ftplugin/tex.vim
-" Version: 20.06.0
+" Version: 20.12.0
 " Author:  BreadyX
 "
 " ftplugin for tex/latex files. Requires insallation of vim-surround.
 "
 
-set spell
+setlocal spell
 
 let b:surround_{char2nr('i')} = "\\textit{\r}"
 let b:surround_{char2nr('b')} = "\\textbf{\r}"
