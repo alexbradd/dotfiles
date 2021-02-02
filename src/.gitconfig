@@ -1,13 +1,13 @@
 #
 # File: .gitconfig
-# Version: 20.06.0
+# Version: 21.02.0
 # Author: BreadyX
 #
 
 [user]
 	name = BreadyX
 	email = alex.bradatan85@yahoo.it
-	signingkey = 
+	signingkey = 1B544E3584D1BE3B
 [gpg]
 	program = gpg
 [core]
@@ -16,3 +16,13 @@
 	showUntrackedFiles = all
 [credential]
 	helper = cache
+[pull]
+	rebase = false
+[alias]
+	slog = log --oneline
+	c = commit
+	co = checkout
+	br = branch
+	cp = cherry-pick
+	pushfl = push --force-with-lease
+
