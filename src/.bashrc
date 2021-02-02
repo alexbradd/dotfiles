@@ -1,6 +1,6 @@
 #
 # File:    .bashrc
-# Version: 21.02.0
+# Version: 21.02.1
 # Author:  BreadyX
 #
 
@@ -13,6 +13,8 @@ export HISTFILE="$HOME/.cache/bash_history"
 export LESSHISTFILE="/dev/null"
 export GIT_HUD_GLYPH="Y"
 export BAT_HUD_GLYPH="Y"
+
+export GPG_TTY=$(tty)
 
 [[ $- != *i* ]] && return
 
