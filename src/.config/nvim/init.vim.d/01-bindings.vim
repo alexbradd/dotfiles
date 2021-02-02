@@ -1,18 +1,18 @@
 "
 " File:    init.vim.d/01-bindings.vim
-" Version: 20.12.0
+" Version: 21.02.0
 " Author:  BreadyX
 "
 " Module for init.vim that defines custom key bindings.
 " Depends on 00-functionality.vim
 "
 
-" Better movement within tabs
+" Better movement within tabs and buffers
 noremap <F2> gT
 noremap <F3> gt
-
 nnoremap <silent> <leader>n :bn<CR>
 nnoremap <silent> <leader>p :bp<CR>
+nnoremap <silent> <leader>c :bd<CR>
 
 " Toggle list
 nnoremap <silent> <F4> :set list!<CR>
@@ -31,11 +31,22 @@ nnoremap <silent> <leader>lde :setlocal spelllang=de<CR>
 
 " Enter terminal (requires neovim or Vim 8.2)
 nnoremap <silent> <leader>t :terminal<CR>
+nnoremap <silent> <leader>T :tabedit term://bash<CR>
 nnoremap <silent> <leader>vt :vsplit term://bash<CR>
 nnoremap <silent> <leader>ht :split term://bash<CR>
 
 " --- goyo.vim
 nnoremap <silent> <leader>d :Goyo<CR>
+
+" --- fzf
+nnoremap <silent> <leader>zf :Files<CR>
+nnoremap <silent> <leader>zb :Buffers<CR>
+nnoremap <silent> <leader>zt :Windows<CR>
+nnoremap <silent> <leader>zg :Rg<CR>
+
+nnoremap <silent> <leader>zgf :GFiles<CR>
+nnoremap <silent> <leader>zgc :Commits<CR>
+nnoremap <silent> <leader>zg? :GFiles?<CR>
 
 " --- coc
 " Auto complete
@@ -60,6 +71,8 @@ nmap <leader>qf <Plug>(coc-fix-current)
 nmap <silent> <leader>r <Plug>(coc-rename)
 
 " Show stuff with coc's fuzzy search
+nnoremap <silent> <leader>ls   :<C-u>CocList<cr>
 nnoremap <silent> <leader>lsd  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <leader>lss  :<C-u>CocList symbols<cr>
 nnoremap <silent> <leader>lse  :<C-u>CocList extensions<cr>
 nnoremap <silent> <leader>lsc  :<C-u>CocList commands<cr>

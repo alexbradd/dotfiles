@@ -1,6 +1,6 @@
 #
 # File:    .bash_aliases
-# Version: 20.12.0
+# Version: 21.02.0
 # Author:  BreadyX
 #
 
@@ -21,6 +21,7 @@ alias Sy='sudo dnf check-update'
 alias Syu='sudo dnf upgrade'
 alias Ss='dnf search'
 alias Qi='dnf info'
+alias Qr='sudo dnf needs-restarting'
 alias R='sudo dnf remove'
 
 alias fS='flatpak install'
@@ -29,7 +30,7 @@ alias fSyu='flatpak update'
 alias fR='flatpak remove'
 alias fRr='flatpak run'
 
-alias nvSyu='nv +PlugUpdate +PlugUpgrade +qa'
+alias nvSyu='nv +PlugUpdate +PlugUpgrade'
 
 # Directories
 alias cdc='cd $HOME/src/'

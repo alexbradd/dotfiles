@@ -1,1 +1,1 @@
-.config/nvim/ftplugin/tex.vim
+tex.vim

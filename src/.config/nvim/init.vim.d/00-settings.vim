@@ -1,6 +1,6 @@
 "
 " File:    init.vim.d/00-settings.vim
-" Version: 20.12.0
+" Version: 21.02.0
 " Author:  BreadyX
 "
 " Module for init.vim that contains settings.
@@ -25,17 +25,19 @@ set noexpandtab
 set smartindent
 set cc=80
 
+set swapfile
+
 set nowrap
 set showmatch
 set listchars=tab:<.>,space:•
-
-set spelllang=en
 
 set incsearch
 set nohlsearch
 set hidden
 
 set cmdheight=2
+
+set scrolloff=12
 
 " --- theme
 let g:jellybeans_overrides = {
@@ -95,16 +97,16 @@ let g:coc_global_extensions = [
 	\ 'coc-ultisnips',
 	\ ]
 
-" --- vim-markdown
-let g:vim_markdown_folding_level = 1
-let g:vim_markdown_folding_style_pythonic = 1
+" --- vim-markdown / polyglot
+" let g:vim_markdown_folding_level = 1
+" let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_math = 1
 let g:vim_markdown_new_list_item_indent = 2
-" let g:vim_markdown_fenced_languages = [
-" 	\ 'c++=cpp',
-" 	\ 'viml=vim',
-" 	\ 'bash=sh']
+let g:vim_markdown_fenced_languages = [
+	\ 'c++=cpp',
+	\ 'viml=vim',
+	\ 'bash=sh']
 
 " --- ultisnips
 let g:UltiSnipsSnippetDirectories=[ g:config_dir . '/ultisnips' ]

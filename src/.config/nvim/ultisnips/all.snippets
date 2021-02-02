@@ -1,15 +1,1 @@
-snippet "(\w+).par" "Parenthesize the word" r
-(`!p snip.rv = match.group(1)`$1)$0
-endsnippet
 
-snippet "(\w+).up" "Make word upper case" r
-`!p snip.rv = match.group(1).upper()` $0
-endsnippet
-
-snippet "(\w+).low" "Make word lower case" r
-`!p snip.rv = match.group(1).lower()` $0
-endsnippet
-
-snippet "(\w+).Up" "Make a word's first letter upper case" r
-`!p snip.rv = match.group(1).lower().title()` $0
-endsnippet

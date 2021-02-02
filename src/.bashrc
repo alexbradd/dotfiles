@@ -1,8 +1,10 @@
 #
 # File:    .bashrc
-# Version: 20.12.0
+# Version: 21.02.0
 # Author:  BreadyX
 #
+
+[ -f "/etc/bashrc" ] && source '/etc/bashrc'
 
 ### GLOBAL VARIABLES ###
 export EDITOR="nvim"
