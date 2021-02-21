@@ -1,6 +1,6 @@
 #
 # File:    .bash_aliases
-# Version: 21.02.0
+# Version: 21.02.1
 # Author:  BreadyX
 #
 
@@ -41,5 +41,6 @@ alias cd_hdd='cd $HDD_MOUNT'
 alias cds_hdd='cd $HDD_MOUNT/documents/uni'
 
 # Misc
+alias sudo='sudo ' # allow using aliases with sudo
 alias gen-key='gpg --armor --gen-random 1 10'
 alias decrypt='gpg --decrypt'

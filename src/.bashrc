@@ -1,6 +1,6 @@
 #
 # File:    .bashrc
-# Version: 21.02.1
+# Version: 21.02.2
 # Author:  BreadyX
 #
 
@@ -91,7 +91,7 @@ fi
 
 PS1="\[$RESET\][\[$BLUE\]\u@\h:\W\[$RESET\]]"
 which bat-hud 1>/dev/null 2>&1 && PS1+=" \[$CYAN\]\$(bat-hud)"
-which git-hud 1>/dev/null 2>&1 && PS1+=" \[$GREEN\]\$(git-hud -C)"
+which git-hud 1>/dev/null 2>&1 && PS1+=" \[$GREEN\]\$(git-hud -C -D)"
 PS1+="\[$RESET\]\$ "
 export PS1;
 

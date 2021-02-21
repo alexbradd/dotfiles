@@ -1,6 +1,6 @@
 "
 " File:    init.vim.d/00-settings.vim
-" Version: 21.02.0
+" Version: 21.02.1
 " Author:  BreadyX
 "
 " Module for init.vim that contains settings.
@@ -18,9 +18,9 @@ set fileencoding=utf-8
 
 set splitbelow splitright
 
-set tabstop=8
+set tabstop=4
 set softtabstop=0
-set shiftwidth=8
+set shiftwidth=4
 set noexpandtab
 set smartindent
 set cc=80
@@ -92,7 +92,7 @@ set signcolumn=yes
 
 let g:coc_global_extensions = [
 	\ 'coc-clangd',
-	\ 'coc-python',
+	\ 'coc-pyright',
 	\ 'coc-markdownlint',
 	\ 'coc-ultisnips',
 	\ ]
