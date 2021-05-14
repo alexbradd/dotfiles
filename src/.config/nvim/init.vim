@@ -1,6 +1,6 @@
 "
 " File:    init.vim
-" Version: 21.02.0
+" Version: 21.04.0
 " Author:  BreadyX
 "
 " Main configuration file for Neovim. Uses vim-plug to setup various plug-ins and
@@ -20,6 +20,9 @@ let g:config_dir = $HOME . '/.config/nvim'
 let g:module_dir = g:config_dir . '/init.vim.d'
 let g:plugin_dir = $HOME . '/.local/share/nvim/plugged'
 
+" Directory where projects reside, used for project local overrides
+let g:projects_dir = $HOME . '/projects'
+
 call plug#begin(g:plugin_dir)
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -29,7 +32,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Plug 'plasticboy/vim-markdown'
+Plug 'LucHermitte/lh-vim-lib'
+Plug 'LucHermitte/local_vimrc'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'

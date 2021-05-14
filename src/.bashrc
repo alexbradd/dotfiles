@@ -1,6 +1,6 @@
 #
 # File:    .bashrc
-# Version: 21.02.2
+# Version: 21.05.0
 # Author:  BreadyX
 #
 
@@ -8,13 +8,18 @@
 
 ### GLOBAL VARIABLES ###
 export EDITOR="nvim"
-export HDD_MOUNT="/media/hdd"
 export HISTFILE="$HOME/.cache/bash_history"
 export LESSHISTFILE="/dev/null"
 export GIT_HUD_GLYPH="Y"
 export BAT_HUD_GLYPH="Y"
 
 export GPG_TTY=$(tty)
+
+if [ -d '/media/hdd' ]; then
+	export HDD_MOUNT="/media/hdd"
+else
+	export HDD_MOUNT=
+fi
 
 [[ $- != *i* ]] && return
 

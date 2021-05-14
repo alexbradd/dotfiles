@@ -1,6 +1,6 @@
 "
 " File:    init.vim.d/00-settings.vim
-" Version: 21.02.1
+" Version: 21.02.2
 " Author:  BreadyX
 "
 " Module for init.vim that contains settings.
@@ -94,8 +94,12 @@ let g:coc_global_extensions = [
 	\ 'coc-clangd',
 	\ 'coc-pyright',
 	\ 'coc-markdownlint',
+	\ 'coc-texlab',
 	\ 'coc-ultisnips',
 	\ ]
+
+" --- local_vimrc
+call lh#local_vimrc#munge('whitelist', g:projects_dir)
 
 " --- vim-markdown / polyglot
 " let g:vim_markdown_folding_level = 1

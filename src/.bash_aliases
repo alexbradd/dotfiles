@@ -1,6 +1,6 @@
 #
 # File:    .bash_aliases
-# Version: 21.02.1
+# Version: 21.05.0
 # Author:  BreadyX
 #
 
@@ -33,14 +33,18 @@ alias fRr='flatpak run'
 alias nvSyu='nv +PlugUpdate +PlugUpgrade'
 
 # Directories
-alias cdc='cd $HOME/src/'
+alias cdc='cd $HOME/projects'
 alias cdd='cd $HOME/Documents'
 alias cddw='cd $HOME/Downloads'
 
-alias cd_hdd='cd $HDD_MOUNT'
-alias cds_hdd='cd $HDD_MOUNT/documents/uni'
+if [ -n "$HDD_MOUNT" ]; then
+	alias cd-hdd='cd $HDD_MOUNT'
+	alias cds-hdd='cd $HDD_MOUNT/documents/uni'
+else
+	alias cds='cd $HOME/Documents/uni'
+fi
 
 # Misc
 alias sudo='sudo ' # allow using aliases with sudo
-alias gen-key='gpg --armor --gen-random 1 10'
+alias gen-pass='gpg --armor --gen-random 1 10'
 alias decrypt='gpg --decrypt'
