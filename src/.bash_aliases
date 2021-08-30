@@ -1,6 +1,6 @@
 #
 # File:    .bash_aliases
-# Version: 21.05.0
+# Version: 21.08.0
 # Author:  BreadyX
 #
 
@@ -40,8 +40,6 @@ alias cddw='cd $HOME/Downloads'
 if [ -n "$HDD_MOUNT" ]; then
 	alias cd-hdd='cd $HDD_MOUNT'
 	alias cds-hdd='cd $HDD_MOUNT/documents/uni'
-else
-	alias cds='cd $HOME/Documents/uni'
 fi
 
 # Misc

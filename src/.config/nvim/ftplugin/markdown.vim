@@ -1,6 +1,6 @@
 "
 " File:    ftplugin/markdown.vim
-" Version: 20.05.0
+" Version: 20.12.1
 " Author:  BreadyX
 "
 " ftplugin for markdown files. Requires the installation of vim-markdown and

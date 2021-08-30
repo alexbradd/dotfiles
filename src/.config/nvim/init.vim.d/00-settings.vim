@@ -1,6 +1,6 @@
 "
 " File:    init.vim.d/00-settings.vim
-" Version: 21.02.2
+" Version: 21.08.0
 " Author:  BreadyX
 "
 " Module for init.vim that contains settings.
@@ -15,6 +15,8 @@ syntax on
 
 set encoding=utf-8
 set fileencoding=utf-8
+
+set signcolumn=number
 
 set splitbelow splitright
 
@@ -36,54 +38,48 @@ set nohlsearch
 set hidden
 
 set cmdheight=2
-
 set scrolloff=12
 
 " --- theme
-let g:jellybeans_overrides = {
-	\	'background': {
-	\		'ctermbg': 'none',
-	\		'256ctermbg': 'none'
-	\	},
-	\}
-
 if $TERM !=# 'linux'
 	if has('termguicolors')
 		set termguicolors
 	endif
-	let g:jellybeans_overrides['background']['guibg'] = 'none'
-	let g:jellybeans_use_term_italics = 1
+	let g:material_style = 'darker'
+	let g:material_italic_strings = v:true
+	let g:material_italic_comments = v:true
+	let g:material_hide_eob = v:true
+	colorscheme material
 else
 	set guicursor=a:ver100
-	let g:jellybeans_use_lowcolor_black = 1
+	colorscheme default
 endif
-colorscheme jellybeans
 
-" --- goyo.vim
-let g:goyo_width = 82
-let g:goyo_height = 90
-let g:goyo_linenr = 1
-
-" --- lightline
-set noshowmode
-let g:lightline = {
-	\	'colorscheme' : 'jellybeans',
-	\	'active': {
-	\		'left': [
-	\			[ 'mode', 'paste' ],
-	\			[ 'readonly', 'filename', 'modified', 'git-hud' ]
-	\		],
-	\		'right': [
-	\			[ 'lineinfo' ],
-	\			[ 'percent' ],
-	\			[ 'fileformat', 'fileencoding', 'filetype'],
-	\			[ 'coc-status' ]
-	\		]
-	\	},
-	\	'component_function': {
-	\		'coc-status': 'coc#status'
-	\	},
-	\}
+" --- lualine
+lua << EOF
+require('lualine').setup {
+	options = {
+		-- icons_enabled = false,
+		theme = 'material-nvim',
+		component_separators = {'|', '|'},
+		section_separators = {'', ''},
+	},
+	sections = {
+		lualine_a = {'mode'},
+		lualine_b = {'branch'},
+		lualine_c = {'filename'},
+		lualine_x = {
+			'coc#status',
+			'encoding',
+			{ 'fileformat', icons_enabled = false },
+			'filetype'
+		},
+		lualine_y = {'progress'},
+		lualine_z = {'location'}
+	},
+	extensions = { 'fugitive', 'quickfix' }
+}
+EOF
 
 " --- coc.vim
 set updatetime=50
@@ -93,8 +89,10 @@ set signcolumn=yes
 let g:coc_global_extensions = [
 	\ 'coc-clangd',
 	\ 'coc-pyright',
-	\ 'coc-markdownlint',
+	\ 'coc-tsserver',
+	\ 'coc-vetur',
 	\ 'coc-texlab',
+	\ 'coc-markdownlint',
 	\ 'coc-ultisnips',
 	\ ]
 
@@ -102,8 +100,8 @@ let g:coc_global_extensions = [
 call lh#local_vimrc#munge('whitelist', g:projects_dir)
 
 " --- vim-markdown / polyglot
-" let g:vim_markdown_folding_level = 1
-" let g:vim_markdown_folding_style_pythonic = 1
+let g:vim_markdown_folding_level = 1
+let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_math = 1
 let g:vim_markdown_new_list_item_indent = 2

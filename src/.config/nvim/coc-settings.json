@@ -1,4 +1,5 @@
 {
+	"coc.preferences.formatOnSaveFiletypes": ["js", "vue", "css", "markdown"],
     "coc.source.ultisnips.enable": true,
     "coc.source.ultisnips.shortcut": "[S]",
     "clangd.arguments": [
@@ -7,5 +8,12 @@
         "--suggest-missing-includes"
     ],
     "clangd.semanticHighlighting": true,
-    "python.linting.pylintEnabled": true
+    "python.linting.pylintEnabled": true,
+	"vetur.validation.template": false,
+	"prettier.disableLanguages": [],
+	"prettier.trailingComma" : 'none',
+	"prettier.tabWidth" : 2,
+	"prettier.semi" : true,
+	"prettier.singleQuote" : true,
+	"prettier.jsxBracketSameLine" : true
 }

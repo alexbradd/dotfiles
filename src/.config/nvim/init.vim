@@ -1,10 +1,11 @@
 "
 " File:    init.vim
-" Version: 21.04.0
+" Version: 21.08.0
 " Author:  BreadyX
 "
-" Main configuration file for Neovim. Uses vim-plug to setup various plug-ins and
-" then loads the other 'modules' from the directory specified in g:module_dir.
+" Main configuration file for Neovim. Uses vim-plug to setup various plug-ins
+" and then loads the other 'modules' from the directory specified in
+" g:module_dir.
 "
 " Each 'module' is a vimscript file that simply gets sourced. Each filename is
 " made up of two parts:
@@ -29,6 +30,10 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'sheerun/vim-polyglot'
 
+Plug 'ryanoasis/vim-devicons'
+Plug 'preservim/nerdtree'
+Plug 'hoob3rt/lualine.nvim'
+
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
@@ -38,13 +43,15 @@ Plug 'LucHermitte/local_vimrc'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
+
 Plug 'godlygeek/tabular'
 Plug 'SirVer/ultisnips'
 
-Plug 'itchyny/lightline.vim'
 Plug 'junegunn/goyo.vim'
 
 Plug 'nanotech/jellybeans.vim'
+Plug 'marko-cerovac/material.nvim'
 
 call plug#end()
 

@@ -1,6 +1,6 @@
 "
 " File:    init.vim.d/01-bindings.vim
-" Version: 21.02.0
+" Version: 21.08.0
 " Author:  BreadyX
 "
 " Module for init.vim that defines custom key bindings.
@@ -30,23 +30,28 @@ nnoremap <silent> <leader>len :setlocal spelllang=en<CR>
 nnoremap <silent> <leader>lde :setlocal spelllang=de<CR>
 
 " Enter terminal (requires neovim or Vim 8.2)
-nnoremap <silent> <leader>t :terminal<CR>
-nnoremap <silent> <leader>T :tabedit term://bash<CR>
 nnoremap <silent> <leader>vt :vsplit term://bash<CR>
 nnoremap <silent> <leader>ht :split term://bash<CR>
 
-" --- goyo.vim
-nnoremap <silent> <leader>d :Goyo<CR>
-
 " --- fzf
 nnoremap <silent> <leader>zf :Files<CR>
+nnoremap <silent> <leader>zF :GFiles<CR>
 nnoremap <silent> <leader>zb :Buffers<CR>
 nnoremap <silent> <leader>zt :Windows<CR>
 nnoremap <silent> <leader>zg :Rg<CR>
 
-nnoremap <silent> <leader>zgf :GFiles<CR>
-nnoremap <silent> <leader>zgc :Commits<CR>
-nnoremap <silent> <leader>zg? :GFiles?<CR>
+" --- fugitive
+nnoremap <silent> <leader>gg :G<CR>
+nnoremap <silent> <leader>gl :G -p slog<CR>
+nnoremap <silent> <leader>gL :G -p gslog<CR>
+nnoremap <silent> <leader>gd :G diff<CR>
+nnoremap <silent> <leader>gb :G blame<CR>
+
+" --- NERDTree
+nnoremap <silent> <leader>t :NERDTreeFocus<CR>
+nnoremap <silent> <C-n> :NERDTree<CR>
+nnoremap <silent> <C-t> :NERDTreeToggle<CR>
+nnoremap <silent> <C-f> :NERDTreeFind<CR>
 
 " --- coc
 " Auto complete
@@ -64,11 +69,28 @@ nmap gr <Plug>(coc-references)
 
 nnoremap <silent> <leader>lK :call Show_documentation<CR>
 
-nmap <leader>ca <Plug>(coc-codeaction)
-nmap <leader>qf <Plug>(coc-fix-current)
+xmap <leader>ca  <Plug>(coc-codeaction-selected)
+nmap <leader>ca  <Plug>(coc-codeaction-selected)
+nmap <leader>caa <Plug>(coc-codeaction)
+nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Rename symbol
 nmap <silent> <leader>r <Plug>(coc-rename)
+
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" Selection range
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Show stuff with coc's fuzzy search
 nnoremap <silent> <leader>ls   :<C-u>CocList<cr>

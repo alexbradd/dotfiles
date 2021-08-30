@@ -1,13 +1,13 @@
 #
 # File: .gitconfig
-# Version: 21.07.0
+# Version: 21.07.1
 # Author: BreadyX
 #
 
 [user]
 	name = Alexandru Gabriel Bradatan
 	email = alex.bradatan85@yahoo.it
-	signingkey = 1B544E3584D1BE3B
+	signingkey = 
 [gpg]
 	program = gpg
 [core]
@@ -28,3 +28,5 @@
 	pushfl = push --force-with-lease
 [commit]
 	gpgSign = true
+[init]
+	defaultBranch = main
