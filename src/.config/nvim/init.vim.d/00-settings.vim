@@ -1,6 +1,6 @@
 "
 " File:    init.vim.d/00-settings.vim
-" Version: 21.08.0
+" Version: 21.08.1
 " Author:  BreadyX
 "
 " Module for init.vim that contains settings.
@@ -90,6 +90,8 @@ let g:coc_global_extensions = [
 	\ 'coc-clangd',
 	\ 'coc-pyright',
 	\ 'coc-tsserver',
+	\ 'coc-eslint',
+	\ 'coc-prettier',
 	\ 'coc-vetur',
 	\ 'coc-texlab',
 	\ 'coc-markdownlint',
