@@ -1,21 +1,11 @@
 "
 " File:    init.vim.d/00-functionality.vim
-" Version: 21.08.0
+" Version: 21.10.0
 " Author:  BreadyX
 "
 " Module for init.vim that contains user defined functions and autocommands
 "
 
-" Show documentation for word under cursor. Tied into coc's LSP features "
-function! g:Show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
 
 " Remove trailing whitespaces on write
 let no_remove_trailing = ['markdown', 'latex']

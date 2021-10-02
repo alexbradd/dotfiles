@@ -6,4 +6,4 @@
 " ftplugin for vue single component files.
 "
 
-setlocal expandtab tabstop=2 shiftwidth=2
+setlocal tabstop=2 shiftwidth=2

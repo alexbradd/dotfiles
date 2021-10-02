@@ -1,14 +1,13 @@
 "
 " File:    ftplugin/tex.vim
-" Version: 21.2.0
+" Version: 21.10.0
 " Author:  BreadyX
 "
 " ftplugin for tex/latex files. Requires insallation of vim-surround.
 "
 
-setlocal expandtab tabstop=2 shiftwidth=2
+setlocal tabstop=2 shiftwidth=2
 setlocal formatoptions+=t
-setlocal textwidth=80
 setlocal spell spelllang=it
 
 let b:surround_{char2nr('i')} = "\\textit{\r}"
