@@ -1,21 +1,17 @@
 #
 # File:    .bash_aliases
-# Version: 21.08.0
+# Version: 21.10.0
 # Author:  BreadyX
 #
 
-# Programs
+alias sudo='sudo ' # allow using aliases with sudo
+
+### ls ###
 alias ls="ls --color=auto"
 alias la="ls -a"
 alias ll="ls -la"
 
-alias cls="clear"
-
-alias nv="nvim"
-alias v="vim"
-alias sv="sudo vim"
-
-# Package managers:
+### dnf ###
 alias S='sudo dnf install'
 alias Sy='sudo dnf check-update'
 alias Syu='sudo dnf upgrade'
@@ -24,25 +20,33 @@ alias Qi='dnf info'
 alias Qr='sudo dnf needs-restarting'
 alias R='sudo dnf remove'
 
+### flatpak ###
 alias fS='flatpak install'
 alias fSs='flatpak search'
 alias fSyu='flatpak update'
 alias fR='flatpak remove'
-alias fRr='flatpak run'
 
-alias nvSyu='nv +PlugUpdate +PlugUpgrade'
+### vim/neovim ###
+alias nv="nvim"
+alias v="vim"
+alias sv="sudo vim"
+alias nvSyu='nv +PlugUpdate +PlugUpgrade +CocUpdate'
 
-# Directories
+### gpg ###
+alias genpassword='gpg --armor --gen-random 1 10'
+alias encrypt='gpg --sign --encrypt'
+alias decrypt='gpg --decrypt'
+
+# TODO: change to liking if on laptop
+alias passwords='gpg --decrypt $HDD_MOUNT/codes/password.gpg'
+
+### Directories ###
 alias cdc='cd $HOME/projects'
 alias cdd='cd $HOME/Documents'
 alias cddw='cd $HOME/Downloads'
 
-if [ -n "$HDD_MOUNT" ]; then
-	alias cd-hdd='cd $HDD_MOUNT'
-	alias cds-hdd='cd $HDD_MOUNT/documents/uni'
-fi
+# TODO: change to liking if on laptop
+alias cdhdd='cd $HDD_MOUNT'
+alias cdD='cd $HDD_MOUNT/documents'
+alias cds='cd $HDD_MOUNT/documents/uni'
 
-# Misc
-alias sudo='sudo ' # allow using aliases with sudo
-alias gen-pass='gpg --armor --gen-random 1 10'
-alias decrypt='gpg --decrypt'
