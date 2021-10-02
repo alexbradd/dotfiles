@@ -4,12 +4,6 @@ This is where I store most of my configuration files. These files have been writ
 to suit *my* needs and to work in *my* setup, so be careful if you want to eventually 
 use them as they maybe won't play nice with yours.
 
-## Main requisites
-- bash
-- Neovim
-- git
-- bxu (visit [my other repo](https://github.com/BreadyX/bxu))
-
 ## Installation
 To install, copy what config files you want from the `src` folder into the appropriate
 place in your home directory.
