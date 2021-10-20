@@ -1,6 +1,6 @@
 #
 # File:    .bash_aliases
-# Version: 21.10.0
+# Version: 21.11.0
 # Author:  BreadyX
 #
 
@@ -30,7 +30,7 @@ alias fR='flatpak remove'
 alias nv="nvim"
 alias v="vim"
 alias sv="sudo vim"
-alias nvSyu='nv +PlugUpdate +PlugUpgrade +CocUpdate'
+alias nvSyu='nv +PackerUpdate +CocUpdate'
 
 ### gpg ###
 alias genpassword='gpg --armor --gen-random 1 10'
