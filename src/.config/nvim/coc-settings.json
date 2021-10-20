@@ -8,15 +8,12 @@
     "markdown",
     "python"
   ],
-  "coc.source.ultisnips.enable": true,
-  "coc.source.ultisnips.shortcut": "[S]",
   "clangd.arguments": [
     "--clang-tidy",
     "--cross-file-rename",
     "--suggest-missing-includes"
   ],
   "clangd.semanticHighlighting": true,
-  "prettier.eslintIntegration": true,
   "prettier.disableLanguages": [],
   "prettier.trailingComma": "none",
   "prettier.tabWidth": 2,
