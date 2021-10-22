@@ -122,6 +122,9 @@ g.bufferline = {
     clickable = false,
 }
 
+-- indent-blankline.nvim
+require('indent_blankline').setup()
+
 -- which-key.nvim
 require('which-key').setup()
 

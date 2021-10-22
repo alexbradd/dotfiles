@@ -20,6 +20,7 @@ return require('packer').startup(function()
         'hoob3rt/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     })
+    use('lukas-reineke/indent-blankline.nvim')
     use({
         'romgrk/barbar.nvim',
         requires = {'kyazdani42/nvim-web-devicons'}

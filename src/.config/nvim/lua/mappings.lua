@@ -100,12 +100,12 @@ wk.register(
             P = { '<cmd>BufferPick<cr>', 'Pick buffer' },
         },
         g = { '<cmd>LazyGit<cr>', 'Open lazygit' },
-        T = {
+        t = {
             name = 'Terminal',
             h = { '<cmd>split term://bash<cr>', 'Open terminal' },
             v = { '<cmd>vsplit term://bash<cr>', 'Open terminal' },
         },
-        t = { '<cmd>NvimTreeFocus<cr>', 'Focus tree view' },
+        f = { '<cmd>NvimTreeFocus<cr>', 'Focus tree view' },
         c = {
             name = 'Code',
             a = { '<Plug>(coc-codeaction)', 'Code action' },
