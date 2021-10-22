@@ -17,7 +17,7 @@ return require('packer').startup(function()
 
     use('Pocco81/Catppuccino.nvim')
     use({
-        'hoob3rt/lualine.nvim',
+        'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     })
     use('lukas-reineke/indent-blankline.nvim')
@@ -36,8 +36,8 @@ return require('packer').startup(function()
     use('tpope/vim-repeat')
     use('godlygeek/tabular')
 
-    use('sheerun/vim-polyglot')
-    use('kdheepak/lazygit.nvim')
+    use('plasticboy/vim-markdown')
+    use('tpope/vim-fugitive')
     use('junegunn/fzf.vim')
     use({
         'neoclide/coc.nvim',

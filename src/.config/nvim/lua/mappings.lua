@@ -10,14 +10,11 @@ wk.register(
         z = {
             name = "Spelling",
             l = { '<cmd>setlocal spell!<cr>', 'Toggle spelling' },
-            i = { '<cmd>setlocal spelllang=it<cr>', 'Enable italian spelling' },
-            e = { '<cmd>setlocal spelllang=en<cr>', 'Enable english spelling' },
-            d = { '<cmd>setlocal spelllang=de<cr>', 'Enable german spelling' }
         },
         K = {
             function ()
-                fts = { 'vim', 'help' }
-                if fts[vim.bo.filetype] ~= nil then
+                ft = vim.bo.filetype
+                if ft == 'vim' or ft == 'help' then
                     vim.cmd([[execute 'h '.expand('<cword>')]])
                 elseif vim.call('coc#rpc#ready') then
                     vim.fn.CocActionAsync('doHover')
@@ -99,7 +96,11 @@ wk.register(
             p = { '<cmd>BufferPin<cr>', 'Pin buffer' },
             P = { '<cmd>BufferPick<cr>', 'Pick buffer' },
         },
-        g = { '<cmd>LazyGit<cr>', 'Open lazygit' },
+        g = {
+            g = { '<cmd>Git<cr>', 'Open fugitive' },
+            b = { '<cmd>Git blame<cr>', 'Open fugitive blame on file' },
+            l = { '<cmd>Gitllog<cr>', 'Open fugitive log' },
+        },
         t = {
             name = 'Terminal',
             h = { '<cmd>split term://bash<cr>', 'Open terminal' },

@@ -11,7 +11,6 @@ o.tabstop = 2
 o.shiftwidth = 2
 o.formatoptions:append('t')
 o.spell = true
-o.spelllan = 'it'
 
 b['surround_'..fn.char2nr('i')] = '\\textit{\r}'
 b['surround_'..fn.char2nr('b')] = '\\textbf{\r}'

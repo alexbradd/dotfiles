@@ -12,7 +12,7 @@ o.tabstop = 2
 o.shiftwidth = 2
 o.formatoptions:append('t')
 o.spell = true
-o.spelllang = 'it'
+o.conceallevel = 2
 
 b['surround_'..fn.char2nr('i')] = '*\r*'
 b['surround_'..fn.char2nr('b')] = '**\r**'

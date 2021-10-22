@@ -28,6 +28,8 @@ set.showmatch = true
 set.incsearch = true
 set.hlsearch = false
 
+set.spelllang = { 'it', 'en' }
+
 set.backup = false -- required by coc.nvim
 set.writebackup = false -- required by coc.nvim
 
@@ -40,8 +42,7 @@ set.shortmess:append('c') -- required by coc.nvim
 set.cmdheight = 2
 set.updatetime = 300
 
-
--- Colorscheme
+-- colorscheme
 if fn.has('termguicolors') then
     set.termguicolors = true
 end
@@ -59,7 +60,11 @@ require('catppuccino').setup({
         nvimtree = {
             enabled = true,
             show_root = true,
-        }
+        },
+        indent_blankline = {
+            enabled = true,
+            color_indent_levels = true,
+        },
     },
 })
 
@@ -74,8 +79,6 @@ end
 require('lualine').setup({
     options = {
         theme = 'catppuccino',
-        component_separators = {'|', '|'},
-        section_separators = {'', ''},
     },
     sections = {
         lualine_a = {'mode'},
@@ -90,29 +93,19 @@ require('lualine').setup({
         lualine_y = {'progress'},
         lualine_z = {'location'}
     },
-    extensions = { 'quickfix' }
+    extensions = { 'quickfix', 'nvim-tree', 'fzf', 'fugitive' }
 })
 
--- vim-polyglot
-g.vim_markdown_folding_level = 1
-g.vim_markdown_folding_style_pythonic = 1
+-- vim-markdown
+g.vim_markdown_folding_disabled = 1
 g.vim_markdown_toc_autofit = 1
-g.vim_markdown_math = 1
 g.vim_markdown_new_list_item_indent = 2
-g.vim_markdown_fenced_languages = { 'c++=cpp', 'viml=vim', 'bash=sh' }
+g.vim_markdown_math = 1
+g.tex_conceal = ''
+g.vim_markdown_conceal_code_blocks = 0
+g.vim_markdown_frontmatter = 1
 
 -- coc.nvim
-g.coc_global_extensions = {
-    'coc-clangd',
-    'coc-pyright',
-    'coc-tsserver',
-    'coc-vetur',
-    'coc-eslint',
-    'coc-prettier',
-    'coc-json',
-    'coc-texlab',
-    'coc-markdownlint',
-}
 g.coc_snippet_next = '<C-j>'
 g.coc_snippet_prev = '<C-k>'
 
