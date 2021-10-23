@@ -1,6 +1,6 @@
 #
 # File:    .bashrc
-# Version: 21.10.0
+# Version: 21.11.0
 # Author:  BreadyX
 #
 
@@ -51,29 +51,39 @@ function notes() {
         *)
             if [ -n "$1" ]; then
                 echo "Invalid argument '$1'"
-                else
+            else
                 cd "$h"
             fi ;;
     esac
 }
 
+if [ -f $HOME/.local/share/prompt/git-prompt.sh ]; then
+    . $HOME/.local/share/prompt/git-prompt.sh
+else
+    __git_ps1() {
+        echo 'Warning: git-prompt.sh has not been found'
+        PS1="$1$2"
+    }
+fi
+
 ### PROMPT PERSONALIZATION ###
-BLUE=$(tput setaf 12)
-GREEN=$(tput setaf 2)
-RESET=$(tput sgr0)
-CONTAINER_PREFIX="⬢ "
+__prompt_command() {
+    local dir_color="$(tput bold)$(tput setaf 12)"
+    local reset=$(tput sgr0)
+    local cont="∴" # in tty it will show up as a little square
 
-if [ "$TERM" = "linux" ]; then
-    BLUE=$(tput setaf 4)
-    CONTAINER_PREFIX="<> "
-fi
+    local pre_str=""
+    local git_str="%s "
+    local post_str="\[$reset\]\\\$ "
 
-PS1=""
-if [ -f /run/.containerenv ]; then
-    PS1+="$CONTAINER_PREFIX"
-fi
-PS1+="\[$RESET\][\[$BLUE\]\u@\h:\W\[$RESET\]]"
-which git-hud 1>/dev/null 2>&1 && PS1+=" \[$GREEN\]\$(git-hud -C -D)"
-PS1+="\[$RESET\]\$ "
-export PS1;
+    [ -f /run/.containerenv ] && pre_str+="$cont"
+    pre_str+=" \[$dir_color\]\W\[$reset\] "
+
+    GIT_PS1_SHOWDIRTYSTATE=1
+    GIT_PS1_SHOWSTASHSTATE=1
+    GIT_PS1_SHOWUNTRACKEDFILES=1
+    GIT_PS1_SHOWCOLORHINTS=1
+    __git_ps1 "$pre_str" "$post_str" "$git_str"
+}
+PROMPT_COMMAND="__prompt_command"
 

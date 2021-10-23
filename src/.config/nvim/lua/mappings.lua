@@ -99,7 +99,7 @@ wk.register(
         g = {
             g = { '<cmd>Git<cr>', 'Open fugitive' },
             b = { '<cmd>Git blame<cr>', 'Open fugitive blame on file' },
-            l = { '<cmd>Gitllog<cr>', 'Open fugitive log' },
+            l = { '<cmd>Gllog<cr>', 'Open fugitive log' },
         },
         t = {
             name = 'Terminal',
