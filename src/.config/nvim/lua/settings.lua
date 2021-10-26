@@ -39,6 +39,8 @@ set.hidden = true -- required by coc.nvim
 
 set.shortmess:append('c') -- required by coc.nvim
 
+set.mouse:append('a')
+
 set.cmdheight = 2
 set.updatetime = 300
 
@@ -110,10 +112,6 @@ g.coc_snippet_next = '<C-j>'
 g.coc_snippet_prev = '<C-k>'
 
 -- barbar.nvim
-g.bufferline = {
-    closable = false,
-    clickable = false,
-}
 
 -- indent-blankline.nvim
 require('indent_blankline').setup()
