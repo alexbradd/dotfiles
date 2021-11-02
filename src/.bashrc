@@ -76,8 +76,8 @@ __prompt_command() {
     local git_str="%s "
     local post_str="\[$reset\]\\\$ "
 
-    [ -f /run/.containerenv ] && pre_str+="$cont"
-    pre_str+=" \[$dir_color\]\W\[$reset\] "
+    [ -f /run/.containerenv ] && pre_str+="$cont "
+    pre_str+="\[$dir_color\]\W\[$reset\] "
 
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWSTASHSTATE=1

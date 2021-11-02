@@ -39,7 +39,7 @@ set.hidden = true -- required by coc.nvim
 
 set.shortmess:append('c') -- required by coc.nvim
 
-set.mouse:append('a')
+set.mouse = 'nvc'
 
 set.cmdheight = 2
 set.updatetime = 300
