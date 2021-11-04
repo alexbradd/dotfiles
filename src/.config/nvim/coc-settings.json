@@ -14,6 +14,7 @@
     "--suggest-missing-includes"
   ],
   "clangd.semanticHighlighting": true,
+  "javascript.suggestionActions.enabled": false,
   "prettier.disableLanguages": [],
   "prettier.trailingComma": "none",
   "prettier.tabWidth": 2,

@@ -27,3 +27,4 @@ dnf install git lazygit neovim fzf ripgrep\
 
 # pynvim and nodejs/neovim should be already setup in the home directory
 npm install -g prettier eslint
+pip install yapf
