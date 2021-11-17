@@ -1,6 +1,6 @@
 --
 -- File: lua/settings.lua
--- Version: 21.11.0
+-- Version: 21.11.1
 --
 
 local set = vim.opt
@@ -15,9 +15,9 @@ set.number = true
 set.signcolumn = 'number'
 
 set.expandtab = true
-set.tabstop = 4
+set.tabstop = 2
 set.softtabstop = -1
-set.shiftwidth = 4
+set.shiftwidth = 2
 set.cc = '80'
 set.textwidth = 80
 set.listchars = {tab = '▸ ', space = '·'}
@@ -49,8 +49,7 @@ if fn.has('termguicolors') then
     set.termguicolors = true
 end
 
-require('catppuccino').setup({
-    colorscheme = 'soft_manilo',
+require('catppuccin').setup({
     styles = {
         comments = 'italic',
         functions = 'NONE',
@@ -67,11 +66,13 @@ require('catppuccino').setup({
             enabled = true,
             color_indent_levels = true,
         },
+        barbar = true,
+        markdown = true,
     },
 })
 
 if vim.env.TERM ~= 'linux' then
-    cmd('colorscheme catppuccino')
+    cmd('colorscheme catppuccin')
 else
     set.guicursor = { a = 'ver100' }
     cmd('colorscheme default')
@@ -80,7 +81,7 @@ end
 -- lualine
 require('lualine').setup({
     options = {
-        theme = 'catppuccino',
+        theme = 'catppuccin',
     },
     sections = {
         lualine_a = {'mode'},
@@ -112,6 +113,9 @@ g.coc_snippet_next = '<C-j>'
 g.coc_snippet_prev = '<C-k>'
 
 -- barbar.nvim
+g.bufferline = {
+    audo_hide = true
+}
 
 -- indent-blankline.nvim
 require('indent_blankline').setup()
@@ -125,3 +129,38 @@ require('Comment').setup()
 -- nvim-tree
 require('nvim-tree').setup()
 
+-- nvim-autopairs
+local nvim_autopairs = require('nvim-autopairs')
+local Rule = require('nvim-autopairs.rule')
+
+nvim_autopairs.setup({
+    enable_check_bracket_line = false,
+    fast_wrap = {},
+})
+
+nvim_autopairs.add_rules({
+    Rule('/*', '*/'):set_end_pair_length(2),
+    Rule(' ', ' ')
+        :with_pair(function (opts)
+            local pair = opts.line:sub(opts.col - 1, opts.col)
+            return vim.tbl_contains({ '()', '[]', '{}' }, pair)
+        end),
+    Rule('( ', ' )')
+        :with_pair(function() return false end)
+        :with_move(function(opts)
+            return opts.prev_char:match('.%)') ~= nil
+        end)
+        :use_key(')'),
+    Rule('{ ', ' }')
+        :with_pair(function() return false end)
+        :with_move(function(opts)
+            return opts.prev_char:match('.%}') ~= nil
+        end)
+        :use_key('}'),
+    Rule('[ ', ' ]')
+        :with_pair(function() return false end)
+        :with_move(function(opts)
+            return opts.prev_char:match('.%]') ~= nil
+        end)
+        :use_key(']'),
+})

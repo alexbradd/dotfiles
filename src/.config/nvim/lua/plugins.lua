@@ -1,6 +1,6 @@
 --
 -- File: lua/plugins.lua
--- Version: 21.11.0
+-- Version: 21.11.2
 --
 
 local fn = vim.fn
@@ -15,7 +15,7 @@ end
 return require('packer').startup(function()
     use('wbthomason/packer.nvim')
 
-    use('Pocco81/Catppuccino.nvim')
+    use('catppuccin/nvim')
     use({
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -31,6 +31,7 @@ return require('packer').startup(function()
     })
     use('folke/which-key.nvim')
 
+    use('windwp/nvim-autopairs')
     use('numToStr/Comment.nvim')
     use('tpope/vim-surround')
     use('tpope/vim-repeat')

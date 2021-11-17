@@ -1,6 +1,6 @@
 --
 -- File: lua/mappings.lua
--- Verison: 21.11.0
+-- Verison: 21.11.1
 --
 
 local wk = require("which-key")
@@ -27,6 +27,7 @@ wk.register(
         ['[g'] = { '<Plug>(coc-diagnostic-prev)', 'Go to previous diagnostic' },
         [']g'] = { '<Plug>(coc-diagnostic-next)', 'Go to next diagnostic' },
         g = {
+            name = "Go to",
             d = { '<plug>(coc-definition)', 'Go to definition' },
             D = { '<plug>(coc-type-definition)', 'Go to type definition' },
             i = { '<plug>(coc-implementation)', 'Go to implementation' },
@@ -34,9 +35,11 @@ wk.register(
         },
         ['<c-s>'] = { '<Plug>(coc-range-select)', 'Range select' },
         ['<c-f>'] = { '<cmd>NvimTreeToggle<cr>', 'Toggle tree view' },
+        ['<M-f>'] = { '<cmd>NvimTreeFocus<cr>', 'Focus tree view' },
         ['<F2>'] = { '<cmd>tabprevious<cr>', 'Move to previous tab' },
         ['<F3>'] = { '<cmd>tabnext<cr>', 'Move to next tab' },
         ['<F4>'] = { '<cmd>tabclose<cr>', 'Close tab' },
+        ['<M-e>'] = { name = 'AutoPair Fastwrap' },
     },
     {
         mode = 'n',
@@ -87,28 +90,29 @@ wk.register(
 
 wk.register(
     {
-        j = { '<cmd>BufferPrevious<cr>', 'Previous buffer' },
-        k = { '<cmd>BufferNext<cr>', 'Next buffer' },
-        J = { '<cmd>BufferMovePrevious<cr>', 'Move previous buffer' },
-        K = { '<cmd>BufferMoveNext<cr>', 'Move next buffer' },
+        h = { '<cmd>BufferPrevious<cr>', 'Previous buffer' },
+        l = { '<cmd>BufferNext<cr>', 'Next buffer' },
+        H = { '<cmd>BufferMovePrevious<cr>', 'Move previous buffer' },
+        l = { '<cmd>BufferMoveNext<cr>', 'Move next buffer' },
         b = {
+            name = "Manage bufffer",
             c = { '<cmd>BufferClose<cr>', 'Close buffer' },
             p = { '<cmd>BufferPin<cr>', 'Pin buffer' },
             P = { '<cmd>BufferPick<cr>', 'Pick buffer' },
         },
         g = {
+            name = 'Fugitive',
             g = { '<cmd>Git<cr>', 'Open fugitive' },
             b = { '<cmd>Git blame<cr>', 'Open fugitive blame on file' },
-            l = { '<cmd>Gllog<cr>', 'Open fugitive log' },
+            l = { '<cmd>Git --paginate slog<cr>', 'Open fugitive log' },
         },
         t = {
             name = 'Terminal',
             h = { '<cmd>split term://bash<cr>', 'Open terminal' },
             v = { '<cmd>vsplit term://bash<cr>', 'Open terminal' },
         },
-        f = { '<cmd>NvimTreeFocus<cr>', 'Focus tree view' },
         c = {
-            name = 'Code',
+            name = 'Code actions',
             a = { '<Plug>(coc-codeaction)', 'Code action' },
             A = { '<Plug>(coc-codeaction-selected)', 'Code action selected' },
             f = { '<Plug>(coc-format)', 'Format' },
