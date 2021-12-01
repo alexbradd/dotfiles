@@ -1,6 +1,6 @@
 --
 -- File: lua/settings.lua
--- Version: 21.11.1
+-- Version: 21.11.2
 --
 
 local set = vim.opt
@@ -21,7 +21,6 @@ set.shiftwidth = 2
 set.cc = '80'
 set.textwidth = 80
 set.listchars = {tab = '▸ ', space = '·'}
-set.list = true
 
 set.wrap = false
 set.showmatch = true
@@ -46,57 +45,57 @@ set.updatetime = 300
 
 -- colorscheme
 if fn.has('termguicolors') then
-    set.termguicolors = true
+  set.termguicolors = true
 end
 
 require('catppuccin').setup({
-    styles = {
-        comments = 'italic',
-        functions = 'NONE',
-        keywords = 'NONE',
-        variables = 'NONE',
-        strings = 'italic',
+  styles = {
+    comments = 'italic',
+    functions = 'NONE',
+    keywords = 'NONE',
+    variables = 'NONE',
+    strings = 'italic',
+  },
+  integration = {
+    nvimtree = {
+      enabled = true,
+      show_root = true,
     },
-    integration = {
-        nvimtree = {
-            enabled = true,
-            show_root = true,
-        },
-        indent_blankline = {
-            enabled = true,
-            color_indent_levels = true,
-        },
-        barbar = true,
-        markdown = true,
+    indent_blankline = {
+      enabled = true,
+      color_indent_levels = true,
     },
+    barbar = true,
+    markdown = true,
+  },
 })
 
 if vim.env.TERM ~= 'linux' then
-    cmd('colorscheme catppuccin')
+  cmd('colorscheme catppuccin')
 else
-    set.guicursor = { a = 'ver100' }
-    cmd('colorscheme default')
+  set.guicursor = { a = 'ver100' }
+  cmd('colorscheme default')
 end
 
 -- lualine
 require('lualine').setup({
-    options = {
-        theme = 'catppuccin',
+  options = {
+    theme = 'catppuccin',
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch'},
+    lualine_c = {'filename'},
+    lualine_x = {
+      'coc#status',
+      'encoding',
+      { 'fileformat', icons_enabled = false },
+      'filetype'
     },
-    sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch'},
-        lualine_c = {'filename'},
-        lualine_x = {
-            'coc#status',
-            'encoding',
-            { 'fileformat', icons_enabled = false },
-            'filetype'
-        },
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
-    },
-    extensions = { 'quickfix', 'nvim-tree', 'fzf', 'fugitive' }
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  extensions = { 'quickfix', 'nvim-tree', 'fzf', 'fugitive' }
 })
 
 -- vim-markdown
@@ -114,7 +113,8 @@ g.coc_snippet_prev = '<C-k>'
 
 -- barbar.nvim
 g.bufferline = {
-    audo_hide = true
+  insert_at_end = true,
+  no_name_title = "Untitled buffer"
 }
 
 -- indent-blankline.nvim
@@ -127,40 +127,8 @@ require('which-key').setup()
 require('Comment').setup()
 
 -- nvim-tree
-require('nvim-tree').setup()
-
--- nvim-autopairs
-local nvim_autopairs = require('nvim-autopairs')
-local Rule = require('nvim-autopairs.rule')
-
-nvim_autopairs.setup({
-    enable_check_bracket_line = false,
-    fast_wrap = {},
-})
-
-nvim_autopairs.add_rules({
-    Rule('/*', '*/'):set_end_pair_length(2),
-    Rule(' ', ' ')
-        :with_pair(function (opts)
-            local pair = opts.line:sub(opts.col - 1, opts.col)
-            return vim.tbl_contains({ '()', '[]', '{}' }, pair)
-        end),
-    Rule('( ', ' )')
-        :with_pair(function() return false end)
-        :with_move(function(opts)
-            return opts.prev_char:match('.%)') ~= nil
-        end)
-        :use_key(')'),
-    Rule('{ ', ' }')
-        :with_pair(function() return false end)
-        :with_move(function(opts)
-            return opts.prev_char:match('.%}') ~= nil
-        end)
-        :use_key('}'),
-    Rule('[ ', ' ]')
-        :with_pair(function() return false end)
-        :with_move(function(opts)
-            return opts.prev_char:match('.%]') ~= nil
-        end)
-        :use_key(']'),
+require('nvim-tree').setup({
+  git = {
+    ignore = false,
+  }
 })

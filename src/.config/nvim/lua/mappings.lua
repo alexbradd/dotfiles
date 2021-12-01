@@ -1,6 +1,6 @@
 --
 -- File: lua/mappings.lua
--- Verison: 21.11.1
+-- Verison: 21.11.2
 --
 
 local wk = require("which-key")
@@ -28,13 +28,28 @@ wk.register(
         [']g'] = { '<Plug>(coc-diagnostic-next)', 'Go to next diagnostic' },
         g = {
             name = "Go to",
+            b = { '<cmd>BufferPick<cr>', 'Go to buffer' },
             d = { '<plug>(coc-definition)', 'Go to definition' },
             D = { '<plug>(coc-type-definition)', 'Go to type definition' },
             i = { '<plug>(coc-implementation)', 'Go to implementation' },
             r = { '<plug>(coc-references)', 'Go to references' },
         },
         ['<c-s>'] = { '<Plug>(coc-range-select)', 'Range select' },
-        ['<c-f>'] = { '<cmd>NvimTreeToggle<cr>', 'Toggle tree view' },
+        ['<c-f>'] = { function()
+            local tree = require('nvim-tree')
+            local view = require('nvim-tree.view')
+            local bufferline = require('bufferline.state')
+
+            if view.win_open() then
+              tree.close()
+              bufferline.set_offset(0)
+            else
+              bufferline.set_offset(31, 'FileTree')
+              tree.open()
+            end
+          end,
+          'Toggle tree view'
+        },
         ['<M-f>'] = { '<cmd>NvimTreeFocus<cr>', 'Focus tree view' },
         ['<F2>'] = { '<cmd>tabprevious<cr>', 'Move to previous tab' },
         ['<F3>'] = { '<cmd>tabnext<cr>', 'Move to next tab' },
@@ -93,13 +108,9 @@ wk.register(
         h = { '<cmd>BufferPrevious<cr>', 'Previous buffer' },
         l = { '<cmd>BufferNext<cr>', 'Next buffer' },
         H = { '<cmd>BufferMovePrevious<cr>', 'Move previous buffer' },
-        l = { '<cmd>BufferMoveNext<cr>', 'Move next buffer' },
-        b = {
-            name = "Manage bufffer",
-            c = { '<cmd>BufferClose<cr>', 'Close buffer' },
-            p = { '<cmd>BufferPin<cr>', 'Pin buffer' },
-            P = { '<cmd>BufferPick<cr>', 'Pick buffer' },
-        },
+        L = { '<cmd>BufferMoveNext<cr>', 'Move next buffer' },
+        q = { '<cmd>BufferClose<cr>', 'Close buffer' },
+        p = { '<cmd>BufferPin<cr>', 'Pin buffer' },
         g = {
             name = 'Fugitive',
             g = { '<cmd>Git<cr>', 'Open fugitive' },
@@ -108,8 +119,9 @@ wk.register(
         },
         t = {
             name = 'Terminal',
-            h = { '<cmd>split term://bash<cr>', 'Open terminal' },
-            v = { '<cmd>vsplit term://bash<cr>', 'Open terminal' },
+            t = { '<cmd>e term://bash<cr>', 'Open terminal' },
+            h = { '<cmd>split term://bash<cr>', 'Open terminal in horizontal split' },
+            v = { '<cmd>vsplit term://bash<cr>', 'Open terminal in vertical split' },
         },
         c = {
             name = 'Code actions',

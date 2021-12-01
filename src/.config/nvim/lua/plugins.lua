@@ -31,7 +31,6 @@ return require('packer').startup(function()
     })
     use('folke/which-key.nvim')
 
-    use('windwp/nvim-autopairs')
     use('numToStr/Comment.nvim')
     use('tpope/vim-surround')
     use('tpope/vim-repeat')
