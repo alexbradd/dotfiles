@@ -2,11 +2,11 @@
 list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9']
 
 [:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
-background-color='rgb(27,22,35)'
+background-color='rgb(30,30,40)'
 background-transparency-percent=0
 font='VictorMono Nerd Font Mono 11'
-foreground-color='rgb(218,229,255)'
-palette=['rgb(38,33,46)', 'rgb(226,141,141)', 'rgb(173,214,146)', 'rgb(240,220,137)', 'rgb(132,165,203)', 'rgb(174,154,214)', 'rgb(159,139,199)', 'rgb(218,229,255)', 'rgb(49,44,57)', 'rgb(211,126,126)', 'rgb(158,199,131)', 'rgb(225,205,122)', 'rgb(110,143,181)', 'rgb(159,139,199)', 'rgb(110,143,181)', 'rgb(229,240,255)']
+foreground-color='rgb(215,218,224)'
+palette=['rgb(110,108,124)', 'rgb(226,140,140)', 'rgb(179,225,163)', 'rgb(234,221,160)', 'rgb(164,185,239)', 'rgb(198,170,232)', 'rgb(240,175,225)', 'rgb(215,218,224)', 'rgb(110,108,124)', 'rgb(226,140,140)', 'rgb(179,225,163)', 'rgb(234,221,160)', 'rgb(164,185,239)', 'rgb(198,170,232)', 'rgb(240,175,225)', 'rgb(215,218,224)']
 scrollbar-policy='never'
 use-system-font=false
 use-theme-colors=false
