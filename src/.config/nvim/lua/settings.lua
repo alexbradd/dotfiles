@@ -1,6 +1,6 @@
 --
 -- File: lua/settings.lua
--- Version: 21.11.2
+-- Version: 21.11.3
 --
 
 local set = vim.opt
@@ -49,18 +49,12 @@ if fn.has('termguicolors') then
 end
 
 require('catppuccin').setup({
-  styles = {
-    comments = 'italic',
-    functions = 'NONE',
-    keywords = 'NONE',
-    variables = 'NONE',
-    strings = 'italic',
-  },
   integration = {
     nvimtree = {
       enabled = true,
       show_root = true,
     },
+    which_key = true,
     indent_blankline = {
       enabled = true,
       color_indent_levels = true,

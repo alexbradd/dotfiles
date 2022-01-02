@@ -1,12 +1,18 @@
-[/]
+[legacy/profiles:]
 list=['b1dcc9dd-5262-4d8d-a863-c897e6d979b9']
 
-[:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
-background-color='rgb(30,30,40)'
+[legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='rgb(30,30,41)'
 background-transparency-percent=0
+cursor-background-color='rgb(177,227,173)'
+cursor-colors-set=true
+cursor-foreground-color='rgb(30,30,40)'
 font='VictorMono Nerd Font Mono 11'
-foreground-color='rgb(215,218,224)'
-palette=['rgb(110,108,124)', 'rgb(226,140,140)', 'rgb(179,225,163)', 'rgb(234,221,160)', 'rgb(164,185,239)', 'rgb(198,170,232)', 'rgb(240,175,225)', 'rgb(215,218,224)', 'rgb(110,108,124)', 'rgb(226,140,140)', 'rgb(179,225,163)', 'rgb(234,221,160)', 'rgb(164,185,239)', 'rgb(198,170,232)', 'rgb(240,175,225)', 'rgb(215,218,224)']
+foreground-color='rgb(218,218,232)'
+highlight-background-color='rgb(51,46,65)'
+highlight-colors-set=true
+highlight-foreground-color='rgb(229,180,226)'
+palette=['rgb(110,108,126)', 'rgb(227,140,143)', 'rgb(177,227,173)', 'rgb(235,221,170)', 'rgb(164,185,239)', 'rgb(198,170,232)', 'rgb(229,180,226)', 'rgb(218,218,232)', 'rgb(110,108,126)', 'rgb(227,140,143)', 'rgb(177,227,173)', 'rgb(235,221,170)', 'rgb(164,185,239)', 'rgb(198,170,232)', 'rgb(229,180,226)', 'rgb(218,218,232)']
 scrollbar-policy='never'
 use-system-font=false
 use-theme-colors=false

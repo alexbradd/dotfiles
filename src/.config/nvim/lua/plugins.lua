@@ -1,6 +1,6 @@
 --
 -- File: lua/plugins.lua
--- Version: 21.11.2
+-- Version: 21.11.3
 --
 
 local fn = vim.fn
@@ -15,7 +15,7 @@ end
 return require('packer').startup(function()
     use('wbthomason/packer.nvim')
 
-    use('catppuccin/nvim')
+    use({'catppuccin/nvim', as = 'catppuccin'})
     use({
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
