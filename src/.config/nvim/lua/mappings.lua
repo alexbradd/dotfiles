@@ -1,6 +1,6 @@
 --
 -- File: lua/mappings.lua
--- Verison: 21.11.2
+-- Verison: 22.02.0
 --
 
 local wk = require("which-key")
@@ -41,11 +41,11 @@ wk.register(
             local bufferline = require('bufferline.state')
 
             if view.win_open() then
-              tree.close()
+              tree.toggle()
               bufferline.set_offset(0)
             else
-              bufferline.set_offset(31, 'FileTree')
-              tree.open()
+              bufferline.set_offset(30, 'FileTree')
+              tree.toggle()
             end
           end,
           'Toggle tree view'
@@ -54,7 +54,6 @@ wk.register(
         ['<F2>'] = { '<cmd>tabprevious<cr>', 'Move to previous tab' },
         ['<F3>'] = { '<cmd>tabnext<cr>', 'Move to next tab' },
         ['<F4>'] = { '<cmd>tabclose<cr>', 'Close tab' },
-        ['<M-e>'] = { name = 'AutoPair Fastwrap' },
     },
     {
         mode = 'n',
@@ -81,6 +80,11 @@ wk.register(
         ['af'] = { '<Plug>(coc-funcobj-a)', 'Select full function' },
         ['ic'] = { '<Plug>(coc-classobj-i)', 'Select inner class' },
         ['ac'] = { '<Plug>(coc-classobj-a)', 'Select full class' },
+        ['<leader>c'] = {
+            name = 'Code actions',
+            a = { '<Plug>(coc-codeaction-selected)', 'Code action selected' },
+            f = { '<Plug>(coc-format-selected)', 'Format selected' },
+        },
     },
     {
         mode = 'x',
@@ -124,11 +128,11 @@ wk.register(
             v = { '<cmd>vsplit term://bash<cr>', 'Open terminal in vertical split' },
         },
         c = {
-            name = 'Code actions',
+            name = 'Code',
+            d = { '<cmd>CocList diagnostics<cr>', 'Diagnostics' },
             a = { '<Plug>(coc-codeaction)', 'Code action' },
-            A = { '<Plug>(coc-codeaction-selected)', 'Code action selected' },
+            l = { '<Plug>(coc-codelens-action)', 'Code lens' },
             f = { '<Plug>(coc-format)', 'Format' },
-            F = { '<Plug>(coc-format-selected)', 'Format selected' },
             q = { '<Plug>(coc-fix-current)', 'Quick fix' },
             r = { '<Plug>(coc-rename)', 'Rename' },
         },

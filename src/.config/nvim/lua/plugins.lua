@@ -1,6 +1,6 @@
 --
 -- File: lua/plugins.lua
--- Version: 21.11.3
+-- Version: 22.02.0
 --
 
 local fn = vim.fn

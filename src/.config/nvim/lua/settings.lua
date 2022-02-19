@@ -1,6 +1,6 @@
 --
 -- File: lua/settings.lua
--- Version: 21.11.3
+-- Version: 22.02.0
 --
 
 local set = vim.opt
@@ -18,7 +18,7 @@ set.expandtab = true
 set.tabstop = 2
 set.softtabstop = -1
 set.shiftwidth = 2
-set.cc = '80'
+set.cc = '81'
 set.textwidth = 80
 set.listchars = {tab = '▸ ', space = '·'}
 
@@ -115,7 +115,14 @@ g.bufferline = {
 require('indent_blankline').setup()
 
 -- which-key.nvim
-require('which-key').setup()
+require('which-key').setup({
+  plugins = {
+    spelling = {
+      enabled = true,
+      suggestions = 20,
+    }
+  }
+})
 
 -- Comment.nvim
 require('Comment').setup()
