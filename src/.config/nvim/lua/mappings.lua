@@ -1,6 +1,6 @@
 --
 -- File: lua/mappings.lua
--- Verison: 22.02.0
+-- Verison: 22.02.1
 --
 
 local wk = require("which-key")
@@ -40,7 +40,7 @@ wk.register(
             local view = require('nvim-tree.view')
             local bufferline = require('bufferline.state')
 
-            if view.win_open() then
+            if view.is_visible() then
               tree.toggle()
               bufferline.set_offset(0)
             else
