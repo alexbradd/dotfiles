@@ -1,13 +1,13 @@
 #
 # File: .gitconfig
-# Version: 21.07.1
+# Version: 22.02.0
 # Author: BreadyX
 #
 
 [user]
 	name = Alexandru Gabriel Bradatan
-	email = alex.bradatan85@yahoo.it
-	signingkey = 
+	email = alexandrugabriel.bradatan@mail.polimi.it
+	signingkey =
 [gpg]
 	program = gpg
 [core]
