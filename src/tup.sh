@@ -1,30 +1,28 @@
-#! /bin/sh
+#! /bin/bash
 
-# This script is meant as to bootsrap a new toolbox environment with all the
-# development packages I normally use.
-#
-# Should be run as root
+ORIGIN=
+DESTINATION=
+TMP=$HOME/.cache/$BASHPID
 
-if [ "$(id -u)" -ne 0 ]; then
-    echo "You need root for this!"
-    exit 1
-fi
+case $1 in
+  -h|--help)
+    echo "tup [-h|--help] ORIGIN DESTINATION"
+    echo "Transfer all packages from the ORIGIN toolbox to the DESTINATION one."
+    echo "All packages that canno be installed in the destination are simply skipped."
+    exit 0;;
+  *)
+    ORIGIN=$1
+    DESTINATION=$2;;
+esac
 
-if ! [ -f /run/.containerenv ]; then
-    echo "You should not run this outside of a container!"
-    exit 1
-fi
+toolbox run -c "$ORIGIN" -- bash -c \
+  "dnf list installed | awk '{print \$1}' > $TMP" || {
+  echo "Error in fetching packages from origin"
+  exit 1
+}
 
-dnf update --refresh -y # make sure we are up to date
-dnf copr enable atim/lazygit -y # for lazygit
-
-dnf install git lazygit neovim fzf ripgrep\
-    gcc g++ clang clang-tools-extra \
-    nodejs npm yarnpkg \
-    python python-pip \
-    pandoc texlive-scheme-medium \
-    -y
-
-# pynvim and nodejs/neovim should be already setup in the home directory
-npm install -g prettier eslint
-pip install yapf
+toolbox run -c "$DESTINATION" -- bash -c \
+  "xargs sudo dnf install --assumeyes --skip-broken < $TMP" || {
+  echo "Error in installing packaged in destination"
+  exit 1
+}

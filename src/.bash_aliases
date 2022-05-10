@@ -40,13 +40,14 @@ alias decrypt='gpg --decrypt'
 # TODO: change to liking if on laptop
 alias passwords='gpg --decrypt $HDD_MOUNT/codes/password.gpg'
 
+### toolbox ###
+alias t='toolbox enter'
+
 ### Directories ###
-alias cdc='cd $HOME/projects'
+cdc() { cd "$HOME/projects/$1"; }
 alias cdd='cd $HOME/Documents'
 alias cddw='cd $HOME/Downloads'
 
 # TODO: change to liking if on laptop
-alias cdhdd='cd $HDD_MOUNT'
-alias cdD='cd $HDD_MOUNT/documents'
-alias cds='cd $HDD_MOUNT/documents/uni'
+cds() { cd "$HDD_MOUNT/documents/uni/$1"; }
 

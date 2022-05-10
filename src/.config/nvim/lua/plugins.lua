@@ -31,7 +31,10 @@ return require('packer').startup(function()
     })
     use('folke/which-key.nvim')
 
-    use('numToStr/Comment.nvim')
+    use({
+      'numToStr/Comment.nvim',
+      tag = 'v0.6',
+    })
     use('tpope/vim-surround')
     use('tpope/vim-repeat')
     use('godlygeek/tabular')
