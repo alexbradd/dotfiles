@@ -1,6 +1,6 @@
 --
 -- File: ftplugin/tex.lua
--- Version: 22.02.0
+-- Version: 22.09.0
 --
 
 local o = vim.opt_local

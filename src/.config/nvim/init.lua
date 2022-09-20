@@ -1,9 +1,13 @@
 --
 -- File: init.lua
--- Version: 21.11.0
+-- Version: 22.09.0
 --
 
 require('plugins')
 require('settings')
-require('autocommands')
 require('mappings')
+require('autocommands')
+require('snip')
+require('comp')
+require('treesitter')
+require('lsp')
