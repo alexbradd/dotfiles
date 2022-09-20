@@ -1,14 +1,33 @@
 --
 -- File: lua/autocommands.lua
--- Version: 21.11.0
+-- Version: 22.09.0
 --
 
-local c = vim.cmd
+local api = vim.api
 local g = vim.g
+local lualine = require('lualine')
 
 -- Remove trailing whitespace on write
-g.no_remove_trailing = { 'markdown' }
-c [[autocmd BufWritePre * if index(no_remove_trailing, &ft) < 0 | %s/\s\+$//e]]
+vim.g.no_remove_trailing = { 'markdown' }
+api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*',
+  command = [[if index(no_remove_trailing, &ft) < 0 | %s/\s\+$//e]]
+})
 
--- coc.nvim highlight
-c [[autocmd CursorHold * silent call CocActionAsync('highlight')]]
+api.nvim_create_augroup ('Goyo', { clear = true })
+api.nvim_create_autocmd('User', {
+  pattern = 'GoyoEnter',
+  group = 'Goyo',
+  nested = true,
+  callback = function()
+    lualine.hide()
+  end
+})
+api.nvim_create_autocmd('User', {
+  pattern = 'GoyoLeave',
+  group = 'Goyo',
+  nested = true,
+  callback = function()
+    lualine.hide { unhide = true }
+  end
+})

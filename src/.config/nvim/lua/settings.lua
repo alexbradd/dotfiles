@@ -1,6 +1,6 @@
 --
 -- File: lua/settings.lua
--- Version: 22.02.0
+-- Version: 22.09.0
 --
 
 local set = vim.opt
@@ -32,6 +32,9 @@ set.spelllang = { 'it', 'en' }
 set.backup = false -- required by coc.nvim
 set.writebackup = false -- required by coc.nvim
 
+set.completeopt = 'menu,menuone,noselect'
+set.foldlevelstart = 4
+
 set.splitbelow = true
 set.splitright = true
 set.hidden = true -- required by coc.nvim
@@ -48,21 +51,40 @@ if fn.has('termguicolors') then
   set.termguicolors = true
 end
 
-require('catppuccin').setup({
-  integration = {
+g.catppuccin_flavour = 'mocha'
+require('catppuccin').setup {
+  integrations = {
     nvimtree = {
       enabled = true,
       show_root = true,
     },
-    which_key = true,
     indent_blankline = {
       enabled = true,
       color_indent_levels = true,
     },
+		native_lsp = {
+			enabled = true,
+			virtual_text = {
+				errors = { "italic" },
+				hints = { "italic" },
+				warnings = { "italic" },
+				information = { "italic" },
+			},
+			underlines = {
+				errors = { "underline" },
+				hints = { "underline" },
+				warnings = { "underline" },
+				information = { "underline" },
+			},
+		},
+    treesitter = true,
+    which_key = true,
     barbar = true,
     markdown = true,
+    telescope = true,
+    gitsigns = true,
   },
-})
+}
 
 if vim.env.TERM ~= 'linux' then
   cmd('colorscheme catppuccin')
@@ -70,27 +92,6 @@ else
   set.guicursor = { a = 'ver100' }
   cmd('colorscheme default')
 end
-
--- lualine
-require('lualine').setup({
-  options = {
-    theme = 'catppuccin',
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch'},
-    lualine_c = {'filename'},
-    lualine_x = {
-      'coc#status',
-      'encoding',
-      { 'fileformat', icons_enabled = false },
-      'filetype'
-    },
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  extensions = { 'quickfix', 'nvim-tree', 'fzf', 'fugitive' }
-})
 
 -- vim-markdown
 g.vim_markdown_folding_disabled = 1
@@ -101,35 +102,6 @@ g.tex_conceal = ''
 g.vim_markdown_conceal_code_blocks = 0
 g.vim_markdown_frontmatter = 1
 
--- coc.nvim
-g.coc_snippet_next = '<C-j>'
-g.coc_snippet_prev = '<C-k>'
-
--- barbar.nvim
-g.bufferline = {
-  insert_at_end = true,
-  no_name_title = "Untitled buffer"
-}
-
--- indent-blankline.nvim
-require('indent_blankline').setup()
-
--- which-key.nvim
-require('which-key').setup({
-  plugins = {
-    spelling = {
-      enabled = true,
-      suggestions = 20,
-    }
-  }
-})
-
--- Comment.nvim
-require('Comment').setup()
-
--- nvim-tree
-require('nvim-tree').setup({
-  git = {
-    ignore = false,
-  }
-})
+-- goyo.vim
+g.goyo_width = 90
+g.goyo_height = 90
