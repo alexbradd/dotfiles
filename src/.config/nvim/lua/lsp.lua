@@ -1,6 +1,6 @@
 --
 -- File: lua/lsp.lua
--- Version: 22.09.0
+-- Version: 22.09.1
 --
 
 local m = require('mappings')
@@ -57,15 +57,35 @@ local on_attach = function(client, bufnr)
 end
 
 local servers = {
-  'pyright',
-  'tsserver',
-  'clangd',
-  'texlab',
-  'vuels'
+  pyright = {},
+  -- tsserver = {},
+  clangd = {},
+  texlab = {},
+  -- vuels = {},
+  racket_langserver = {},
+  rust_analyzer = {
+    ['rust-analyzer'] = {
+      imports = {
+        granularity = {
+          group = 'module',
+        },
+        prefix = 'self',
+      },
+      cargo = {
+        buildScripts = {
+          enable = true,
+        },
+      },
+      procMacro = {
+        enable = true
+      },
+    }
+  },
 }
-for _, lsp in ipairs(servers) do
+for lsp, settings in pairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
-    capabilities = capabilities
+    capabilities = capabilities,
+    settings = settings
   }
 end
