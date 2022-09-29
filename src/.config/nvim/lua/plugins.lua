@@ -62,16 +62,23 @@ return require('packer').startup(function()
           insert_at_end = true,
           no_name_title = "Untitled buffer"
         }
-        tree = require('nvim-tree.events')
-        bufferline = require('bufferline.state')
-        bufferline_set_offset = function()
-          bufferline.set_offset(vim.api.nvim_win_get_width(0))
+        local nvim_tree_events = require('nvim-tree.events')
+        local bufferline_api = require('bufferline.api')
+
+        local function get_tree_size()
+          return require'nvim-tree.view'.View.width
         end
 
-        tree.on_tree_open(bufferline_set_offset)
-        tree.on_tree_resize(bufferline_set_offset)
-        tree.on_tree_close(function()
-          bufferline.set_offset(0)
+        nvim_tree_events.subscribe('TreeOpen', function()
+          bufferline_api.set_offset(get_tree_size())
+        end)
+
+        nvim_tree_events.subscribe('Resize', function()
+          bufferline_api.set_offset(get_tree_size())
+        end)
+
+        nvim_tree_events.subscribe('TreeClose', function()
+          bufferline_api.set_offset(0)
         end)
       end
     }
