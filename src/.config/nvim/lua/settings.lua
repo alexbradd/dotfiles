@@ -1,6 +1,6 @@
 --
 -- File: lua/settings.lua
--- Version: 22.09.0
+-- Version: 22.10.0
 --
 
 local set = vim.opt
@@ -12,7 +12,7 @@ set.encoding = 'utf-8'
 set.fileencoding = 'utf-8'
 
 set.number = true
-set.signcolumn = 'number'
+set.signcolumn = 'auto:1-5'
 
 set.expandtab = true
 set.tabstop = 2
@@ -33,7 +33,6 @@ set.backup = false -- required by coc.nvim
 set.writebackup = false -- required by coc.nvim
 
 set.completeopt = 'menu,menuone,noselect'
-set.foldlevelstart = 4
 
 set.splitbelow = true
 set.splitright = true
@@ -43,7 +42,6 @@ set.shortmess:append('c') -- required by coc.nvim
 
 set.mouse = 'nvc'
 
-set.cmdheight = 2
 set.updatetime = 300
 
 -- colorscheme
