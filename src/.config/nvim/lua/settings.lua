@@ -12,7 +12,7 @@ set.encoding = 'utf-8'
 set.fileencoding = 'utf-8'
 
 set.number = true
-set.signcolumn = 'auto:1-5'
+set.signcolumn = 'auto:1-2'
 
 set.expandtab = true
 set.tabstop = 2

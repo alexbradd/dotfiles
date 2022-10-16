@@ -1,6 +1,6 @@
 --
 -- File: lua/lsp.lua
--- Version: 22.09.1
+-- Version: 22.10.0
 --
 
 local m = require('mappings')
@@ -16,7 +16,7 @@ vim.diagnostic.config {
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local on_attach = function(client, bufnr)
   vim.bo.omnifunc = 'v:lua.vim.lsp.omnifunc'
@@ -33,10 +33,16 @@ local on_attach = function(client, bufnr)
   m.noremapBuf('n', ']g', vim.diagnostic.goto_next, bufnr)
 
   m.noremapBuf('x', '<leader>ca', vim.lsp.buf.range_code_action, bufnr)
-  m.noremapBuf('x', '<leader>cf', vim.lsp.buf.range_formatting, bufnr)
+  m.noremapBuf('x', '<leader>cf',
+    function(range)
+      vim.lsp.buf.format {async = true, range = range}
+    end, bufnr)
 
   m.noremapBuf('n', '<leader>ca', vim.lsp.buf.code_action, bufnr)
-  m.noremapBuf('n', '<leader>cf', vim.lsp.buf.formatting, bufnr)
+  m.noremapBuf('n', '<leader>cf',
+    function()
+      vim.lsp.buf.format {async = true}
+    end, bufnr)
   m.noremapBuf('n', '<leader>cr', vim.lsp.buf.rename, bufnr)
   m.noremapBuf('n', '<leader>cd', vim.lsp.buf.type_definition, bufnr)
 
@@ -49,19 +55,28 @@ local on_attach = function(client, bufnr)
   m.noremapBuf('n', '<space>d', vim.diagnostic.open_float, bufnr)
   m.noremapBuf('n', '<space>q', vim.diagnostic.setloclist, bufnr)
 
-  if client.server_capabilities.document_highlight then
-    vim.api.nvim_command("autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()")
-    vim.api.nvim_command("autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()")
-    vim.api.nvim_command("autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()")
+  if client.server_capabilities.documentHighlightProvider then
+    vim.api.nvim_create_autocmd('CursorHold', {
+      buffer = bufnr,
+      callback = vim.lsp.buf.document_highlight
+    })
+    vim.api.nvim_create_autocmd('CursorHoldI', {
+      buffer = bufnr,
+      callback = vim.lsp.buf.document_highlight
+    })
+    vim.api.nvim_create_autocmd('CursorMoved', {
+      pattern = '<buffer>',
+      callback = vim.lsp.buf.clear_references
+    })
   end
 end
 
 local servers = {
   pyright = {},
-  -- tsserver = {},
+  tsserver = {},
   clangd = {},
   texlab = {},
-  -- vuels = {},
+  vuels = {},
   racket_langserver = {},
   rust_analyzer = {
     ['rust-analyzer'] = {
@@ -81,6 +96,7 @@ local servers = {
       },
     }
   },
+  -- hls = {}
 }
 for lsp, settings in pairs(servers) do
   lspconfig[lsp].setup {
