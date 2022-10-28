@@ -1,17 +1,9 @@
 --
 -- File: lua/mappings.lua
--- Verison: 22.09.0
+-- Verison: 22.10.0
 --
 
-local m = {}
-
-m.noremap = function(mode, map, func)
-  vim.keymap.set(mode, map, func, { noremap = true, silent = true })
-end
-
-m.noremapBuf = function(mode, map, func, buf)
-  vim.keymap.set(mode, map, func, { noremap = true, silent = true, buffer = buf})
-end
+local m = require('mapfn')
 
 m.noremap('n', 'zl', '<cmd>setlocal spell!<cr>')
 m.noremap('n', 'gb', '<cmd>BufferPick<cr>')
@@ -70,5 +62,3 @@ m.noremap('n', '<leader>zd', '<cmd>Telescope diagnostics<cr>')
 --         silent = true,
 --     }
 -- )
-
-return m

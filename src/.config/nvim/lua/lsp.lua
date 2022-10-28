@@ -3,7 +3,7 @@
 -- Version: 22.10.0
 --
 
-local m = require('mappings')
+local m = require('mapfn')
 local lspconfig = require('lspconfig')
 
 vim.diagnostic.config {
@@ -96,7 +96,7 @@ local servers = {
       },
     }
   },
-  -- hls = {}
+  hls = {}
 }
 for lsp, settings in pairs(servers) do
   lspconfig[lsp].setup {

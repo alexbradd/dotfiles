@@ -1,6 +1,6 @@
 --
 -- File: lua/cmp.lua
--- Version: 22.09.0
+-- Version: 22.10.0
 --
 
 local cmp = require('cmp')
@@ -17,7 +17,7 @@ cmp.setup {
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
   },
   sources = {
     { name = 'nvim_lsp' },

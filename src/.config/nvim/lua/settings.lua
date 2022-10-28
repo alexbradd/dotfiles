@@ -32,7 +32,7 @@ set.spelllang = { 'it', 'en' }
 set.backup = false -- required by coc.nvim
 set.writebackup = false -- required by coc.nvim
 
-set.completeopt = 'menu,menuone,noselect'
+set.completeopt = 'menu,menuone,noselect,preview'
 
 set.splitbelow = true
 set.splitright = true
@@ -40,7 +40,7 @@ set.hidden = true -- required by coc.nvim
 
 set.shortmess:append('c') -- required by coc.nvim
 
-set.mouse = 'nvc'
+set.mouse = ''
 
 set.updatetime = 300
 
