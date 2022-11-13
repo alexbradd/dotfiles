@@ -75,7 +75,17 @@ local servers = {
   pyright = {},
   tsserver = {},
   clangd = {},
-  texlab = {},
+  texlab = {
+    texlab = {
+      build = {
+        onSave = true,
+      },
+      chktex = {
+        onEdit = true,
+        onOpenAndSave = true,
+      }
+    }
+  },
   vuels = {},
   racket_langserver = {},
   rust_analyzer = {

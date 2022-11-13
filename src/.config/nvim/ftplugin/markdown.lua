@@ -6,7 +6,7 @@
 local o = vim.opt_local
 local b = vim.b
 local fn = vim.fn
-local m = require('mappings')
+local m = require('mapfn')
 
 o.formatoptions:append('t')
 o.spell = true

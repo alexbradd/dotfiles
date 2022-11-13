@@ -1,6 +1,6 @@
 --
 -- File: init.lua
--- Version: 22.09.0
+-- Version: 22.10.0
 --
 
 require('plugins')
