@@ -45,7 +45,7 @@ Options:
 EOF
       exit 0 ;;
     -v|--version)
-      echo "$MYNAME $MYVERS"
+      echo "$MYNAME $MYVER"
       exit 0 ;;
     -c|--config)
       shift
