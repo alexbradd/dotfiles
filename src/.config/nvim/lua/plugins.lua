@@ -1,6 +1,6 @@
 --
 -- File: lua/plugins.lua
--- Version: 22.09.0
+-- Version: 22.11.0
 --
 
 local fn = vim.fn
@@ -132,6 +132,7 @@ return require('packer').startup(function()
 
     use 'junegunn/goyo.vim'
 
+    use 'editorconfig/editorconfig-vim'
 
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'

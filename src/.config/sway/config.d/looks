@@ -1,0 +1,9 @@
+### Looks
+default_border pixel 2
+default_floating_border pixel 2
+gaps inner 8
+client.focused          #cba6f7 #313244 #cdd6f4 #b4befe #cba6f7
+client.focused_inactive #45475a #45475a #cdd6f4 #11111b #1e1e2e
+client.urgent           #cba6f7 #f38ba8 #cdd6f4 #f38ba8 #f38ba8
+client.unfocused        #45475a #45475a #cdd6f4 #11111b #1e1e2e
+

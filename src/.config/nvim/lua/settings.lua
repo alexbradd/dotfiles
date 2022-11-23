@@ -1,6 +1,6 @@
 --
 -- File: lua/settings.lua
--- Version: 22.10.0
+-- Version: 22.11.0
 --
 
 local set = vim.opt
@@ -103,3 +103,6 @@ g.vim_markdown_frontmatter = 1
 -- goyo.vim
 g.goyo_width = 90
 g.goyo_height = 90
+
+-- editorconfig-nvim
+g.EditorConfig_exclude_patters = { 'fugitive://.*', 'scp://.*' }

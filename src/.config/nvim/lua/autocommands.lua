@@ -1,7 +1,8 @@
 --
 -- File: lua/autocommands.lua
--- Version: 22.11.1
+-- Version: 22.11.2
 --
+-- For autocmds relative to LSP stuff, see lsp.lua
 
 local api = vim.api
 local g = vim.g
@@ -11,7 +12,7 @@ local user_aug = api.nvim_create_augroup("UserConfig", { clear = true })
 local goyo_aug = api.nvim_create_augroup('Goyo', { clear = true })
 
 -- Remove trailing whitespace on write
-vim.g.no_remove_trailing = { 'markdown' }
+vim.g.no_remove_trailing = { }
 api.nvim_create_autocmd('BufWritePre', {
   group = user_aug,
   pattern = '*',

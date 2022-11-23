@@ -1,6 +1,6 @@
 --
 -- File: lua/lsp.lua
--- Version: 22.10.0
+-- Version: 22.11.0
 --
 
 local m = require('mapfn')
@@ -11,13 +11,16 @@ vim.diagnostic.config {
   signs = true,
   virtual_text = false,
   float = {
-    focusable = false
+    focusable = false,
+    style = 'minimal',
+    border = 'rounded'
   }
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+local lsp_augroup = vim.api.nvim_create_augroup('lsp', {clear = true})
 local on_attach = function(client, bufnr)
   vim.bo.omnifunc = 'v:lua.vim.lsp.omnifunc'
 
@@ -57,18 +60,33 @@ local on_attach = function(client, bufnr)
 
   if client.server_capabilities.documentHighlightProvider then
     vim.api.nvim_create_autocmd('CursorHold', {
+      group = lsp_augroup,
       buffer = bufnr,
       callback = vim.lsp.buf.document_highlight
     })
     vim.api.nvim_create_autocmd('CursorHoldI', {
+      group = lsp_augroup,
       buffer = bufnr,
       callback = vim.lsp.buf.document_highlight
     })
     vim.api.nvim_create_autocmd('CursorMoved', {
-      pattern = '<buffer>',
+      group = lsp_augroup,
+      buffer = bufnr,
       callback = vim.lsp.buf.clear_references
     })
   end
+  vim.api.nvim_create_autocmd('CursorHold', {
+    group = lsp_augroup,
+    buffer = bufnr,
+    callback = function()
+      for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
+        if vim.api.nvim_win_get_config(winid).zindex then
+          return
+        end
+      end
+      vim.diagnostic.open_float {focusable = false}
+    end
+  })
 end
 
 local servers = {

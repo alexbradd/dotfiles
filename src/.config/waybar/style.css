@@ -1,0 +1,128 @@
+@import "mocha.css";
+
+* {
+  font-family: "Victor Mono", "FontAwesome 6 free", monospace;
+  font-size: 14px;
+  min-height: 0;
+}
+
+#waybar {
+  background: @base;
+  color: @text;
+}
+
+button:hover {
+  background-color: @overlay0;
+}
+
+tooltip {
+  background: @base;
+}
+
+tooltip label {
+  color: @text;
+}
+
+#workspaces {
+  border-radius: 1rem;
+  margin: 3px;
+  background-color: @surface0;
+}
+
+#workspaces button {
+  color: @lavender;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+#workspaces button.active {
+  color: @sky;
+  border-radius: 1rem;
+}
+
+#workspaces button:hover {
+  color: @sapphire;
+  border-radius: 1rem;
+  box-shadow: inherit;
+  text-shadow: inherit;
+}
+
+#mode {
+  color: @red;
+  border: 1rem;
+  background: @surface0;
+  margin: 3px 0;
+}
+
+#custom-media,
+#custom-power,
+#tray,
+#backlight,
+#custom-clock,
+#battery,
+#pulseaudio,
+#custom-bluetooth,
+#network,
+#idle_inhibitor {
+  background-color: @surface0;
+  padding: 0.3rem 1rem;
+  margin: 3px 0;
+}
+
+#battery {
+  color: @green;
+}
+
+#battery.charging {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @yellow;
+}
+
+#battery.critical:not(.charging) {
+  color: @red;
+}
+
+#custom-clock {
+  color: @blue;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+#network {
+  color: @sky;
+}
+
+#pulseaudio {
+  color: @maroon;
+}
+
+#custom-media {
+  color: @mauve;
+}
+
+#idle_inhibitor {
+  color: @text;
+}
+
+#idle_inhibitor.activated {
+  color: @mauve;
+}
+
+#custom-power {
+    color: @red;
+}
+
+#custom-bluetooth > label {
+  font-family: "VictorMono Nerd Font Mono";
+  font-size: 18px;
+}
+
+#custom-bluetooth.connected,
+#custom-bluetooth.activated {
+  color: @blue;
+}
