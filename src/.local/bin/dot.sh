@@ -3,14 +3,14 @@
 # Version: 22.11.0
 
 MYNAME="dot.sh"
-MYVER="22.11.0"
+MYVER="22.11.1"
 
 GIT_ROOT="$HOME/projects/dotfiles/src/"
 CONF_ROOT="$HOME/.config/"
 DRY_RUN=
 SIGN=-S
 MSG="Automated dotifles update of $(date '+%D %H:%M')"
-BACKUPS=("nvim")
+BACKUPS=("nvim" "sway" "swaylock" "waybar" "foot" "mako" "wofi" "environment.d" "xdg-desktop-portal")
 
 OPTS=$(getopt -n "$MYNAME" \
               -o hvc:g:dD:Sm: \
