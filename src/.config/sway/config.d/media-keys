@@ -1,5 +1,9 @@
 ### Media keys bindings
 bindsym --locked XF86AudioPlay        exec playerctl play-pause
+bindsym --locked XF86AudioPrev        exec playerctl previous
+bindsym --locked XF86AudioNext        exec playerctl next
+bindsym --locked XF86AudioStop        exec playerctl stop
+
 bindsym --locked XF86AudioMute        exec pamixer -t
 bindsym --locked XF86AudioLowerVolume exec pamixer -d 10
 bindsym --locked XF86AudioRaiseVolume exec pamixer -i 10

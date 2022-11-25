@@ -1,4 +1,3 @@
 ### Output configuration
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# Modes are configured inside kanshi
 output * bg ~/Pictures/Wallpapers/pixels-d.webp fill
-

@@ -1,4 +1,5 @@
 ### Autoexec
+exec kanshi
 exec mako
 exec dex -a -e Sway
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
@@ -13,7 +14,7 @@ set $up k
 set $right l
 
 set $term foot
-set $menu wofi --show drun --prompt Applications:
+set $menu wofi --show drun --prompt Applications: -M fuzzy
 
 ### Key bindings
 # Basics:

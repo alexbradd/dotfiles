@@ -2,6 +2,7 @@ bindswitch --reload --locked lid:on exec systemctl suspend
 
 ### Idle configuration
 exec swayidle -w \
+         lock 'swaylock -f' \
          timeout 300 'swaylock -f' \
          timeout 600 'swaymsg "output * power off"' \
             resume 'swaymsg "output * power on"' \
@@ -13,5 +14,5 @@ bindsym ctrl+alt+delete exec $chooser 'Power off?' "systemctl poweroff"
 bindsym ctrl+alt+e exec $chooser 'Log out?' "swaymsg exit"
 bindsym ctrl+alt+l exec swaylock -f
 
-bindsym ctrl+alt+s output eDP-1 mode 2560x1440@165.003Hz
-bindsym ctrl+alt+shift+s output eDP-1 mode 2560x1440@60.001Hz
+bindsym ctrl+alt+s       output eDP-1 mode 2560x1440@165.003Hz
+bindsym ctrl+alt+shift+s output eDP-1 mode 2560x1440@40.002Hz

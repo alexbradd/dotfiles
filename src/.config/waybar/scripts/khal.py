@@ -19,7 +19,7 @@ for line in lines:
     new_lines.append(clean_line)
 output = "\n".join(new_lines).strip()
 
-data['text'] = datetime.datetime.now().strftime("%H:%M - %D")
+data['text'] = datetime.datetime.now().strftime("%H:%M - %d/%m/%y")
 data['tooltip'] = output
 
 print(json.dumps(data))

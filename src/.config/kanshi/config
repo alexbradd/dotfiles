@@ -1,0 +1,8 @@
+profile {
+  output 'Unknown CU34V5C UPJN6HA000565' mode 3440x1440@99.982Hz
+  output eDP-1 mode 2560x1440@40.002Hz
+}
+
+profile {
+  output eDP-1 mode 2560x1440@165.003Hz
+}
