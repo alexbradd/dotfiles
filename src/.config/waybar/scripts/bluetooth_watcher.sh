@@ -1,13 +1,16 @@
 #!/bin/bash
 
-set -e
-
-ADAPTER="$1"
 CONNECTED_ICON=""
 POWERED_ICON=""
 OFF_ICON=""
 
-POWERED_STATE="$(bluetoothctl show "$1" | grep 'Powered' | sed 's/\s//g' | cut -d ':' -f 2)"
+CTRL_STATE="$(bluetoothctl show "$1")"
+[ "$?" -eq 1 ] && {
+  printf '{"text": "-", "tooltip": "Bluetooth unavailable"}\n'
+  exit 0
+}
+
+POWERED_STATE="$(echo "$CTRL_STATE" | grep 'Powered' | sed 's/\s//g' | cut -d ':' -f 2)"
 
 if [ "$POWERED_STATE" = "yes" ]; then
   DEVICES_CONNECTED="$(bluetoothctl devices Connected)"

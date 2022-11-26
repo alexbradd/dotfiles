@@ -1,11 +1,11 @@
 #!/bin/bash
 
-VERB="$1"
-ADAPTER="$2"
+CTRL_STATE="$(bluetoothctl show "$2")"
+[ "$?" -eq 1 ] && exit
 
-case "$VERB" in
+case "$1" in
   "lclick")
-    POWERED_STATE="$(bluetoothctl show "$2" | grep 'Powered' | sed 's/\s//g' | cut -d ':' -f 2)"
+    POWERED_STATE="$(echo "$CTRL_STATE" | grep 'Powered' | sed 's/\s//g' | cut -d ':' -f 2)"
     if [ "$POWERED_STATE" = "yes" ]; then bluetoothctl power off
     else bluetoothctl power on
     fi ;;

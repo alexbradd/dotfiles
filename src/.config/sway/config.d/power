@@ -20,3 +20,7 @@ bindsym ctrl+alt+l exec swaylock -f
 
 bindsym ctrl+alt+s       output eDP-1 mode 2560x1440@165.003Hz
 bindsym ctrl+alt+shift+s output eDP-1 mode 2560x1440@40.002Hz
+
+# TODO
+bindsym $mod+p output eDP-1 disable
+bindsym $mod+shift+p output eDP-1 enable
