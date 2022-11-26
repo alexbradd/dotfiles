@@ -1,13 +1,18 @@
 # General
 anchor=top-right
 font=Victor Mono
+
 margin=0,20,20
 padding=10
+
 border-size=2
 border-radius=5
+
 default-timeout=10000
-group-by=summary
+group-by=app-name
+
 width=400
+height=200
 
 #Colors
 background-color=#1e1e2e
@@ -18,3 +23,5 @@ progress-color=over #313244
 [urgency=high]
 border-color=#fab387
 
+[mode=dnd]
+invisible=1

@@ -1,5 +1,9 @@
 bindswitch --reload --locked lid:on exec systemctl suspend
 
+# Currently not working for some reason:
+# bindsym ctrl+alt+c bindswitch --reload --locked lid:on && exec notify-send 'System' 'Enabled clamshell mode'
+# bindsym ctrl+alt+shift+c unbindswitch lid:on && exec notify-send 'System' 'Disabled clamshell mode'
+
 ### Idle configuration
 exec swayidle -w \
          lock 'swaylock -f' \

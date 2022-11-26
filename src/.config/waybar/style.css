@@ -11,12 +11,6 @@
   color: @text;
 }
 
-button:hover {
-  background: inherit;
-  box-shadow: inset 0 -3px @overlay0;
-  transition-duration: 0.2s;
-}
-
 tooltip {
   background: @base;
 }
@@ -54,13 +48,16 @@ tooltip label {
 
 #mode {
   color: @red;
-  border: 1rem;
   background: @surface0;
-  margin: 3px 0;
+  padding: 0.1rem 0.5rem;
+  border-radius: 5px;
+  margin: 5px 5px;
+  margin-left: 0;
 }
 
-#window {
+#scratchpad {
   margin-left: 5px;
+  margin-right: 5px;
 }
 
 #custom-media,
@@ -76,7 +73,12 @@ tooltip label {
 #idle_inhibitor {
   background-color: @surface0;
   padding: 0.1rem 1rem;
+  border-radius: 7px;
   margin: 5px 0;
+}
+
+#custom-media {
+  margin-right: 5px;
 }
 
 #custom-power {
@@ -118,6 +120,7 @@ tooltip label {
   padding-right: 10px;
   padding-left: 10px;
   margin-left: 5px;
+  border-radius: 0;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
@@ -125,11 +128,6 @@ tooltip label {
 #custom-clock {
   color: @blue;
   margin-left: 5px;
-}
-
-#custom-bluetooth > label {
-  font-family: "VictorMono Nerd Font Mono";
-  font-size: 18px;
 }
 
 #custom-wifi {
@@ -141,6 +139,10 @@ tooltip label {
 
 #custom-wifi.activated {
   color: @peach;
+}
+
+#custom-bluetooth > label {
+  font-family: "VictorMono Nerd Font Mono";
 }
 
 #custom-bluetooth {
