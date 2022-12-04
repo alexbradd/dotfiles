@@ -1,11 +1,12 @@
-// TODO monitor hz
 {
+    "id": "bar-0",
+    "ipc": true,
     "layer": "top", // Waybar at top layer
     "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/scratchpad", "custom/media", "sway/mode","sway/window"],
     "modules-center": [],
-    "modules-right": ["custom/herz", "idle_inhibitor", "pulseaudio", "network",  "custom/bluetooth", "custom/wifi", "custom/clock", "tray", "backlight",  "battery", "custom/power"],
+    "modules-right": ["custom/herz", "custom/dnd", "idle_inhibitor", "pulseaudio", "network",  "custom/bluetooth", "custom/wifi", "custom/clock", "tray", "backlight",  "battery", "custom/power"],
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": true,
@@ -116,7 +117,13 @@
     "custom/herz": {
       "return-type": "json",
       "exec": "$HOME/.config/waybar/scripts/herz_watcher.sh",
-      "interval": 5
+      "interval": 2
+    },
+    "custom/dnd": {
+      "return-type": "json",
+      "exec": "$HOME/.config/waybar/scripts/dnd_watcher.sh",
+      "interval": 2,
+      "on-click": "$HOME/.config/sway/scripts/mako_dnd.sh toggle",
     }
 }
 

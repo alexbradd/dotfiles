@@ -1,15 +1,10 @@
-bindswitch --reload --locked lid:on exec systemctl suspend
-
-# Currently not working for some reason:
-# bindsym ctrl+alt+c bindswitch --reload --locked lid:on && exec notify-send 'System' 'Enabled clamshell mode'
-# bindsym ctrl+alt+shift+c unbindswitch lid:on && exec notify-send 'System' 'Disabled clamshell mode'
-
 ### Idle configuration
 exec swayidle -w \
          lock 'swaylock -f' \
          timeout 300 'swaylock -f' \
          timeout 600 'swaymsg "output * power off"' \
             resume 'swaymsg "output * power on"' \
+         timeout 1200 'systemctl suspend' \
          before-sleep 'swaylock -f'
 
 set $chooser ~/.config/sway/scripts/yes_no.sh
@@ -22,5 +17,4 @@ bindsym ctrl+alt+s       output eDP-1 mode 2560x1440@165.003Hz
 bindsym ctrl+alt+shift+s output eDP-1 mode 2560x1440@40.002Hz
 
 # TODO
-bindsym $mod+p output eDP-1 disable
-bindsym $mod+shift+p output eDP-1 enable
+bindsym $mod+p output eDP-1 toggle

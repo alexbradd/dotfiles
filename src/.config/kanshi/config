@@ -1,8 +1,14 @@
 profile {
-  output eDP-1 mode 2560x1440@40.002Hz
-  output 'Unknown CU34V5C UPJN6HA000565' mode 3440x1440@99.982Hz position 2560,0
+  output eDP-1 mode 2560x1440@40.002Hz scale 1.25
+  output 'Unknown CU34V5C UPJN6HA000565' mode 3440x1440@99.982Hz position 2048,0
+
+  exec swaymsg 'unbindswitch --locked lid:on'
+  exec swaymsg 'bindswitch --locked lid:toggle output eDP-1 toggle'
 }
 
 profile {
-  output eDP-1 mode 2560x1440@165.003Hz
+  output eDP-1 mode 2560x1440@165.003Hz scale 1.25
+
+  exec swaymsg 'unbindswitch --locked lid:on'
+  exec swaymsg 'bindswitch --locked lid:on exec systemctl suspend'
 }

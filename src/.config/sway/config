@@ -1,10 +1,11 @@
-### Autoexec
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway
-# exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+# systemd stuff
+include /etc/sway/config.d/*
 
+### Autoexec
 exec_always "pkill kanshi; kanshi"
 exec_always "pkill mako; mako"
-exec dex -a -e Sway
+exec gammastep
+exec dex -a -e sway
 
 ### Variables
 set $mod Mod4
@@ -30,10 +31,12 @@ bindsym $mod+f exec nautilus
 floating_modifier $mod normal
 
 # Notifications
-bindsym $mod+alt+d exec makoctl mode -a dnd
-bindsym $mod+alt+shift+d exec makoctl mode -r dnd
+bindsym $mod+alt+d exec $HOME/.config/sway/scripts/mako_dnd.sh toggle
 bindsym $mod+alt+s exec makoctl dismiss
 bindsym $mod+alt+shift+s exec makoctl restore
+
+# Nightlight
+bindsym $mod+alt+n exec $HOME/.config/sway/scripts/gammastep_toggle.sh
 
 # Moving
 bindsym $mod+$left focus left
@@ -124,9 +127,13 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+include ~/.config/sway/config.d/*
+
 bar {
   swaybar_command waybar
+  position top
+  # hidden_state hide
+  # mode hide
+  # modifier ctrl+alt
 }
 
-include ~/.config/sway/config.d/*
-include /etc/sway/config.d/*

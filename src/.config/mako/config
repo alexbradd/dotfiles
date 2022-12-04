@@ -2,14 +2,13 @@
 anchor=top-right
 font=Victor Mono
 
-margin=0,20,20
+margin=5,10
 padding=10
 
 border-size=2
 border-radius=5
 
 default-timeout=10000
-group-by=app-name
 
 width=400
 height=200

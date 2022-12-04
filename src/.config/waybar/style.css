@@ -2,7 +2,7 @@
 
 * {
   font-family: "Victor Mono", "FontAwesome 6 free", monospace;
-  font-size: 14px;
+  font-size: 12px;
   min-height: 0;
 }
 
@@ -21,29 +21,29 @@ tooltip label {
 
 #workspaces {
   border-radius: 1rem;
-  margin: 3px;
   background-color: @surface0;
+  padding: 0;
+  margin: 2px 5px 2px 2px;
 }
 
 #workspaces button {
   color: @lavender;
   border-radius: 1rem;
+  margin: 0;
+  padding: 0 0.5em;
 }
 
 #workspaces button:hover {
   background: @overlay0;
+  color: @sapphire;
+  border-radius: 1rem;
+  box-shadow: inherit;
+  text-shadow: inherit;
 }
 
 #workspaces button.active {
   color: @sky;
   border-radius: 1rem;
-}
-
-#workspaces button:hover {
-  color: @sapphire;
-  border-radius: 1rem;
-  box-shadow: inherit;
-  text-shadow: inherit;
 }
 
 #mode {
@@ -69,10 +69,11 @@ tooltip label {
 #pulseaudio,
 #custom-bluetooth,
 #custom-wifi,
+#custom-dnd,
 #network,
 #idle_inhibitor {
   background-color: @surface0;
-  padding: 0.1rem 1rem;
+  padding: 0.1rem 7px;
   border-radius: 7px;
   margin: 5px 0;
 }
@@ -141,10 +142,6 @@ tooltip label {
   color: @peach;
 }
 
-#custom-bluetooth > label {
-  font-family: "VictorMono Nerd Font Mono";
-}
-
 #custom-bluetooth {
   border-radius: 0;
   padding-left: 7px;
@@ -172,11 +169,24 @@ tooltip label {
 
 #idle_inhibitor {
   color: @text;
-  margin-left: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 0;
+  padding-right: 7px;
+  padding-left: 7px;
 }
 
 #idle_inhibitor.activated {
   color: @mauve;
+}
+
+#custom-dnd {
+  color: @text;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-left: 5px;
+  padding-right: 7px;
+  padding-left: 7px;
 }
 
 #custom-media {
