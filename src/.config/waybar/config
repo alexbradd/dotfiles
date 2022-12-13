@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/scratchpad", "custom/media", "sway/mode","sway/window"],
     "modules-center": [],
-    "modules-right": ["custom/herz", "custom/dnd", "idle_inhibitor", "pulseaudio", "network",  "custom/bluetooth", "custom/wifi", "custom/clock", "tray", "backlight",  "battery", "custom/power"],
+    "modules-right": ["custom/herz", "custom/dnd", "idle_inhibitor", "pulseaudio", "network",  "custom/bluetooth", "custom/wifi", "clock", "tray", "backlight",  "battery", "custom/power"],
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": true,
@@ -38,12 +38,17 @@
         // "icon-size": 21,
         "spacing": 10
     },
-    "custom/clock": {
-        "return-type": "json",
+    "clock": {
+        "format": "{:%H:%M - %d/%m/%y}",
+        "locale": "it_IT.UTF-8",
+        "today-format": "<span color='#ff6699'><b><u>{}</u></b></span>",
+        "calendar-weeks-pos": "right",
+        "format-calendar": "<span color='#ecc6d9'><b>{}</b></span>",
+        "format-calendar-weeks": "",
+        "format-calendar-weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "tooltip": true,
+        "tooltip-format": "{calendar}",
         "on-click": "evolution -c calendar",
-        "on-click-right": "vdirsyncer sync",
-        "exec": "$HOME/.config/waybar/scripts/khal.py",
-        "interval": 300
     },
     "backlight": {
         "format": "{percent}% {icon}",

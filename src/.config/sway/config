@@ -1,7 +1,8 @@
-# systemd stuff
+### Session initialization
+# If package does not include `50-systemd-user.conf` or a file that executes
+# the same commands replace with a dbus/systemd user session activation
 include /etc/sway/config.d/*
 
-### Autoexec
 exec_always "pkill kanshi; kanshi"
 exec_always "pkill mako; mako"
 exec gammastep

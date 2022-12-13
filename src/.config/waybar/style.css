@@ -1,9 +1,8 @@
 @import "mocha.css";
 
 * {
-  font-family: "Victor Mono", "FontAwesome 6 free", monospace;
   font-size: 12px;
-  min-height: 0;
+  font-family: "Victor Mono", "FontAwesome 6 free", monospace;
 }
 
 #waybar {
@@ -65,6 +64,7 @@ tooltip label {
 #tray,
 #backlight,
 #custom-clock,
+#clock,
 #battery,
 #pulseaudio,
 #custom-bluetooth,
@@ -115,18 +115,19 @@ tooltip label {
   border-radius: 0;
   padding-left: 7px;
   padding-right: 7px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  margin-left: 5px;
 }
 
 #tray {
-  padding-right: 10px;
-  padding-left: 10px;
+  padding-right: 3px;
+  padding-left: 3px;
   margin-left: 5px;
-  border-radius: 0;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-radius: 5px;
 }
 
-#custom-clock {
+#custom-clock, #clock {
   color: @blue;
   margin-left: 5px;
 }
