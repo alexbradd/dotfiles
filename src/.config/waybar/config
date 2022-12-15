@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/scratchpad", "custom/media", "sway/mode","sway/window"],
     "modules-center": [],
-    "modules-right": ["custom/herz", "custom/dnd", "idle_inhibitor", "pulseaudio", "network",  "custom/bluetooth", "custom/wifi", "clock", "tray", "backlight",  "battery", "custom/power"],
+    "modules-right": ["custom/herz", "custom/dnd", "idle_inhibitor", "pulseaudio", "network",  "bluetooth", "clock", "tray", "backlight",  "battery", "custom/power"],
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": true,
@@ -66,13 +66,25 @@
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
+        "format": "Netwrok",
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-disconnected": "",
         "format-linked": "{ifname} (No IP) !",
-        "format-disconnected": "Disconnected ",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
+        "tooltip-format-disconnected": "Network disconnected",
+        "tooltip-format-disabled": "Network disabled",
+        "on-click": "$HOME/.config/waybar/scripts/wifi_manager.sh lclick",
     },
+    "bluetooth": {
+       "controller": "C4:23:60:0B:DD:98",
+       "format": "",
+       "format-connected": " {num_connections}",
+       "tooltip-format": "{controller_alias}\t{controller_address}",
+       "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+       "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+       "on-click": "$HOME/.config/waybar/scripts/bluetooth_manager.sh lclick 'C4:23:60:0B:DD:98'",
+     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
@@ -101,23 +113,11 @@
             "default": "🎜"
         },
         "escape": true,
-        "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null"
+        "exec": "$HOME/.config/waybar/scripts/mediaplayer.py"
     },
     "custom/power": {
       "on-click": "$HOME/.config/waybar/scripts/power_menu.sh",
       "format": ""
-    },
-    "custom/bluetooth": {
-      "return-type": "json",
-      "exec": "$HOME/.config/waybar/scripts/bluetooth_watcher.sh 'C4:23:60:0B:DD:98'",
-      "on-click": "$HOME/.config/waybar/scripts/bluetooth_manager.sh lclick 'C4:23:60:0B:DD:98'",
-      "interval": 2
-    },
-    "custom/wifi": {
-      "return-type": "json",
-      "exec": "$HOME/.config/waybar/scripts/wifi_watcher.sh",
-      "on-click": "$HOME/.config/waybar/scripts/wifi_manager.sh lclick",
-      "interval": 2
     },
     "custom/herz": {
       "return-type": "json",

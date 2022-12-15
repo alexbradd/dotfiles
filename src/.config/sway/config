@@ -16,7 +16,7 @@ set $down j
 set $up k
 set $right l
 
-set $term foot
+set $term kitty
 set $menu wofi --show drun --prompt Applications: -M fuzzy
 
 ### Key bindings
@@ -128,8 +128,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-include ~/.config/sway/config.d/*
-
 bar {
   swaybar_command waybar
   position top
@@ -137,4 +135,8 @@ bar {
   # mode hide
   # modifier ctrl+alt
 }
+bindsym $mod+x exec killall -SIGUSR1 waybar
+
+include ~/.config/sway/config.d/*
+
 
