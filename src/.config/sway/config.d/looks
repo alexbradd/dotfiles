@@ -7,3 +7,4 @@ client.focused_inactive #181825 #45475a #cdd6f4 #11111b #181825
 client.urgent           #cba6f7 #f38ba8 #cdd6f4 #f38ba8 #f38ba8
 client.unfocused        #181825 #45475a #cdd6f4 #11111b #181825
 
+# vim: set ft=swayconfig:

@@ -18,3 +18,4 @@ bindsym ctrl+alt+shift+s output eDP-1 mode 2560x1440@40.002Hz
 
 # TODO
 bindsym $mod+p output eDP-1 toggle
+# vim: set ft=swayconfig:

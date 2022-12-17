@@ -17,7 +17,7 @@ set $up k
 set $right l
 
 set $term kitty
-set $menu wofi --show drun --prompt Applications: -M fuzzy
+set $menu wofi --show drun --prompt 'Run application'
 
 ### Key bindings
 # Basics:

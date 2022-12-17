@@ -1,3 +1,4 @@
 ### Output configuration
 # Modes are configured inside kanshi
 output * bg ~/Pictures/Wallpapers/pixels-d.webp fill
+# vim: set ft=swayconfig:

@@ -4,3 +4,4 @@ bindsym alt+print exec 'grim $HOME/Pictures/screenshot.png'
 
 bindsym shift+print     exec 'grim -g "$(slurp)" - | wl-copy'
 bindsym shift+alt+print exec 'grim -g "$(slurp)" $HOME/Pictures/screenshot.png'
+# vim: set ft=swayconfig:
