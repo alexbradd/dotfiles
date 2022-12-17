@@ -88,20 +88,28 @@ else BACKUPS="${BACKUPS[@]}"
 fi
 
 if [ -n "$CLEAN" ]; then
-  rm -r $(find "$GIT_DIR.config" -maxdepth 1 ! -wholename "$GIT_DIR.config")
+  OLD_DIRS=$(find "$GIT_ROOT.config" -maxdepth 1 ! -wholename "$GIT_ROOT.config" | tr '\n' ' ')
+  if [ -n "$OLD_DIRS" ]; then
+    rm -r $OLD_DIRS
+    [ $? -ne 0 ] && exit 1
+  fi
 fi
 
 for c in ${BACKUPS[@]}; do
-  if [ -z "$DRY_RUN" ]; then cp -r "$CONF_ROOT$c" "$GIT_ROOT.config/"
-  else echo "Copying $CONF_ROOT$c into $GIT_ROOT.config/"
+  if [ -z "$DRY_RUN" ]; then
+    cp -r "$CONF_ROOT$c" "$GIT_ROOT.config/"
+    [ $? -ne 0 ] && exit 1
+  else
+    echo "Copying $CONF_ROOT$c into $GIT_ROOT.config/"
   fi
 done
 
 if [ -z "$DRY_RUN" ]; then
-    cd "$GIT_ROOT"
-    git add -A
-    git commit $SIGN -m "$MSG"
-    git push
+    cd "$GIT_ROOT" &&
+      git add -A   &&
+      git commit $SIGN -m "$MSG" &&
+      git push ||
+      git reset --hard HEAD
 else
   echo "Committing and pushing..."
 fi
