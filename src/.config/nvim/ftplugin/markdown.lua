@@ -9,6 +9,7 @@ local fn = vim.fn
 local m = require('mapfn')
 
 o.formatoptions:append('t')
+o.textwidth = 80
 o.spell = true
 o.conceallevel = 2
 

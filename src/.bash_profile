@@ -1,6 +1,6 @@
 #
 # File:    .bash_profile
-# Version: 21.02.0
+# Version: 22.11.0
 # Author:  BreadyX
 #
 

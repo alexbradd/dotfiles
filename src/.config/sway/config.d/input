@@ -24,13 +24,15 @@ input type:keyboard {
   xkb_numlock enabled
 }
 
-# Not supported until sway 1.8
-# bindgesture swipe:left workspace prev
-# bindgesture swipe:right workspace next
-bindsym ctrl+$mod+left  workspace left_on_output
-bindsym ctrl+$mod+right workspace right_on_output
+bindgesture swipe:3:left  workspace prev_on_output
+bindgesture swipe:3:right workspace next_on_output
+bindsym ctrl+$mod+left  workspace prev_on_output
+bindsym ctrl+$mod+right workspace next_on_output
 
-# TODO: 4-finger swipe to change output
+bindgesture swipe:4:right focus output right
+bindgesture swipe:4:left  focus output left
+bindgesture swipe:4:up    focus output up
+bindgesture swipe:4:down  focus output down
 bindsym ctrl+shift+$mod+right focus output right
 bindsym ctrl+shift+$mod+left  focus output left
 bindsym ctrl+shift+$mod+up    focus output up

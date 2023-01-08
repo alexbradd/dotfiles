@@ -1,10 +1,13 @@
 ### Looks
+font pango:Victor Mono Bold 10
 default_border pixel 2
 default_floating_border pixel 2
-gaps inner 2
-client.focused          #cba6f7 #313244 #cdd6f4 #b4befe #cba6f7
-client.focused_inactive #181825 #45475a #cdd6f4 #11111b #181825
-client.urgent           #cba6f7 #f38ba8 #cdd6f4 #f38ba8 #f38ba8
-client.unfocused        #181825 #45475a #cdd6f4 #11111b #181825
+
+gaps inner 4
+gaps outer -2
+client.focused          #cba6f7   #313244   #cdd6f4   #f9e2af   #cba6f7
+client.focused_inactive #89b4fa   #45475a   #cdd6f4   #f9e2af   #89b4fa
+client.unfocused        #11111b   #45475a   #cdd6f4   #f9e2af   #11111b
+client.urgent           #f38ba8   #313244   #cdd6f4   #f9e2af   #f38ba8
 
 # vim: set ft=swayconfig:

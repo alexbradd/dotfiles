@@ -8,6 +8,7 @@ local b = vim.b
 local fn = vim.fn
 
 o.formatoptions:append('t')
+o.textwidth = 80
 o.spell = true
 
 b['surround_'..fn.char2nr('i')] = '\\textit{\r}'

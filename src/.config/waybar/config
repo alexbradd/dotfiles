@@ -1,12 +1,14 @@
+// vim: set ft=jsonc:
 {
     "id": "bar-0",
     "ipc": true,
     "layer": "top", // Waybar at top layer
     "spacing": 0, // Gaps between modules (4px)
+    "height": 28,
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/scratchpad", "custom/media", "sway/mode","sway/window"],
-    "modules-center": [],
-    "modules-right": ["custom/herz", "custom/dnd", "idle_inhibitor", "pulseaudio", "network",  "bluetooth", "clock", "tray", "backlight",  "battery", "custom/power"],
+    "modules-left": ["sway/workspaces", "sway/scratchpad", "sway/mode", "custom/media", "sway/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["custom/herz", "custom/dnd", "idle_inhibitor", "pulseaudio", "network",  "bluetooth", "tray", "backlight",  "battery"],
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": true,
@@ -18,7 +20,10 @@
         }
     },
     "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
+        "format": "{}"
+    },
+    "sway/window": {
+        "max-length": 50,
     },
     "sway/scratchpad": {
         "format": "{icon} {count}",
@@ -39,16 +44,16 @@
         "spacing": 10
     },
     "clock": {
-        "format": "{:%H:%M - %d/%m/%y}",
+        "format": "{:%H:%M  %d/%m/%y}",
         "locale": "it_IT.UTF-8",
-        "today-format": "<span color='#ff6699'><b><u>{}</u></b></span>",
+        "today-format": "<span color='#cba6f7'><b><u>{}</u></b></span>",
         "calendar-weeks-pos": "right",
-        "format-calendar": "<span color='#ecc6d9'><b>{}</b></span>",
+        "format-calendar": "<span color='#cdd6f4'>{}</span>",
         "format-calendar-weeks": "",
-        "format-calendar-weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "format-calendar-weekdays": "<span color='#cba6f7'><b>{}</b></span>",
         "tooltip": true,
-        "tooltip-format": "{calendar}",
-        "on-click": "evolution -c calendar",
+        "tooltip-format": "<span size='large'>{calendar}</span>",
+        "on-click": "org.mozilla.Thunderbird -calendar",
     },
     "backlight": {
         "format": "{percent}% {icon}",
@@ -66,15 +71,14 @@
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
-        "format": "Netwrok",
+        "format": "Network",
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": "{ipaddr}/{cidr} ",
-        "format-disconnected": "",
+        "format-disabled": "",
         "format-linked": "{ifname} (No IP) !",
         "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
         "tooltip-format-disconnected": "Network disconnected",
         "tooltip-format-disabled": "Network disabled",
-        "on-click": "$HOME/.config/waybar/scripts/wifi_manager.sh lclick",
     },
     "bluetooth": {
        "controller": "C4:23:60:0B:DD:98",
@@ -83,7 +87,6 @@
        "tooltip-format": "{controller_alias}\t{controller_address}",
        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-       "on-click": "$HOME/.config/waybar/scripts/bluetooth_manager.sh lclick 'C4:23:60:0B:DD:98'",
      },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -115,20 +118,17 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/scripts/mediaplayer.py"
     },
-    "custom/power": {
-      "on-click": "$HOME/.config/waybar/scripts/power_menu.sh",
-      "format": ""
-    },
     "custom/herz": {
       "return-type": "json",
-      "exec": "$HOME/.config/waybar/scripts/herz_watcher.sh",
-      "interval": 2
+      "exec": "$HOME/.config/waybar/scripts/eDP1.sh",
+      "interval": 1
     },
     "custom/dnd": {
       "return-type": "json",
-      "exec": "$HOME/.config/waybar/scripts/dnd_watcher.sh",
-      "interval": 2,
-      "on-click": "$HOME/.config/sway/scripts/mako_dnd.sh toggle",
+      "exec": "$HOME/.config/waybar/scripts/dnd.sh",
+      "on-click": "swaymsg 'mode $dnd_mode'",
+      "interval": "once",
+      "signal": 1,
     }
 }
 

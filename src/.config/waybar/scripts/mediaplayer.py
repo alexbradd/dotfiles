@@ -9,7 +9,7 @@ gi.require_version('Playerctl', '2.0')
 from gi.repository import Playerctl, GLib
 
 logger = logging.getLogger(__name__)
-
+SPOTIFY_PRE_AD_VOLUME = 1
 
 def write_output(text, player):
     logger.info('Writing output')
@@ -31,15 +31,22 @@ def on_metadata(player, metadata, manager):
     logger.info('Received new metadata')
     track_info = ''
 
-    if player.props.player_name == 'spotify' and \
-            'mpris:trackid' in metadata.keys() and \
-            ':ad:' in player.props.metadata['mpris:trackid']:
-        track_info = 'AD PLAYING'
-    elif player.get_artist() != '' and player.get_title() != '':
-        track_info = '{artist} - {title}'.format(artist=player.get_artist(),
-                                                 title=player.get_title())
+    if player.props.player_name == 'spotify':
+        if 'mpris:trackid' in metadata.keys():
+            SPOTIFY_PRE_AD_VOLUME = player.volume
+            try:
+                if '/ad/' in player.props.metadata['mpris:trackid']:
+                    player.set_volume(0)
+                else:
+                    player.set_volume(SPOTIFY_PRE_AD_VOLUME)
+            except GLib.GError:
+                pass
     else:
-        track_info = player.get_title()
+        if player.get_artist() != '' and player.get_title() != '':
+            track_info = '{artist} - {title}'.format(artist=player.get_artist(),
+                                                     title=player.get_title())
+        else:
+            track_info = player.get_title()
 
     if player.props.status != 'Playing' and track_info:
         track_info = ' ' + track_info

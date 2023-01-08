@@ -1,21 +1,34 @@
 ### Idle configuration
 exec swayidle -w \
-         lock 'swaylock -f' \
-         timeout 300 'swaylock -f' \
-         timeout 600 'swaymsg "output * power off"' \
-            resume 'swaymsg "output * power on"' \
-         timeout 1200 'systemctl suspend' \
-         before-sleep 'swaylock -f'
+      lock 'swaylock -f' \
+      timeout 600 'swaylock -f' \
+      timeout 1200 'swaymsg "output * power off"' \
+      resume 'swaymsg "output * power on"' \
+      timeout 1800 'systemctl suspend' \
+      before-sleep 'swaylock -f'
 
-set $chooser ~/.config/sway/scripts/yes_no.sh
+set $exit_mode "<b>Close session</b>: (p)oweroff, (r)eboot, (s)uspend, (h)ibernate, (l)ogout"
+mode --pango_markup $exit_mode {
+  bindsym p mode "default", exec systemctl poweroff
+  bindsym r mode "default", exec systemctl reboot
+  bindsym s mode "default", exec systemctl suspend
+  bindsym h mode "default", exec systemctl hibernate
+  bindsym l mode "default", exit
 
-bindsym ctrl+alt+delete exec $chooser 'Power off?' "systemctl poweroff"
-bindsym ctrl+alt+e exec $chooser 'Log out?' "swaymsg exit"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+escape mode $exit_mode
 bindsym ctrl+alt+l exec swaylock -f
 
-bindsym ctrl+alt+s       output eDP-1 mode 2560x1440@165.003Hz
-bindsym ctrl+alt+shift+s output eDP-1 mode 2560x1440@40.002Hz
+set $connectivity_mode "<b>Connectivity</b>: (w)ifi, (b)luetooth"
+mode --pango_markup $connectivity_mode {
+  bindsym b exec rfkill toggle 0
+  bindsym w exec rfkill toggle 1
 
-# TODO
-bindsym $mod+p output eDP-1 toggle
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+w mode $connectivity_mode
+
 # vim: set ft=swayconfig:

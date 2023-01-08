@@ -1,6 +1,6 @@
 #
 # File:    .bashrc
-# Version: 21.11.0
+# Version: 23.01.0
 # Author:  BreadyX
 #
 
@@ -16,52 +16,21 @@ shopt -s checkwinsize
 export EDITOR="nvim"
 export HISTFILE="$HOME/.cache/bash_history"
 export LESSHISTFILE="/dev/null"
-export GIT_HUD_GLYPH="Y"
-
 export GPG_TTY=$(tty)
 
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+    export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
-export PATH
-
-# TODO: delete if on laptop
-export HDD_MOUNT="/media/hdd"
 
 ### ALIASES ###
 [[ -r "$HOME/.bash_aliases" ]] && source "$HOME/.bash_aliases"
 
-### FUNCTION DEFINITIONS ###
-function notes() {
-    local h="$HDD_MOUNT/documents/uni/uni-notes/"
-
-    case "$1" in
-        -d)
-            local p="$h/$2"
-            if [ -n "$2" ] && [ "${2:0:1}" != '.' ] && \
-                    [ "${2:0:1}" != '/' ] && [ -d "$p" ]; then
-                cd "$p"
-                else
-                echo "Invalid directory name '$2'"
-            fi ;;
-        -l)
-            ls $h/* --width=1 --color=never --directory | xargs basename -a ;;
-        -h)
-            echo "Usage: notes [-d dir|-l|-h]" ;;
-        *)
-            if [ -n "$1" ]; then
-                echo "Invalid argument '$1'"
-            else
-                cd "$h"
-            fi ;;
-    esac
-}
-
+### GIT PROMPT ###
 if [ -f $HOME/.local/share/prompt/git-prompt.sh ]; then
     . $HOME/.local/share/prompt/git-prompt.sh
 else
+    echo 'Warning: git-prompt.sh has not been found'
     __git_ps1() {
-        echo 'Warning: git-prompt.sh has not been found'
         PS1="$1$2"
     }
 fi
@@ -87,3 +56,7 @@ __prompt_command() {
 }
 PROMPT_COMMAND="__prompt_command"
 
+### Added by various tools ###
+[ -f "/home/breadyx/.ghcup/env" ] && source "/home/breadyx/.ghcup/env" # ghcup-env
+# Added by Toolbox App
+export PATH="$PATH:/home/breadyx/.local/share/JetBrains/Toolbox/scripts"

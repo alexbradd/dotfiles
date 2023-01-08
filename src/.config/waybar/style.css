@@ -2,7 +2,7 @@
 
 * {
   font-size: 12px;
-  font-family: "Victor Mono", "FontAwesome 6 free", monospace;
+  font-family: "Victor Mono Semibold", "FontAwesome 6 free";
 }
 
 #waybar {
@@ -19,38 +19,33 @@ tooltip label {
 }
 
 #workspaces {
-  border-radius: 1rem;
+  border-radius: 5px;
   background-color: @surface0;
   padding: 0;
-  margin: 2px 5px 2px 2px;
+  margin: 3px 5px 3px 5px;
 }
 
 #workspaces button {
   color: @lavender;
-  border-radius: 1rem;
+  border-radius: 5px;
   margin: 0;
   padding: 0 0.5em;
 }
 
 #workspaces button:hover {
   background: @overlay0;
-  color: @sapphire;
-  border-radius: 1rem;
+  color: @sky;
+  border-radius: 5px;
   box-shadow: inherit;
   text-shadow: inherit;
-}
-
-#workspaces button.active {
-  color: @sky;
-  border-radius: 1rem;
 }
 
 #mode {
   color: @red;
   background: @surface0;
-  padding: 0.1rem 0.5rem;
+  padding: 0 0.5rem;
   border-radius: 5px;
-  margin: 5px 5px;
+  margin: 3px 5px;
   margin-left: 0;
 }
 
@@ -72,28 +67,21 @@ tooltip label {
 #network,
 #idle_inhibitor {
   background-color: @surface0;
-  padding: 0.1rem 7px;
-  border-radius: 7px;
-  margin: 5px 0;
+  padding: 0 7px;
+  border-radius: 5px;
+  margin: 3px 0;
 }
 
 #custom-media {
   margin-right: 5px;
 }
 
-#custom-power {
-  margin-right: 5px;
+#battery {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  padding-right: 7px;
-  padding-left: 7px;
-  color: @red;
-}
-
-#battery {
-  border-radius: 0;
   padding-left: 7px;
   padding-right: 7px;
+  margin-right: 5px;
   color: @green;
 }
 
@@ -111,11 +99,10 @@ tooltip label {
 
 #backlight {
   color: @yellow;
-  border-radius: 0;
   padding-left: 7px;
   padding-right: 7px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
   margin-left: 5px;
 }
 
@@ -123,16 +110,16 @@ tooltip label {
   padding-right: 3px;
   padding-left: 3px;
   margin-left: 5px;
-  border-radius: 5px;
 }
 
 #custom-clock, #clock {
-  color: @blue;
+  color: @mauve;
   margin-left: 5px;
 }
 
 #bluetooth {
-  border-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
   padding-left: 7px;
   padding-right: 7px;
 }
@@ -148,6 +135,15 @@ tooltip label {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   margin-left: 5px;
+}
+
+#network.disconnected,
+#network.disabled {
+  color: @subtext0;
+}
+
+#network.linked {
+  color: @red;
 }
 
 #network.ethernet {

@@ -19,7 +19,6 @@ set.tabstop = 2
 set.softtabstop = -1
 set.shiftwidth = 2
 set.cc = '81'
-set.textwidth = 80
 set.listchars = {tab = '▸ ', space = '·'}
 
 set.wrap = false
