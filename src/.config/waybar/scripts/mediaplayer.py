@@ -10,6 +10,7 @@ from gi.repository import Playerctl, GLib
 
 logger = logging.getLogger(__name__)
 SPOTIFY_PRE_AD_VOLUME = 1
+SPOTIFY_HAS_HAD_AD = False
 
 def write_output(text, player):
     logger.info('Writing output')
@@ -28,25 +29,30 @@ def on_play(player, status, manager):
 
 
 def on_metadata(player, metadata, manager):
+    global SPOTIFY_PRE_AD_VOLUME, SPOTIFY_HAS_HAD_AD
+
     logger.info('Received new metadata')
     track_info = ''
 
     if player.props.player_name == 'spotify':
         if 'mpris:trackid' in metadata.keys():
-            SPOTIFY_PRE_AD_VOLUME = player.props.volume
             try:
                 if '/ad/' in player.props.metadata['mpris:trackid']:
+                    SPOTIFY_HAS_HAD_AD = True
                     player.set_volume(0)
                 else:
-                    player.set_volume(SPOTIFY_PRE_AD_VOLUME)
+                    if SPOTIFY_HAS_HAD_AD:
+                        player.set_volume(SPOTIFY_PRE_AD_VOLUME)
+                        SPOTIFY_HAS_HAD_AD = False
+                    SPOTIFY_PRE_AD_VOLUME = player.props.volume
             except GLib.GError:
                 pass
+
+    if player.get_artist() != '' and player.get_title() != '':
+        track_info = '{artist} - {title}'.format(artist=player.get_artist(),
+                                                 title=player.get_title())
     else:
-        if player.get_artist() != '' and player.get_title() != '':
-            track_info = '{artist} - {title}'.format(artist=player.get_artist(),
-                                                     title=player.get_title())
-        else:
-            track_info = player.get_title()
+        track_info = player.get_title()
 
     if player.props.status != 'Playing' and track_info:
         track_info = ' ' + track_info
@@ -67,8 +73,12 @@ def on_player_vanished(manager, player):
 
 
 def init_player(manager, name):
+    global SPOTIFY_PRE_AD_VOLUME
+
     logger.debug('Initialize player: {player}'.format(player=name.name))
     player = Playerctl.Player.new_from_name(name)
+    if player.props.player_name == 'spotify':
+        SPOTIFY_PRE_AD_VOLUME = player.props.volume
     player.connect('playback-status', on_play, manager)
     player.connect('metadata', on_metadata, manager)
     manager.manage_player(player)

@@ -112,11 +112,12 @@
         "return-type": "json",
         "max-length": 100,
         "format-icons": {
-            "spotify": "",
-            "default": "🎜"
+            "spotify": " ",
+            "default": "🎜 "
         },
         "escape": true,
-        "exec": "$HOME/.config/waybar/scripts/mediaplayer.py"
+        "exec": "$HOME/.config/waybar/scripts/mediaplayer.py",
+        "on-click": "playerctl pause-pause"
     },
     "custom/herz": {
       "return-type": "json",
