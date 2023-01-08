@@ -1,13 +1,51 @@
 ### Looks
-font pango:Victor Mono Bold 10
+font pango:Victor Mono SemiBold 11
+
 default_border pixel 2
 default_floating_border pixel 2
+titlebar_border_thickness 2
+
+titlebar_padding 10 5
+title_align center
 
 gaps inner 4
 gaps outer -2
-client.focused          #cba6f7   #313244   #cdd6f4   #f9e2af   #cba6f7
-client.focused_inactive #89b4fa   #45475a   #cdd6f4   #f9e2af   #89b4fa
-client.unfocused        #11111b   #45475a   #cdd6f4   #f9e2af   #11111b
-client.urgent           #f38ba8   #313244   #cdd6f4   #f9e2af   #f38ba8
+
+set $c_base   #1e1e2e
+set $c_mantle #181825
+set $c_crust  #11111b
+
+set $c_text     #cdd6f4
+set $c_subtext0 #a6adc8
+set $c_subtext1 #bac2de
+
+set $c_surface0 #313244
+set $c_surface1 #45475a
+set $c_surface2 #585b70
+
+set $c_overlay0 #6c7086
+set $c_overlay1 #7f849c
+set $c_overlay2 #9399b2
+
+set $c_blue      #89b4fa
+set $c_lavender  #b4befe
+set $c_sapphire  #74c7ec
+set $c_sky       #89dceb
+set $c_teal      #94e2d5
+set $c_green     #a6e3a1
+set $c_yellow    #f9e2af
+set $c_peach     #fab387
+set $c_maroon    #eba0ac
+set $c_red       #f38ba8
+set $c_mauve     #cba6f7
+set $c_pink      #f5c2e7
+set $c_flamingo  #f2cdcd
+set $c_rosewater #f5e0dc
+
+# State                 border      bg          text        indicator view border
+client.focused          $c_mauve    $c_surface0 $c_text     $c_yellow $c_mauve
+client.focused_inactive $c_blue     $c_surface2 $c_subtext0 $c_yellow $c_blue
+client.unfocused        $c_surface1 $c_surface2 $c_subtext0 $c_yellow $c_crust
+client.urgent           $c_red      $c_surface0 $c_text     $c_yellow $c_red
 
 # vim: set ft=swayconfig:

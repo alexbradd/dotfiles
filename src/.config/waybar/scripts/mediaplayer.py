@@ -33,7 +33,7 @@ def on_metadata(player, metadata, manager):
 
     if player.props.player_name == 'spotify':
         if 'mpris:trackid' in metadata.keys():
-            SPOTIFY_PRE_AD_VOLUME = player.volume
+            SPOTIFY_PRE_AD_VOLUME = player.props.volume
             try:
                 if '/ad/' in player.props.metadata['mpris:trackid']:
                     player.set_volume(0)
