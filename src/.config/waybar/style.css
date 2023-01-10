@@ -1,11 +1,9 @@
 @import "mocha.css";
 
-* {
+window.top {
   font-size: 12px;
   font-family: "Victor Mono Semibold", "FontAwesome 6 free";
-}
 
-#waybar {
   background: @base;
   color: @text;
 }
@@ -40,23 +38,10 @@ tooltip label {
   text-shadow: inherit;
 }
 
-#mode {
-  color: @red;
-  background: @surface0;
-  padding: 0 0.5rem;
-  border-radius: 5px;
-  margin: 3px 5px;
-  margin-left: 0;
-}
-
-#scratchpad {
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
 #custom-media,
 #custom-power,
 #tray,
+#scratchpad,
 #backlight,
 #custom-clock,
 #clock,
@@ -109,6 +94,10 @@ tooltip label {
 #tray {
   padding-right: 3px;
   padding-left: 3px;
+  margin-left: 5px;
+}
+
+#scratchpad {
   margin-left: 5px;
 }
 
@@ -183,5 +172,22 @@ tooltip label {
 
 #custom-media {
   color: @mauve;
+}
+
+/* --- Bottom OSD bar --- */
+window.bottom {
+  font-size: 20px;
+  font-family: "Victor Mono Semibold", "FontAwesome 6 free";
+
+  background: transparent;
+  color: @text;
+}
+
+#mode {
+  color: @mauve;
+  background: @surface0;
+  padding: 15px;
+  border-radius: 5px;
+  border: solid 3px @surface1;
 }
 

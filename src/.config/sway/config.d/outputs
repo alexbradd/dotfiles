@@ -2,6 +2,8 @@
 # Modes are configured inside kanshi
 output * bg ~/Pictures/Wallpapers/pixels-d.webp fill
 
+output eDP-1 subpixel rgb
+
 set $eDP_refresh_rate_mode "<b>Choose RR for eDP-1</b>: 165Hz(h), 40Hz(l)"
 mode --pango_markup $eDP_refresh_rate_mode {
   bindsym h mode "default", output eDP-1 mode 2560x1440@165.003Hz

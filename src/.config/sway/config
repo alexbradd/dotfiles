@@ -17,7 +17,7 @@ set $up k
 set $right l
 
 set $term kitty
-set $menu rofi -show drun -mesg 'Run application'
+set $menu rofi -theme mocha -show drun -mesg 'Run application'
 
 ### Key bindings
 # Basics:
@@ -30,30 +30,6 @@ bindsym $mod+n exec firefox
 bindsym $mod+f exec nautilus
 
 floating_modifier $mod normal
-
-# Notifications
-set $dnd_mode "<b>DnD</b>: (e)nable, (d)isable"
-mode --pango_markup $dnd_mode {
-  bindsym e mode "default", exec 'makoctl mode -a dnd && pkill -RTMIN+1 waybar'
-  bindsym d mode "default", exec 'makoctl mode -r dnd && pkill -RTMIN+1 waybar'
-
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-}
-bindsym $mod+alt+d mode $dnd_mode
-bindsym $mod+alt+s exec makoctl dismiss
-bindsym $mod+alt+shift+s exec makoctl restore
-
-# Nightlight
-set $nightlight_mode "<b>Nightlight</b>: (e)nable, (d)isable"
-mode --pango_markup $nightlight_mode {
-  bindsym e mode "default", exec '[ -z $(pgrep -x gammastep) ] && gammastep'
-  bindsym d mode "default", exec 'killall gammastep'
-
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-}
-bindsym $mod+alt+n mode $nightlight_mode
 
 # Moving
 bindsym $mod+$left focus left
@@ -103,7 +79,7 @@ bindsym $mod+Shift+0 move container to workspace number 10
 bindsym $mod+b splith
 bindsym $mod+v splitv
 
-bindsym $mod+m layout toggle split tabbed
+bindsym $mod+z layout toggle split tabbed
 bindsym $mod+s layout toggle split
 
 bindsym f11 fullscreen
@@ -117,7 +93,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Resize
-mode "resize" {
+mode "Resize" {
   bindsym $left resize shrink width 10px
   bindsym $down resize grow height 10px
   bindsym $up resize shrink height 10px
@@ -141,14 +117,10 @@ mode "resize" {
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode "Resize"
 
 bar {
   swaybar_command waybar
-  position top
-  # hidden_state hide
-  # mode hide
-  # modifier ctrl+alt
 }
 bindsym $mod+x exec killall -SIGUSR1 waybar
 

@@ -8,7 +8,7 @@
   blue: #89b4fa;
   grey: #6c7086;
 
-  width: 600;
+  width: 500;
   font: "VictorMono Nerd Font 14";
 }
 
@@ -23,7 +23,7 @@ window {
   border-color: @border-col;
   background-color: @bg-col;
 
-  padding: 15px;
+  padding: 10px;
 }
 
 mainbox {
@@ -58,6 +58,7 @@ entry {
 listview {
   border: 0px 0px 0px;
   padding: 6px 0px 0px;
+  lines: 5;
   background-color: @bg-col;
 }
 

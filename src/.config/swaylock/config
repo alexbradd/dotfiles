@@ -30,7 +30,7 @@ text-caps-lock=#f9e2af
 text-ver-color=#cba6f7
 text-wrong-color=#f38ba8
 
-# indicator-idle-visible
+indicator-idle-visible
 # clock
 # timestr=%H:%M
 # datestr=%d/%m/%y

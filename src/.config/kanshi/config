@@ -2,21 +2,22 @@ profile Dock {
   output eDP-1 mode 2560x1440@40.002Hz scale 1.25 position 0,0
   output 'AOC CU34V5C UPJN6HA000565' mode 3440x1440@99.982Hz position 2048,0
 
-  exec swaymsg 'unbindswitch --locked lid:on, bindswitch --locked lid:on output eDP-1 disable'
-  exec swaymsg 'unbindswitch --locked lid:off, bindswitch --locked lid:off output eDP-1 enable'
+  exec swaymsg 'output "AOC CU34V5C UPJN6HA000565" subpixel rgb'
+  exec swaymsg 'bindswitch --no-warn --locked lid:on output eDP-1 disable'
+  exec swaymsg 'bindswitch --no-warn --locked lid:off output eDP-1 enable'
 }
 
 profile Whatever {
   output eDP-1 mode 2560x1440@40.002Hz scale 1.25 position 2048,0
   output * position 0,0
 
-  exec swaymsg 'unbindswitch --locked lid:on, bindswitch --locked lid:on output eDP-1 disable'
-  exec swaymsg 'unbindswitch --locked lid:off, bindswitch --locked lid:off output eDP-1 enable'
+  exec swaymsg 'bindswitch --no-warn --locked lid:on output eDP-1 disable'
+  exec swaymsg 'bindswitch --no-warn --locked lid:off output eDP-1 enable'
 }
 
 profile Single {
   output eDP-1 mode 2560x1440@165.003Hz scale 1.25 position 0,0
 
-  exec swaymsg 'unbindswitch --locked lid:on, bindswitch --locked lid:on exec systemctl suspend'
+  exec swaymsg 'bindswitch --no-warn --locked lid:on exec systemctl suspend'
   exec swaymsg 'unbindswitch --locked lid:off'
 }

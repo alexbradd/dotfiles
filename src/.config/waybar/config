@@ -1,34 +1,28 @@
 // vim: set ft=jsonc:
-{
-    "id": "bar-0",
-    "ipc": true,
-    "layer": "top", // Waybar at top layer
-    "spacing": 0, // Gaps between modules (4px)
-    "height": 28,
-    // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/scratchpad", "sway/mode", "custom/media", "sway/window"],
+[{
+    "name": "top",
+    "layer": "top",
+    "exclusive": true,
+    "spacing": 0, // Gaps between modules
+    "modules-left": ["sway/workspaces", "custom/media", "sway/window"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/herz", "custom/dnd", "idle_inhibitor", "pulseaudio", "network",  "bluetooth", "tray", "backlight",  "battery"],
-    // Modules configuration
+    "modules-right": ["custom/herz", "custom/dnd", "idle_inhibitor", "pulseaudio", "network",  "bluetooth", "tray", "sway/scratchpad", "backlight",  "battery"],
     "sway/workspaces": {
         "disable-scroll": true,
-        "format": "{name}: {icon}",
+        "format": "{name} {icon}",
         "format-icons": {
             "urgent": "",
             "focused": "",
             "default": ""
         }
     },
-    "sway/mode": {
-        "format": "{}"
-    },
     "sway/window": {
         "max-length": 50,
     },
     "sway/scratchpad": {
         "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": ["", ""],
+        "show-empty": true,
+        "format-icons": [""],
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
     },
@@ -41,7 +35,8 @@
     },
     "tray": {
         // "icon-size": 21,
-        "spacing": 10
+        "spacing": 10,
+        "class": "dingus"
     },
     "clock": {
         "format": "{:%H:%M  %d/%m/%y}",
@@ -117,7 +112,7 @@
         },
         "escape": true,
         "exec": "$HOME/.config/waybar/scripts/mediaplayer.py",
-        "on-click": "playerctl pause-pause"
+        "on-click": "playerctl play-pause"
     },
     "custom/herz": {
       "return-type": "json",
@@ -131,5 +126,20 @@
       "interval": "once",
       "signal": 1,
     }
-}
-
+},
+{
+    "name": "bottom",
+    "position": "bottom",
+    "layer": "top",
+    "exclusive": false,
+    "spacing": 0,
+    "margin-bottom": 20,
+    "height": 61,
+    "passthrough": true,
+    "modules-left": [],
+    "modules-center": ["sway/mode"],
+    "modules-right": [],
+    "sway/mode": {
+        "format": "{}"
+    },
+}]

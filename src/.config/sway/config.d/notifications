@@ -1,0 +1,16 @@
+# Notifications
+set $dnd_mode "<b>DnD</b>: (e)nable, (d)isable"
+mode --pango_markup $dnd_mode {
+  bindsym e mode "default", exec 'makoctl mode -a dnd && pkill -RTMIN+1 waybar'
+  bindsym d mode "default", exec 'makoctl mode -r dnd && pkill -RTMIN+1 waybar'
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+alt+d mode $dnd_mode
+bindsym $mod+alt+s exec makoctl dismiss
+bindsym $mod+alt+shift+s exec makoctl restore
+
+# TODO OSD
+
+# vim: set ft=swayconfig:
