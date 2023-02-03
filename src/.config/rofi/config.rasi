@@ -13,5 +13,4 @@ configuration{
   sidebar-mode: true;
 }
 
-@theme "mocha"
-// @theme "mocha-dmenu"
+@theme "theme"

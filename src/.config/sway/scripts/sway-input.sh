@@ -3,7 +3,7 @@ MYNAME="sway-input.sh"
 
 format="%s"
 dmenu_no_multiple_rows="-no-fixed-num-lines -lines 0"
-dmenu="rofi -dmenu $dmenu_no_multiple_rows -theme mocha-dmenu"
+dmenu="rofi -dmenu $dmenu_no_multiple_rows -theme theme-dmenu"
 swaymsg="swaymsg"
 
 read_stdin=0

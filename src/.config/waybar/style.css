@@ -1,116 +1,104 @@
-@import "mocha.css";
+@import "theme.css";
 
-window.top {
-  font-size: 12px;
-  font-family: "Victor Mono Semibold", "FontAwesome 6 free";
-
+window {
+  font-size: 10.5pt;
+  font-family: "Victor Mono Semibold", "FontAwesome 5 Free Solid";
   background: @base;
   color: @text;
 }
 
-tooltip {
-  background: @base;
+.modules-right {
+  padding: 3px 0;
 }
 
+tooltip {
+  font-family: "Victor Mono Semibold", "FontAwesome 5 Free Solid";
+  background: @base;
+}
 tooltip label {
   color: @text;
 }
 
 #workspaces {
-  border-radius: 5px;
-  background-color: @surface0;
   padding: 0;
-  margin: 3px 5px 3px 5px;
-}
-
-#workspaces button {
-  color: @lavender;
-  border-radius: 5px;
   margin: 0;
-  padding: 0 0.5em;
 }
-
+#workspaces button {
+  background-color: @surface1;
+  border: 1px solid @surface2;
+  border-radius: 0;
+  margin: 0;
+  padding: 0 0.2em;
+}
+#workspaces button.focused {
+  background-color: @surface0;
+  color: @mauve;
+  border-color: @mauve;
+}
+#workspaces button.visible:not(.focused) {
+  background-color: @surface0;
+  color: @blue;
+  border-color: @blue;
+}
+#workspaces button.urgent {
+  background-color: @surface0;
+  color: @red;
+  border-color: @red;
+}
 #workspaces button:hover {
   background: @overlay0;
-  color: @sky;
-  border-radius: 5px;
   box-shadow: inherit;
   text-shadow: inherit;
 }
 
 #custom-media,
-#custom-power,
+#custom-dnd,
+#custom-nightlight,
+#custom-herz,
+#mode,
 #tray,
 #scratchpad,
 #backlight,
-#custom-clock,
 #clock,
 #battery,
 #pulseaudio,
 #bluetooth,
-#custom-dnd,
 #network,
 #idle_inhibitor {
-  background-color: @surface0;
-  padding: 0 7px;
-  border-radius: 5px;
-  margin: 3px 0;
+  padding: 0 6px;
 }
 
-#custom-media {
-  margin-right: 5px;
+#mode {
+  background: @overlay0;
+  border: 1px solid @overlay1;
+}
+
+#scratchpad {
+  font-family: "Victor Mono Semibold", "FontAwesome 5 Free Regular";
+  border-left: 1px solid @subtext1;
+}
+
+#clock {
+  color: @mauve;
+  border-left: 1px solid @subtext1;
 }
 
 #battery {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  padding-left: 7px;
-  padding-right: 7px;
-  margin-right: 5px;
   color: @green;
 }
-
 #battery.charging {
   color: @green;
 }
-
 #battery.warning:not(.charging) {
   color: @yellow;
 }
-
 #battery.critical:not(.charging) {
   color: @red;
 }
 
 #backlight {
   color: @yellow;
-  padding-left: 7px;
-  padding-right: 7px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  margin-left: 5px;
-}
-
-#tray {
-  padding-right: 3px;
-  padding-left: 3px;
-  margin-left: 5px;
-}
-
-#scratchpad {
-  margin-left: 5px;
-}
-
-#custom-clock, #clock {
-  color: @mauve;
-  margin-left: 5px;
-}
-
-#bluetooth {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  padding-left: 7px;
-  padding-right: 7px;
+  border-left: 1px solid @subtext1;
 }
 
 #bluetooth.connected,
@@ -119,42 +107,25 @@ tooltip label {
 }
 
 #network {
-  padding-left: 7px;
-  padding-right: 7px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  margin-left: 5px;
+  border-left: 1px solid @subtext1;
 }
-
 #network.disconnected,
 #network.disabled {
   color: @subtext0;
 }
-
 #network.linked {
   color: @red;
 }
-
 #network.ethernet {
   color: @peach;
 }
-
 #network.wifi {
   color: @blue;
 }
 
 #pulseaudio {
   color: @maroon;
-  margin-left: 5px;
-}
-
-#idle_inhibitor {
-  color: @text;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  padding: 0;
-  padding-right: 7px;
-  padding-left: 7px;
+  border-left: 1px solid @subtext1;
 }
 
 #idle_inhibitor.activated {
@@ -162,32 +133,11 @@ tooltip label {
 }
 
 #custom-dnd {
-  color: @text;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  margin-left: 5px;
-  padding-right: 7px;
-  padding-left: 7px;
+  border-left: 1px solid @subtext1;
 }
 
 #custom-media {
   color: @mauve;
-}
-
-/* --- Bottom OSD bar --- */
-window.bottom {
-  font-size: 20px;
-  font-family: "Victor Mono Semibold", "FontAwesome 6 free";
-
-  background: transparent;
-  color: @text;
-}
-
-#mode {
-  color: @mauve;
-  background: @surface0;
-  padding: 15px;
-  border-radius: 5px;
-  border: solid 3px @surface1;
+  border-left: 1px solid @subtext1;
 }
 

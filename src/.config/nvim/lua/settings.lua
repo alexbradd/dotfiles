@@ -48,7 +48,7 @@ if fn.has('termguicolors') then
   set.termguicolors = true
 end
 
-g.catppuccin_flavour = 'mocha'
+g.catppuccin_flavour = 'frappe'
 require('catppuccin').setup {
   integrations = {
     nvimtree = {

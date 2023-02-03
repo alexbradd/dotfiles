@@ -1,51 +1,122 @@
 ### Looks
-font pango:Victor Mono SemiBold 11
+font pango:Victor Mono SemiBold 9
 
-default_border pixel 2
+default_border          pixel 2
 default_floating_border pixel 2
+
+title_align left
+
 titlebar_border_thickness 2
+titlebar_padding 5
 
-titlebar_padding 10 5
-title_align center
+gaps inner 2
 
-gaps inner 4
-gaps outer -2
+### Theme
+# Catppuccin frappe
+set {
+  $c_base   #303446
+  $c_mantle #292c3c
+  $c_crust  #232634
 
-set $c_base   #1e1e2e
-set $c_mantle #181825
-set $c_crust  #11111b
+  $c_text     #c6d0f5
+  $c_subtext0 #a5adce
+  $c_subtext1 #b5bfe2
 
-set $c_text     #cdd6f4
-set $c_subtext0 #a6adc8
-set $c_subtext1 #bac2de
+  $c_surface0 #414559
+  $c_surface1 #51576d
+  $c_surface2 #626880
 
-set $c_surface0 #313244
-set $c_surface1 #45475a
-set $c_surface2 #585b70
+  $c_overlay0 #737994
+  $c_overlay1 #838ba7
+  $c_overlay2 #949cbb
 
-set $c_overlay0 #6c7086
-set $c_overlay1 #7f849c
-set $c_overlay2 #9399b2
+  $c_blue      #8caaee
+  $c_lavender  #babbf1
+  $c_sapphire  #85c1dc
+  $c_sky       #99d1db
+  $c_teal      #81c8be
+  $c_green     #a6d189
+  $c_yellow    #e5c890
+  $c_peach     #ef9f76
+  $c_maroon    #ea999c
+  $c_red       #e78284
+  $c_mauve     #ca9ee6
+  $c_pink      #f4b8e4
+  $c_flamingo  #eebebe
+  $c_rosewater #f2d5cf
+}
 
-set $c_blue      #89b4fa
-set $c_lavender  #b4befe
-set $c_sapphire  #74c7ec
-set $c_sky       #89dceb
-set $c_teal      #94e2d5
-set $c_green     #a6e3a1
-set $c_yellow    #f9e2af
-set $c_peach     #fab387
-set $c_maroon    #eba0ac
-set $c_red       #f38ba8
-set $c_mauve     #cba6f7
-set $c_pink      #f5c2e7
-set $c_flamingo  #f2cdcd
-set $c_rosewater #f5e0dc
+# Catppuccin mocha
+# set {
+#   $c_base   #1e1e2e
+#   $c_mantle #181825
+#   $c_crust  #11111b
+#
+#   $c_text     #cdd6f4
+#   $c_subtext0 #a6adc8
+#   $c_subtext1 #bac2de
+#
+#   $c_surface0 #313244
+#   $c_surface1 #45475a
+#   $c_surface2 #585b70
+#
+#   $c_overlay0 #6c7086
+#   $c_overlay1 #7f849c
+#   $c_overlay2 #9399b2
+#
+#   $c_blue      #89b4fa
+#   $c_lavender  #b4befe
+#   $c_sapphire  #74c7ec
+#   $c_sky       #89dceb
+#   $c_teal      #94e2d5
+#   $c_green     #a6e3a1
+#   $c_yellow    #f9e2af
+#   $c_peach     #fab387
+#   $c_maroon    #eba0ac
+#   $c_red       #f38ba8
+#   $c_mauve     #cba6f7
+#   $c_pink      #f5c2e7
+#   $c_flamingo  #f2cdcd
+#   $c_rosewater #f5e0dc
+# }
 
 # State                 border      bg          text        indicator view border
 client.focused          $c_mauve    $c_surface0 $c_text     $c_yellow $c_mauve
 client.focused_inactive $c_blue     $c_surface2 $c_subtext0 $c_yellow $c_blue
-client.unfocused        $c_surface1 $c_surface2 $c_subtext0 $c_yellow $c_crust
+client.unfocused        $c_overlay0 $c_surface2 $c_subtext0 $c_yellow $c_overlay0
 client.urgent           $c_red      $c_surface0 $c_text     $c_yellow $c_red
+
+bar {
+  swaybar_command waybar
+}
+bindsym $mod+x exec killall -SIGUSR1 waybar
+# bar {
+#   id 'bar-1'
+#   binding_mode_indicator yes
+#   font pango:Victor Mono Semibold, Font Awesome 6 Free 12
+#   position bottom
+#   separator_symbol |
+#   status_command '$HOME/.config/sway/scripts/bar/bar.lua'
+#   status_edge_padding 3
+#   status_padding 3
+#   wrap_scroll no
+#   tray_padding 4
+#   colors {
+#     background         $c_surface0
+#     statusline         $c_subtext0
+#     separator          $c_subtext0
+#
+#     focused_background $c_base
+#     focused_statusline $c_text
+#     focused_separator  $c_text
+#
+#     focused_workspace  $c_mauve    $c_surface0 $c_mauve
+#     active_workspace   $c_blue     $c_surface0 $c_blue
+#     inactive_workspace $c_surface2 $c_surface1 $c_subtext0
+#     urgent_workspace   $c_red      $c_surface0 $c_red
+#
+#     binding_mode       $c_overlay1 $c_overlay0 $c_text
+#   }
+# }
 
 # vim: set ft=swayconfig:

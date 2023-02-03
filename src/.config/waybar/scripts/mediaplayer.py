@@ -35,15 +35,19 @@ def on_metadata(player, metadata, manager):
     track_info = ''
 
     if player.props.player_name == 'spotify':
+        logger.info('Handling spotify ads')
         if 'mpris:trackid' in metadata.keys():
             try:
                 if '/ad/' in player.props.metadata['mpris:trackid']:
+                    logger.info('Found spotify ad, muting')
                     SPOTIFY_HAS_HAD_AD = True
                     player.set_volume(0)
                 else:
                     if SPOTIFY_HAS_HAD_AD:
+                        logger.info(f'Resuming from an ad, restoring volume ({SPOTIFY_PRE_AD_VOLUME})')
                         player.set_volume(SPOTIFY_PRE_AD_VOLUME)
                         SPOTIFY_HAS_HAD_AD = False
+                    logger.info('Updating saved player volume to match current')
                     SPOTIFY_PRE_AD_VOLUME = player.props.volume
             except GLib.GError:
                 pass
@@ -78,6 +82,7 @@ def init_player(manager, name):
     logger.debug('Initialize player: {player}'.format(player=name.name))
     player = Playerctl.Player.new_from_name(name)
     if player.props.player_name == 'spotify':
+        logger.info('Player is spotify: saving current volume')
         SPOTIFY_PRE_AD_VOLUME = player.props.volume
     player.connect('playback-status', on_play, manager)
     player.connect('metadata', on_metadata, manager)

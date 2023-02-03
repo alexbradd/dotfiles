@@ -9,9 +9,12 @@ m.noremap('n', 'zl', '<cmd>setlocal spell!<cr>')
 m.noremap('n', 'gb', '<cmd>BufferPick<cr>')
 m.noremap('n', '<c-f>', '<cmd>NvimTreeToggle<cr>')
 m.noremap('n', '<M-f>', '<cmd>NvimTreeFocus<cr>')
-m.noremap('n', '<F2>', '<cmd>tabprevious<cr>')
-m.noremap('n', '<F3>', '<cmd>tabnext<cr>')
-m.noremap('n', '<F4>', '<cmd>tabclose<cr>')
+m.noremap('n', '<M-F>', '<cmd>NvimTreeFindFile<cr>')
+
+-- With barbar these are of dubious usefulness
+-- m.noremap('n', '<F2>', '<cmd>tabprevious<cr>')
+-- m.noremap('n', '<F3>', '<cmd>tabnext<cr>')
+-- m.noremap('n', '<F4>', '<cmd>tabclose<cr>')
 
 m.noremap('n', '<leader>h', '<cmd>BufferPrevious<cr>')
 m.noremap('n', '<leader>l', '<cmd>BufferNext<cr>')

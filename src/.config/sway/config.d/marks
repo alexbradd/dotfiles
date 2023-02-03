@@ -1,11 +1,11 @@
 show_marks yes
 
-set $sway-input $HOME/.config/sway/scripts/sway-input.sh
 set $mark-input swaymsg -t get_marks | jq -r '.[]' | $sway-input -i
-
-bindsym $mod+period       exec $sway-input -F "mark '%s'" -P "Mark"
-bindsym $mod+shift+period exec $mark-input -F "unmark '%s'" -P "Remove mark"
-bindsym $mod+m            exec $mark-input -F "swap container with mark '%s'" -P "Swap with"
-bindsym $mod+comma        exec $mark-input -F "[con_mark='%s'] focus" -P "Goto mark"
+bindsym {
+  $mod+period     exec $sway-input -F "mark '%s'" -P "Mark"
+  $mod+greater    exec $mark-input -F "unmark '%s'" -P "Remove mark"
+  $mod+apostrophe exec $mark-input -F "[con_mark='%s'] focus" -P "Goto mark"
+  $mod+slash      exec rofi -show window
+}
 
 # vim: set ft=swayconfig:

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -u
+
 DND_OFF=""
 DND_ON=""
 

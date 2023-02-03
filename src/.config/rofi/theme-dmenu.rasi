@@ -1,12 +1,23 @@
 * {
-  bg-col:  #313244;
-  bg-col-light: #313244;
-  border-col: #45475a;
-  selected-col: #6c7086;
-  fg-col: #cdd6f4;
-  fg-col2: #b4befe;
-  blue: #89b4fa;
-  grey: #6c7086;
+  /* Catppuccin mocha */
+  /* bg-col:  #313244; */
+  /* bg-col-light: #313244; */
+  /* border-col: #45475a; */
+  /* selected-col: #6c7086; */
+  /* fg-col: #cdd6f4; */
+  /* fg-col2: #b4befe; */
+  /* blue: #89b4fa; */
+  /* grey: #6c7086; */
+
+  /* Catppuccin frappe */
+  bg-col:  #414559;
+  bg-col-light: #414559;
+  border-col: #51576d;
+  selected-col: #737994;
+  blue: #8caaee;
+  fg-col: #c6d0f5;
+  fg-col2: #e78284;
+  grey: #737994;
 
   width: 500;
   font: "VictorMono Nerd Font 14";

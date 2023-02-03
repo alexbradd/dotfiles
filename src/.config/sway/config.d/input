@@ -22,20 +22,31 @@ input type:keyboard {
   xkb_layout us
   xkb_options compose:ralt
   xkb_numlock enabled
+
+  repeat_delay 200
+  repeat_rate 40
 }
 
-bindgesture swipe:3:left  workspace prev_on_output
-bindgesture swipe:3:right workspace next_on_output
-bindsym ctrl+$mod+left  workspace prev_on_output
-bindsym ctrl+$mod+right workspace next_on_output
+bindgesture {
+  swipe:3:left  workspace prev_on_output
+  swipe:3:right workspace next_on_output
+}
+bindsym {
+  ctrl+$mod+left  workspace prev_on_output
+  ctrl+$mod+right workspace next_on_output
+}
 
-bindgesture swipe:4:right focus output right
-bindgesture swipe:4:left  focus output left
-bindgesture swipe:4:up    focus output up
-bindgesture swipe:4:down  focus output down
-bindsym ctrl+shift+$mod+right focus output right
-bindsym ctrl+shift+$mod+left  focus output left
-bindsym ctrl+shift+$mod+up    focus output up
-bindsym ctrl+shift+$mod+down  focus output down
+bindgesture {
+  swipe:4:right focus output right
+  swipe:4:left  focus output left
+  swipe:4:up    focus output up
+  swipe:4:down  focus output down
+}
+bindsym {
+  ctrl+shift+$mod+right focus output right
+  ctrl+shift+$mod+left  focus output left
+  ctrl+shift+$mod+up    focus output up
+  ctrl+shift+$mod+down  focus output down
+}
 
 # vim: set ft=swayconfig:
