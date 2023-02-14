@@ -1,20 +1,74 @@
 ### Output configuration
-# Modes are configured inside kanshi
 output * bg ~/Pictures/Wallpapers/pixels-d.webp fill
 
-output eDP-1 subpixel rgb
+# Known outputs
+output eDP-1 {
+  mode 2560x1440@40.002Hz
+  scale 1.25
+  subpixel rgb
+}
+output 'AOC CU34V5C UPJN6HA000565' {
+  mode 3440x1440@99.982Hz
+  subpixel rgb
+}
 
-set $eDP_refresh_rate_mode "Refresh rate"
-mode --pango_markup $eDP_refresh_rate_mode {
+# Utilities
+set {
+  $docking_mode               $HOME/.local/bin/toggle-dock.sh
+  $multidisplay_notifications $HOME/.local/bin/multidisplay-notifications.sh
+}
+
+# Modes
+set {
+  $output_management_mode "Manage outputs"
+  $output_profiles_mode "Output profiles"
+}
+
+mode --pango_markup $output_management_mode {
   bindsym {
-    h mode "default", output eDP-1 mode 2560x1440@165.003Hz
-    l mode "default", output eDP-1 mode 2560x1440@40.002Hz
+    equal   mode "default", output eDP-1 mode 2560x1440@165.003Hz
+    minus   mode "default", output eDP-1 mode 2560x1440@40.002Hz
+    c       mode "default", exec systemctl --user restart kanshi
+    a       mode "default", exec wdisplays
+    d       mode "default", exec $docking_mode on
+    shift+d mode "default", exec $docking_mode off
+    n       mode "default", exec $multidisplay_notifications on
+    shift+n mode "default", exec $multidisplay_notifications off
   }
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
-bindsym ctrl+alt+s mode $eDP_refresh_rate_mode
+bindsym $mod+p mode $output_management_mode
 
-# TODO
-bindsym $mod+p output eDP-1 toggle
+# Gestures and misc bindings
+bindgesture {
+  swipe:3:left  workspace prev_on_output
+  swipe:3:right workspace next_on_output
+}
+bindsym {
+  ctrl+$mod+left  workspace prev_on_output
+  ctrl+$mod+right workspace next_on_output
+
+  ctrl+shift+$mod+left  move container to workspace prev
+  ctrl+shift+$mod+right move container to workspace next
+}
+
+bindgesture {
+  swipe:4:right focus output right
+  swipe:4:left  focus output left
+  swipe:4:up    focus output up
+  swipe:4:down  focus output down
+}
+bindsym {
+  alt+$mod+right focus output right
+  alt+$mod+left  focus output left
+  alt+$mod+up    focus output up
+  alt+$mod+down  focus output down
+
+  alt+shift+$mod+right move workspace to output right
+  alt+shift+$mod+left  move workspace to output left
+  alt+shift+$mod+up    move workspace to output up
+  alt+shift+$mod+down  move workspace to output down
+}
+
 # vim: set ft=swayconfig:

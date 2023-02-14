@@ -1,22 +1,13 @@
 ### Idle configuration
-set $lock swaylock -f
-
-exec swayidle -w \
-      lock '$lock' \
-      timeout 600 'pgrep swaylock || $lock; swaymsg "output eDP-1 power off"' \
-           resume 'swaymsg "output eDP-1 power on"' \
-      timeout 1200 'systemctl suspend' \
-      before-sleep 'pgrep swaylock || $lock'
-
 set $exit_mode "Exit session"
 mode --pango_markup $exit_mode {
   bindsym {
-    h mode "default", exec swaynag -t 'warning' -m 'Shutdown computer?'  -B 'Yes' 'systemctl poweroff'  -s 'No'
-    r mode "default", exec swaynag -t 'warning' -m 'Reboot computer?'    -B 'Yes' 'systemctl reboot'    -s 'No'
-    d mode "default", exec swaynag -t 'warning' -m 'Hibernate computer?' -B 'Yes' 'systemctl hibernate' -s 'No'
-    e mode "default", exec swaynag -t 'warning' -m 'Exit session?'       -B 'Yes' 'swaymsg exit'        -s 'No'
+    x mode "default", exec swaynag -t 'warning' -m 'Shutdown computer?'  -Z 'Yes' 'systemctl poweroff'  -s 'No'
+    r mode "default", exec swaynag -t 'warning' -m 'Reboot computer?'    -Z 'Yes' 'systemctl reboot'    -s 'No'
+    h mode "default", exec swaynag -t 'warning' -m 'Hibernate computer?' -Z 'Yes' 'systemctl hibernate' -s 'No'
+    e mode "default", exec swaynag -t 'warning' -m 'Exit session?'       -Z 'Yes' 'swaymsg exit'        -s 'No'
     s mode "default", exec systemctl suspend
-    l mode "default", exec $lock
+    l mode "default", exec swaylock -f
   }
   bindsym Return mode "default"
   bindsym Escape mode "default"

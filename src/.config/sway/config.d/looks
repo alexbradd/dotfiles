@@ -1,15 +1,12 @@
 ### Looks
 font pango:Victor Mono SemiBold 9
 
-default_border          pixel 2
-default_floating_border pixel 2
+default_border normal 1
 
 title_align left
 
-titlebar_border_thickness 2
-titlebar_padding 5
-
-gaps inner 2
+titlebar_border_thickness 1
+titlebar_padding 8 3
 
 ### Theme
 # Catppuccin frappe

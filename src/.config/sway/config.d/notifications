@@ -2,7 +2,7 @@
 set $notification_mode "Notifications"
 mode --pango_markup $notification_mode {
   bindsym {
-    e mode "default", exec 'makoctl mode -r dnd && pkill -RTMIN+1 waybar'
+    e       mode "default", exec 'makoctl mode -r dnd && pkill -RTMIN+1 waybar'
     shift+d mode "default", exec 'makoctl mode -a dnd && pkill -RTMIN+1 waybar'
 
     d exec makoctl dismiss
@@ -12,7 +12,5 @@ mode --pango_markup $notification_mode {
   bindsym Escape mode "default"
 }
 bindsym $mod+alt+n mode $notification_mode
-
-# TODO OSD
 
 # vim: set ft=swayconfig:

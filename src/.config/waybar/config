@@ -4,6 +4,7 @@
     "layer": "top",
     "exclusive": true,
     "position": "bottom",
+    "fixed-center": false,
     "spacing": 0, // Gaps between modules
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": [],
@@ -118,8 +119,8 @@
         "return-type": "json",
         "max-length": 100,
         "format-icons": {
-            "spotify": " ",
-            "default": "🎜 "
+            "spotify": "",
+            "default": "🎜"
         },
         "escape": true,
         "exec": "$HOME/.config/waybar/scripts/mediaplayer.py",
@@ -131,8 +132,8 @@
             "activated": "",
             "deactivated": ""
         },
-        "tooltip-format-activated": "Screen blanking {status}",
-        "tooltip-format-deactivated": "Screen blanking {status}",
+        "tooltip-format-activated": "Blanking inhibitor {status}",
+        "tooltip-format-deactivated": "Blanking inhibitor {status}",
     },
     "custom/dnd": {
       "return-type": "json",

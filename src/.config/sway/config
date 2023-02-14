@@ -1,18 +1,3 @@
-### Session initialization
-# If package does not include `50-systemd-user.conf` or a file that executes
-# the same commands replace with a dbus/systemd user session activation
-include /etc/sway/config.d/*
-
-## Autostart
-exec {
-  dex -a -e sway
-  /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-}
-exec_always {
-  'pkill kanshi; kanshi'
-  'pkill mako; mako'
-}
-
 ### Variables
 set {
   $mod Mod4
@@ -106,8 +91,9 @@ bindsym {
 
   $mod+Shift+space floating toggle
 
-  $mod+space focus mode_toggle
-  $mod+a     focus parent
+  $mod+space   focus mode_toggle
+  $mod+a       focus parent
+  $mod+shift+a focus child
 }
 
 # Scratchpad
@@ -145,4 +131,8 @@ mode "Resize" {
 bindsym $mod+r mode "Resize"
 
 include ~/.config/sway/config.d/*
+
+### Session initialization
+exec "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP; systemctl --user start sway-session.target"
+exec "hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP"
 

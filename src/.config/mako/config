@@ -11,7 +11,7 @@ default-timeout=10000
 ### Looks
 width=400
 height=200
-margin=5,10
+margin=5,5
 padding=10
 border-size=2
 border-radius=5
