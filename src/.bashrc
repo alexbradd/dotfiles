@@ -57,6 +57,5 @@ __prompt_command() {
 PROMPT_COMMAND="__prompt_command"
 
 ### Added by various tools ###
-[ -f "/home/breadyx/.ghcup/env" ] && source "/home/breadyx/.ghcup/env" # ghcup-env
-# Added by Toolbox App
 export PATH="$PATH:/home/breadyx/.local/share/JetBrains/Toolbox/scripts"
+[ -f "/home/breadyx/.cargo/env" ] && . "$HOME/.cargo/env"
