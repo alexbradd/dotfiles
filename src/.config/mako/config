@@ -1,7 +1,8 @@
 ### General
-anchor=bottom-right
+anchor=top-right
 font=Victor Mono
 output=""
+layer=overlay
 
 ### Interaction
 on-button-right=exec makoctl menu -n "$id" rofi -dmenu -theme theme-dmenu -p 'Select action'
@@ -39,5 +40,8 @@ border-color=#e78284
 [mode=dnd]
 invisible=1
 
-[mode=multidisplay]
+[mode=nomultidisplay]
 output=eDP-1
+
+[mode=nofullscreen]
+layer=top

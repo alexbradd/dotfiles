@@ -30,7 +30,14 @@ tooltip label {
   margin: 0;
   padding: 0 0.2em;
 }
-#workspaces button.focused {
+#workspaces button:not(.current_output) {
+  background-color: @surface1;
+  border: 1px solid @yellow;
+  border-radius: 0;
+  margin: 0;
+  padding: 0 0.2em;
+}
+#workspaces button.focused.current_output {
   background-color: @surface0;
   color: @mauve;
   border-color: @mauve;

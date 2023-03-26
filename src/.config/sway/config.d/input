@@ -7,11 +7,11 @@ input type:touchpad {
   natural_scroll disabled
   scroll_method two_finger
 
-  accel_profile flat
+  accel_profile adaptive
 }
 
 input 2362:597:UNIW0001:00_093A:0255_Touchpad {
-  pointer_accel 0.7
+  pointer_accel 0.2
 }
 
 input 1133:16500:Logitech_G305 {

@@ -10,6 +10,8 @@ set {
   $term kitty
   $menu rofi -show drun -mesg 'Run application'
   $sway-input $HOME/.config/sway/scripts/sway-input.sh
+
+  $heapscript ~/.local/bin/heapscript.sh
 }
 
 ### Misc settings
@@ -87,7 +89,8 @@ bindsym {
   $mod+z layout toggle split tabbed
   $mod+s layout toggle split
 
-  f11 fullscreen
+  f11    fullscreen
+  $mod+f fullscreen
 
   $mod+Shift+space floating toggle
 

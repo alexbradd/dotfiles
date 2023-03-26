@@ -1,22 +1,24 @@
---
--- File: ftplugin/markdown.lua
--- Version: 22.09.0
---
-
 local o = vim.opt_local
 local b = vim.b
-local fn = vim.fn
-local m = require('mapfn')
 
-o.formatoptions:append('t')
+o.formatoptions:append("t")
 o.textwidth = 80
 o.spell = true
 o.conceallevel = 2
 
-b['surround_'..fn.char2nr('i')] = '_\r_'
-b['surround_'..fn.char2nr('b')] = '**\r**'
-
 b.indent_blankline_enabled = false
+b.minisurround_config = {
+  custom_surroundings = {
+    ["i"] = { output = { left = "_", right = "_" } },
+    ["b"] = { output = { left = "**", right = "**" } },
+  },
+}
 
-m.noremap('n', '<leader>mt', '<cmd>Toch<cr>')
-m.noremap('n', '<leader>mT', '<cmd>Tocv<cr>')
+local wk = require("which-key")
+wk.register({
+  m = {
+    name = "markdown",
+    t = { "<cmd>Toch<cr>", "Horizontal TOC" },
+    T = { "<cmd>Tocv<cr>", "Vertical TOC" },
+  },
+}, { prefix = "<leader>" })

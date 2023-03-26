@@ -2,8 +2,8 @@ profile Dock {
   output eDP-1                       position 0,0
   output 'AOC CU34V5C UPJN6HA000565' position 2048,0
 
-  exec ~/.local/bin/toggle-dock.sh on
-  exec ~/.local/bin/multidisplay-notifications.sh on
+  exec ~/.local/bin/heapscript.sh dock enable
+  exec ~/.local/bin/heapscript.sh notifications disable nomultidisplay
   exec notify-send 'System' 'Home dock mode'
 }
 
@@ -11,15 +11,15 @@ profile Whatever {
   output eDP-1 position 0,0
   output *
 
-  exec ~/.local/bin/toggle-dock.sh on
-  exec ~/.local/bin/multidisplay-notifications.sh off
+  exec ~/.local/bin/heapscript.sh dock disable
+  exec ~/.local/bin/heapscript.sh notifications enable nomultidisplay
   exec notify-send 'System' 'Unknown output, please configure manually'
 }
 
 profile Single {
   output eDP-1 position 0,0
 
-  exec ~/.local/bin/toggle-dock.sh off
-  exec ~/.local/bin/multidisplay-notifications.sh off
+  exec ~/.local/bin/heapscript.sh dock disable
+  exec ~/.local/bin/heapscript.sh notifications enable nomultidisplay
   exec notify-send 'System' 'Single display mode'
 }
