@@ -3,10 +3,9 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        pyright = { mason = false },
-        clangd = { mason = false },
+        pyright = {},
+        clangd = {},
         texlab = {
-          mason = false,
           settings = {
             texlab = {
               build = { onSave = true },
@@ -19,7 +18,6 @@ return {
         },
         racket_langserver = { mason = false },
         rust_analyzer = {
-          mason = false,
           settings = {
             ["rust-analyzer"] = {
               imports = {
@@ -33,6 +31,11 @@ return {
         },
         hls = { mason = false },
       },
+    },
+    setup = {
+      clangd = function(_, opts)
+        opts.capabilities.offsetEncoding = { "utf-16" }
+      end,
     },
   },
   {

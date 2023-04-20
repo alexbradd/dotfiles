@@ -23,6 +23,9 @@ set.list = false
 
 set.spelllang = { "it", "en" }
 
+vim.g.editorconfig = true
+-- vim.g.EditorConfig_exclude_patters = { "fugitive://.*", "scp://.*" }
+
 if vim.env.TERM == "linux" then
   set.guicursor = { a = "ver100" }
   vim.cmd("colorscheme default")
@@ -35,8 +38,6 @@ vim.g.vim_markdown_math = 1
 vim.g.tex_conceal = ""
 vim.g.vim_markdown_conceal_code_blocks = 0
 vim.g.vim_markdown_frontmatter = 1
-
-vim.g.EditorConfig_exclude_patters = { "fugitive://.*", "scp://.*" }
 
 -- set.foldmethod = "expr"
 -- set.foldexpr = "nvim_treesitter#foldexpr()"

@@ -37,8 +37,13 @@ return {
           return hl and hl.foreground and { fg = string.format("#%06x", hl.foreground) }
         end
       end
+
       return {
-        theme = "catppuccin",
+        options = {
+          theme = "catppuccin",
+          globalstatus = true,
+          disabled_filetypes = { statusline = { "dashboard", "alpha" } },
+        },
         sections = {
           lualine_a = { "mode" },
           lualine_b = { "branch" },
@@ -82,7 +87,7 @@ return {
             { "location", padding = { left = 0, right = 1 } },
           },
         },
-        extensions = { "neo-tree", "fugitive" },
+        extensions = { "neo-tree", "fugitive", "lazy", "quickfix", "trouble" },
       }
     end,
   },

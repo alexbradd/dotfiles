@@ -3,7 +3,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
-      flavour = "frappe",
+      flavour = "latte",
       integrations = {
         gitsigns = true,
         leap = true,
