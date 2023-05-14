@@ -5,6 +5,7 @@ return {
     opts = {
       flavour = "latte",
       integrations = {
+        alpha = true,
         gitsigns = true,
         leap = true,
         indent_blankline = {

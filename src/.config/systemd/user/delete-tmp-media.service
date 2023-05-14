@@ -1,0 +1,6 @@
+[Unit]
+Description=Empty Screenshots and Screencasts folder
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'gio trash $HOME/Pictures/Screenshots/*; gio trash $HOME/Videos/Screencasts/*; notify-send "System" "Cleared media folders" || true'

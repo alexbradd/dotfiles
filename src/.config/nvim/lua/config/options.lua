@@ -18,6 +18,8 @@ set.shiftwidth = 2
 set.cc = "81"
 set.listchars = { tab = "▸ ", space = "·" }
 
+set.ignorecase = false
+
 set.mouse = ""
 set.list = false
 

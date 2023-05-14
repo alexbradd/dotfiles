@@ -1,0 +1,9 @@
+[Unit]
+Description=Empty media folders monthly
+
+[Timer]
+OnCalendar=monthly
+Persistent=True
+
+[Install]
+WantedBy=timers.target

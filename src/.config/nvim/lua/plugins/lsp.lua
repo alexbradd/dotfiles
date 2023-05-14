@@ -2,6 +2,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      autoformat = false,
       servers = {
         pyright = {},
         clangd = {},
@@ -31,11 +32,11 @@ return {
         },
         hls = { mason = false },
       },
-    },
-    setup = {
-      clangd = function(_, opts)
-        opts.capabilities.offsetEncoding = { "utf-16" }
-      end,
+      setup = {
+        clangd = function(_, opts)
+          opts.capabilities.offsetEncoding = { "utf-16" }
+        end,
+      },
     },
   },
   {

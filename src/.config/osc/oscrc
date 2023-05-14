@@ -138,4 +138,4 @@ apiurl = https://api.opensuse.org
 #pass =
 user=breadyx_
 credentials_mgr_class=osc.credentials.TransientCredentialsManager
-trusted_prj=openSUSE:Tumbleweed M17N:fonts
+trusted_prj=openSUSE:Tumbleweed M17N:fonts openSUSE:Factory GNOME:Factory

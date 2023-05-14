@@ -1,6 +1,6 @@
 #
 # File:    .bashrc
-# Version: 23.01.0
+# Version: 23.05.0
 # Author:  BreadyX
 #
 
@@ -16,7 +16,12 @@ shopt -s checkwinsize
 export EDITOR="nvim"
 export HISTFILE="$HOME/.cache/bash_history"
 export LESSHISTFILE="/dev/null"
+export LESS="$LESS -F"
 export GPG_TTY=$(tty)
+
+HISTCONTROL=ignoredups:ignorespace
+HISTSIZE=1000
+HISTFILESIZE=2000
 
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
     export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
@@ -29,10 +34,19 @@ fi
 if [ -f $HOME/.local/share/prompt/git-prompt.sh ]; then
     . $HOME/.local/share/prompt/git-prompt.sh
 else
-    echo 'Warning: git-prompt.sh has not been found'
     __git_ps1() {
-        PS1="$1$2"
+        PS1="$1$2 !no git prompt!"
     }
+fi
+
+### CONTAINER STUFF ###
+if [[ -n $DISTROBOX_ENTER_PATH ]]; then
+  export LANG=en_US.UTF-8
+  export LC_NUMERIC=it_IT.UTF-8
+  export LC_TIME=it_IT.UTF-8
+  export LC_MONETARY=it_IT.UTF-8
+  export LC_PAPER=it_IT.UTF-8
+  export LC_MEASUREMENT=it_IT.UTF-8
 fi
 
 ### PROMPT PERSONALIZATION ###
