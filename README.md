@@ -1,4 +1,4 @@
-# BreadyX's dotfiles
+# bred's dotfiles
 ## Description
 This is where I store most of my configuration files. These files have been written
 to suit *my* needs and to work in *my* setup, so be careful if you want to eventually 

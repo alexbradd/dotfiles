@@ -1,6 +1,6 @@
 #
 # File:    .bash_aliases
-# Version: 23.05.0
+# Version: 23.09.0
 # Author:  BreadyX
 #
 alias sudo='sudo ' # allow using aliases with sudo
@@ -16,45 +16,25 @@ fi
 alias la="ls -A"
 alias ll="ls -lA"
 
-### Package manager ###
-upgrade() {
-  echo "### System packages ###"
-  sudo zypper dup
-  echo "### Flatpak ###"
-  flatpak update
-}
-
 ### vim/neovim ###
 alias nv="nvim"
 alias v="vim"
-alias sv="sudo vim"
-
-### Configs ###
-# swaycfg() {
-#   local cfg_root="$HOME/.config/sway"
-#   pushd $cfg_root
-#   if [ -z "$1" ]; then $EDITOR "$cfg_root/config";
-#   else $EDITOR "$cfg_root/config.d/$1"; fi
-#   popd
-# }
-# waybarcfg() {
-#   local cfg_root="$HOME/.config/waybar"
-#   pushd $cfg_root
-#   $EDITOR "$cfg_root/config"
-#   popd
-# }
 
 ### Directories ###
-UNI_ROOT="$HOME/Documents/uni/compsci-notes/"
 cdd()  { cd "$HOME/Documents/$1"; }
 cddw() { cd "$HOME/Downloads/$1"; }
 cdc()  { cd "$HOME/projects/$1"; }
+
+export _UNI_ROOT="$HOME/Documents/uni/compsci-notes" # this way we can redefine where it is
 cds()  { cd "$UNI_ROOT/$1"; }
 
 ### Misc ###
-# Courtesy of Ubuntu's default bashrc
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-alias bt=bluetoothctl
+alias d="distrobox enter"
+
+### Some function-y alises ###
+exit_gnome() {
+  busctl call org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager TerminateSession s $(loginctl show-user $UID --property=Sessions --value)
+}
 crlf_begone() {
   if [ $1 = '--unsafe' ]; then
     local args=($@)

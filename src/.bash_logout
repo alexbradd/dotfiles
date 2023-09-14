@@ -1,9 +1,15 @@
 #
 # File:    .bash_logout
-# Version: 23.01.0
+# Version: 23.09.0
 # Author:  BreadyX
 #
-
+echo '  _____                 _ _                _ '
+echo ' / ____|               | | |              | |'
+echo '| |  __  ___   ___   __| | |__  _   _  ___| |'
+echo '| | |_ |/ _ \ / _ \ / _` | '"'"'_ \| | | |/ _ \ |'
+echo '| |__| | (_) | (_) | (_| | |_) | |_| |  __/_|'
+echo ' \_____|\___/ \___/ \__,_|_.__/ \__, |\___(_)'
+echo '                                 __/ |       '
+echo '                                |___/        '
+sleep 0.5s
 clear
-which cowsay 1>/dev/null 2>&1 && cowsay "Goodbye!"
-sleep '0.2'
