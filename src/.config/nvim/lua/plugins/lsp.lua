@@ -1,18 +1,18 @@
 if vim.env._IS_DEV_ENV ~= "true" then
   return {
+    { "williamboman/mason.nvim", enabled = false },
+    { "williamboman/mason-lspconfig", enabled = false },
     { "neovim/nvim-lspconfig", enabled = false },
-    { "jose-elias-alvarez/null-ls.nvim", enabled = false },
-    { "williamboman/mason.nvim", enabled = false}
+    { "stevearc/conform.nvim", enabled = false },
+    { "mfussenegger/nvim-lint", enabled = false },
+    { "hrsh7th/cmp-nvim-lsp", enabled = false }
   }
 else
   return {
     {
       "neovim/nvim-lspconfig",
       opts = {
-        autoformat = false,
         servers = {
-          pyright = {},
-          clangd = {},
           texlab = {
             settings = {
               texlab = {
@@ -24,43 +24,32 @@ else
               },
             },
           },
-          -- racket_langserver = { mason = false },
-          rust_analyzer = {
-            settings = {
-              ["rust-analyzer"] = {
-                imports = {
-                  granularity = { group = "module" },
-                  prefix = "self",
-                },
-                cargo = { buildScripts = { enable = true } },
-                procMacro = { enable = true },
-              },
+          clangd = {
+            cmd = {
+              "clangd",
+              "--background-index",
+              "--clang-tidy",
+              "--header-insertion=iwyu",
+              "--completion-style=detailed",
+              "--function-arg-placeholders",
+              "--fallback-style=llvm",
+              "--log=error",
             },
           },
+          -- racket_langserver = { mason = false },
           -- hls = { mason = false },
-        },
-        setup = {
-          clangd = function(_, opts)
-            opts.capabilities.offsetEncoding = { "utf-16" }
-          end,
         },
       },
     },
     {
-      "jose-elias-alvarez/null-ls.nvim",
-      opts = function()
-        local nls = require("null-ls")
-        return {
-          sources = {
-            nls.builtins.formatting.prettierd,
-            nls.builtins.formatting.stylua,
-            nls.builtins.diagnostics.flake8,
-            -- nls.builtins.diagnostics.shellcheck,
-            -- nls.builtins.code_actions.shellcheck,
-            nls.builtins.code_actions.gitsigns,
-          },
-        }
-      end,
+      "stevearc/conform.nvim",
+      opts = {
+        formatters_by_ft = {
+          lua = { "stylua" },
+          markdown = { "prettier" },
+          sh = { "shfmt" },
+        },
+      },
     },
   }
 end

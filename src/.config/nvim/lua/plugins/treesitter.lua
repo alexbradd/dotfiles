@@ -2,15 +2,40 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      ensure_installed = "all",
-      auto_install = true,
       ignore_install = {},
+      ensure_installed = {
+        -- Programming languages
+        "bash",
+        "c",
+        "cpp",
+        "rust",
+        "python",
+        "lua",
+
+        -- Config files
+        "json",
+        "vim",
+        "toml",
+        "yaml",
+
+        -- Markup
+        "markdown",
+        "latex",
+
+        -- Build systems
+        "cmake",
+        "make",
+        "meson",
+
+        -- Misc
+        "diff",
+        "gitcommit",
+        "vimdoc",
+      },
       highlight = {
         enable = true,
-        disable = { "markdown" },
-        additional_vim_regex_highlight = { "markdown" },
+        additional_vim_regex_highlighting = false,
       },
-      indent = { enable = true },
       textobjects = {
         enable = true,
         select = {
@@ -25,34 +50,6 @@ return {
             ["@parameter.outer"] = "v", -- charwise
             ["@function.outer"] = "V", -- linewise
             ["@class.outer"] = "<c-v>", -- blockwise
-          },
-        },
-        swap = {
-          enable = true,
-          swap_next = {
-            ["<leader>cp"] = "@parameter.inner",
-          },
-          swap_previous = {
-            ["<leader>cP"] = "@parameter.inner",
-          },
-        },
-        move = {
-          enable = true,
-          goto_next_start = {
-            ["]m"] = "@function.outer",
-            ["]]"] = "@class.outer",
-          },
-          goto_next_end = {
-            ["]M"] = "@function.outer",
-            ["]["] = "@class.outer",
-          },
-          goto_previous_start = {
-            ["[m"] = "@function.outer",
-            ["[["] = "@class.outer",
-          },
-          goto_previous_end = {
-            ["[M"] = "@function.outer",
-            ["[]"] = "@class.outer",
           },
         },
       },

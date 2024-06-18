@@ -6,6 +6,7 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
+  lockfile = vim.fn.stdpath("config") .. "/lazy-lock_" .. vim.env.HOSTNAME .. ".json",
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import/override with your plugins
