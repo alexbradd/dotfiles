@@ -1,49 +1,60 @@
 #!/bin/sh
 
-################################################################################
-# Important directories
-################################################################################
-mkdir -p $HOME/.config
-mkdir -p $HOME/.local/{share,bin}
-mkdir -p $HOME/.cache
+[ -f $HOME/.config/init_done ] && {
+	echo "Already set up"
+	exit 0
+}
+
+echo "Setting up home using $1"
 
 ################################################################################
 # Setup shell env
 ################################################################################
-cat << EOF > $HOME/.bashrc
+cat <<EOF >$HOME/.bashrc
+# For some reason, distrobox containers started from the "Containers" tab in
+# Ptyxis don't read the profile but those started with distrobox-enter do.
+# Do this to ensure that profiles are always read
+[ -z "\$USER_PROFILEREAD" ] && source \$HOME/.bash_profile
+
 # Source host rc
-source /run/host/home/bred/.bashrc
+source $1/.bashrc
 
 ### Extra config
 EOF
 
 [ -f $HOME/.profile ] && rm $HOME/.profile
 [ -f $HOME/.bash_profile ] && rm $HOME/.bash_profile
-cat << EOF > $HOME/.bash_profile
-# Source host rc
-source /run/host/home/bred/.bash_profile
+cat <<EOF >$HOME/.bash_profile
+# Source host profile
+source $1/.bash_profile
+
+### Extra config
+EOF
+cat <<EOF >$HOME/.profile
+source $HOME/.bash_profile
+EOF
+
+cat <<EOF >$HOME/.bash_aliases
+# Source host aliases
+OTHER_HOME="$1"
+source $1/.bash_aliases
 
 ### Extra config
 EOF
 
-ln -s /run/host/home/bred/.bash_aliases $HOME/.bash_aliases
-ln -s /run/host/home/bred/.bash_logout $HOME/.bash_logout
-ln -s /run/host/home/bred/.local/share/prompt $HOME/.local/share/prompt
+mkdir -p $HOME/.local/share
+ln -sf $1/.local/share/prompt $HOME/.local/share/prompt
+
+mkdir -p $HOME/.local/bin
+ln -sf $1/.local/bin/password-prompt.sh $HOME/.local/bin/password-prompt.sh
 
 ################################################################################
-# Setup secrets
+# Other important files
 ################################################################################
-ln -s /run/host/home/bred/.gnupg $HOME/.gnupg
-ln -s /run/host/home/bred/.ssh $HOME/.ssh
+ln -sf $1/.gitconfig $HOME/.gitconfig
 
 ################################################################################
-# Setup git
+# All done ;)
 ################################################################################
-ln -s /run/host/home/bred/.gitconfig $HOME/.gitconfig
-
-################################################################################
-# Setup neovim config
-################################################################################
-mkdir -p $HOME/.config/nvim
-ln -s /run/host/home/bred/.config/nvim $HOME/.config/nvim
-
+mkdir -p $HOME/.config
+touch $HOME/.config/init_done
